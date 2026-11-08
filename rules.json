@@ -1,50 +1,6 @@
 {
-    "schema": 1,
-    "version": "2026.11.09-test1",
-    "updated": "2026-11-09 00:35",
-    "items": [
-          {
-                  "name": "模拟播放器缓存",
-                  "group": "cache",
-                  "kind": "dir",
-                  "safe": "安全",
-                  "desc": "清理模拟播放器的视频缓存与日志（账号、播放记录不动）",
-                  "cat": "视频播放",
-                  "dprobe": "SimPlayer",
-                  "paths": [
-                            "$env:APPDATA\\SimPlayer\\Cache",
-                            "$env:LOCALAPPDATA\\SimPlayer\\logs"
-                  ],
-                  "note": "链路测试条目"
-          },
-          {
-                  "name": "模拟工具缓存",
-                  "group": "cache",
-                  "kind": "dir",
-                  "safe": "安全",
-                  "desc": "没写分类的测试条目",
-                  "paths": [
-                            "$env:APPDATA\\SimTool\\Cache"
-                  ],
-                  "note": "链路测试条目"
-          },
-          {
-                  "name": "卸载残留-模拟软件",
-                  "group": "residue",
-                  "kind": "residue",
-                  "safe": "谨慎",
-                  "desc": "模拟残留",
-                  "cat": "浏览器",
-                  "exes": [
-                            "C:\\Program Files\\SimSoft\\SimSoft.exe"
-                  ],
-                  "dirs": [
-                            "C:\\Program Files\\SimSoft"
-                  ],
-                  "regs": [
-                            "HKLM:\\SOFTWARE\\SimSoft"
-                  ],
-                  "note": "链路测试条目"
-          }
-    ]
+        "schema": 1,
+        "version": "2026.11.09",
+        "updated": "2026-11-09 00:20",
+        "items": []
 }
