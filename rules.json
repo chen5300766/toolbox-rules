@@ -1,6 +1,186 @@
 {
-        "schema": 1,
-        "version": "2026.11.09",
-        "updated": "2026-11-09 00:20",
-        "items": []
+  "schema": 1,
+  "version": "2026.11.09",
+  "updated": "2026-11-09 20:10",
+  "items": [
+    {
+      "name": "TRAE缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理 TRAE 编辑器的缓存、日志与崩溃转储（AI 对话记录、工作区数据和登录状态不动）",
+      "cat": "开发工具",
+      "dprobe": "Trae",
+      "paths": [
+        "$env:APPDATA\\Trae\\Cache",
+        "$env:APPDATA\\Trae\\Cache_Data",
+        "$env:APPDATA\\Trae\\Code Cache",
+        "$env:APPDATA\\Trae\\GPUCache",
+        "$env:APPDATA\\Trae\\CachedData",
+        "$env:APPDATA\\Trae\\logs",
+        "$env:APPDATA\\Trae\\Crashpad",
+        "$env:APPDATA\\Trae CN\\Cache",
+        "$env:APPDATA\\Trae CN\\Cache_Data",
+        "$env:APPDATA\\Trae CN\\Code Cache",
+        "$env:APPDATA\\Trae CN\\GPUCache",
+        "$env:APPDATA\\Trae CN\\CachedData",
+        "$env:APPDATA\\Trae CN\\logs",
+        "$env:APPDATA\\Trae CN\\Crashpad"
+      ],
+      "note": "来源：TRAE 官方文档 %APPDATA%\\Trae（国际版）/ Trae CN（国内版）"
+    },
+    {
+      "name": "卸载残留-TRAE",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理 TRAE 编辑器卸载后残留的数据目录与注册表项（国际版 Trae 与国内版 Trae CN 都覆盖）",
+      "exes": [
+        "C:\\Program Files\\Trae\\*.exe",
+        "C:\\Program Files\\Trae CN\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\Trae\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\Trae CN\\*.exe"
+      ],
+      "procs": [
+        "Trae"
+      ],
+      "dirs": [
+        "C:\\Program Files\\Trae",
+        "C:\\Program Files\\Trae CN",
+        "$env:LOCALAPPDATA\\Programs\\Trae",
+        "$env:LOCALAPPDATA\\Programs\\Trae CN",
+        "$env:APPDATA\\Trae",
+        "$env:APPDATA\\Trae CN",
+        "$env:USERPROFILE\\.trae"
+      ],
+      "regs": [
+        "HKCU:\\Software\\Trae",
+        "HKLM:\\SOFTWARE\\Trae",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Trae"
+      ],
+      "note": "来源：TRAE 官方文档"
+    },
+    {
+      "name": "有道龙虾缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理有道龙虾 LobsterAI 的缓存、日志与临时文件（对话记录和技能文件不动）",
+      "cat": "AI工具",
+      "dprobe": "LobsterAI",
+      "paths": [
+        "$env:APPDATA\\LobsterAI\\Cache",
+        "$env:APPDATA\\LobsterAI\\logs",
+        "$env:APPDATA\\LobsterAI\\temp",
+        "$env:APPDATA\\LobsterAI\\GPUCache",
+        "$env:APPDATA\\LobsterAI\\Code Cache",
+        "$env:LOCALAPPDATA\\LobsterAI\\Cache",
+        "$env:LOCALAPPDATA\\LobsterAI\\logs",
+        "$env:LOCALAPPDATA\\LobsterAI\\temp"
+      ],
+      "note": "来源：LobsterAI 官方手册（数据目录 LobsterAI），Windows 对应 %APPDATA%"
+    },
+    {
+      "name": "卸载残留-有道龙虾",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理网易有道龙虾 LobsterAI 卸载后残留的数据目录与注册表项",
+      "exes": [
+        "C:\\Program Files\\LobsterAI\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\LobsterAI\\*.exe"
+      ],
+      "procs": [
+        "LobsterAI"
+      ],
+      "dirs": [
+        "C:\\Program Files\\LobsterAI",
+        "$env:LOCALAPPDATA\\Programs\\LobsterAI",
+        "$env:APPDATA\\LobsterAI",
+        "$env:LOCALAPPDATA\\LobsterAI"
+      ],
+      "regs": [
+        "HKCU:\\Software\\LobsterAI",
+        "HKLM:\\SOFTWARE\\LobsterAI",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\LobsterAI"
+      ],
+      "note": "来源：官方手册 + 常见安装位置"
+    },
+    {
+      "name": "库库AI缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理库库AI的缓存、日志与临时文件（文档、任务记录和登录状态不动）",
+      "cat": "AI工具",
+      "dprobe": "KukuAI|库库",
+      "paths": [
+        "$env:APPDATA\\KukuAI\\Cache",
+        "$env:APPDATA\\KukuAI\\logs",
+        "$env:APPDATA\\KukuAI\\temp",
+        "$env:APPDATA\\KukuAI\\GPUCache",
+        "$env:APPDATA\\KukuAI\\Code Cache",
+        "$env:LOCALAPPDATA\\KukuAI\\Cache",
+        "$env:LOCALAPPDATA\\KukuAI\\logs",
+        "$env:LOCALAPPDATA\\KukuAI\\temp",
+        "$env:APPDATA\\库库\\Cache",
+        "$env:APPDATA\\库库\\logs",
+        "$env:LOCALAPPDATA\\库库\\Cache",
+        "$env:LOCALAPPDATA\\库库\\logs"
+      ],
+      "note": "来源：库库AI 为百度文库网盘 GenFlow 独立端；目录按常见安装位置多路覆盖，不存在自动跳过"
+    },
+    {
+      "name": "卸载残留-库库AI",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理库库AI卸载后残留的安装目录、数据目录与注册表项",
+      "exes": [
+        "C:\\Program Files\\KukuAI\\*.exe",
+        "C:\\Program Files\\库库\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\KukuAI\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\库库\\*.exe"
+      ],
+      "procs": [
+        "KukuAI"
+      ],
+      "dirs": [
+        "C:\\Program Files\\KukuAI",
+        "C:\\Program Files\\库库",
+        "$env:LOCALAPPDATA\\Programs\\KukuAI",
+        "$env:LOCALAPPDATA\\Programs\\库库",
+        "$env:APPDATA\\KukuAI",
+        "$env:APPDATA\\库库",
+        "$env:LOCALAPPDATA\\KukuAI",
+        "$env:LOCALAPPDATA\\库库"
+      ],
+      "regs": [
+        "HKCU:\\Software\\KukuAI",
+        "HKLM:\\SOFTWARE\\KukuAI",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\KukuAI"
+      ],
+      "note": "来源：多路覆盖，路径不存在则跳过"
+    },
+    {
+      "name": "卸载残留-微软OfficePLUS",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理微软 OfficePLUS 插件卸载后残留的安装目录（建议先用插件自带的卸载程序，清完重开 Office 生效）",
+      "exes": [
+        "C:\\Program Files\\MS office plus\\*.exe",
+        "C:\\Program Files (x86)\\MS office plus\\*.exe"
+      ],
+      "procs": [
+        "MSOfficePlus"
+      ],
+      "dirs": [
+        "C:\\Program Files\\MS office plus",
+        "C:\\Program Files (x86)\\MS office plus"
+      ],
+      "regs": [],
+      "note": "来源：微软社区问答，安装目录 C:\\Program Files\\MS office plus 内含 uninstall 程序"
+    }
+  ]
 }
