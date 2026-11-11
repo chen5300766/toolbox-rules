@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "2026.11.11",
-  "updated": "2026-11-11 22:20",
+  "version": "2026-11-11-trace1",
+  "updated": "2026-11-11",
   "items": [
     {
       "name": "TRAE缓存",
@@ -383,6 +383,17 @@
         "HKCU:\\Software\\YuanqiDesktop"
       ],
       "note": "来源：官网 desk.duba.com（金山/天极）。%APPDATA%\\cfwpeditor\\projects 是用户自制壁纸工程，属用户作品，不清理"
+    },
+    {
+      "name": "360压缩使用痕迹",
+      "group": "trace",
+      "kind": "trace",
+      "safe": "谨慎",
+      "desc": "清理360压缩最近打开过的压缩包记录清单（只清记录，zip 包本身不动）",
+      "keys": [
+        "HKCU:\\Software\\360zip\\Recent Document List"
+      ],
+      "note": "只删 Recent Document List 下的值，不碰同根 FileAssoc/InstallPath；体积约 0，属隐私痕迹非空间垃圾"
     }
   ]
 }
