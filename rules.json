@@ -1,443 +1,480 @@
 {
- "schema": 1,
- "version": "2026-11-14-wetype-cad1",
- "updated": "2026-11-14",
- "items": [
-  {
-   "name": "TRAE缓存",
-   "group": "cache",
-   "kind": "dir",
-   "safe": "安全",
-   "desc": "清理 TRAE 编辑器的缓存、日志与崩溃转储（AI 对话记录、工作区数据和登录状态不动）",
-   "cat": "开发工具",
-   "dprobe": "Trae",
-   "paths": [
-    "$env:APPDATA\\Trae\\Cache",
-    "$env:APPDATA\\Trae\\Cache_Data",
-    "$env:APPDATA\\Trae\\Code Cache",
-    "$env:APPDATA\\Trae\\GPUCache",
-    "$env:APPDATA\\Trae\\CachedData",
-    "$env:APPDATA\\Trae\\logs",
-    "$env:APPDATA\\Trae\\Crashpad",
-    "$env:APPDATA\\Trae CN\\Cache",
-    "$env:APPDATA\\Trae CN\\Cache_Data",
-    "$env:APPDATA\\Trae CN\\Code Cache",
-    "$env:APPDATA\\Trae CN\\GPUCache",
-    "$env:APPDATA\\Trae CN\\CachedData",
-    "$env:APPDATA\\Trae CN\\logs",
-    "$env:APPDATA\\Trae CN\\Crashpad"
-   ],
-   "note": "来源：TRAE 官方文档 %APPDATA%\\Trae（国际版）/ Trae CN（国内版）"
-  },
-  {
-   "name": "卸载残留-TRAE",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "安全",
-   "desc": "清理 TRAE 编辑器卸载后残留的数据目录与注册表项（国际版 Trae 与国内版 Trae CN 都覆盖）",
-   "exes": [
-    "C:\\Program Files\\Trae\\*.exe",
-    "C:\\Program Files\\Trae CN\\*.exe",
-    "$env:LOCALAPPDATA\\Programs\\Trae\\*.exe",
-    "$env:LOCALAPPDATA\\Programs\\Trae CN\\*.exe"
-   ],
-   "procs": [
-    "Trae"
-   ],
-   "dirs": [
-    "C:\\Program Files\\Trae",
-    "C:\\Program Files\\Trae CN",
-    "$env:LOCALAPPDATA\\Programs\\Trae",
-    "$env:LOCALAPPDATA\\Programs\\Trae CN",
-    "$env:APPDATA\\Trae",
-    "$env:APPDATA\\Trae CN",
-    "$env:USERPROFILE\\.trae"
-   ],
-   "regs": [
-    "HKCU:\\Software\\Trae",
-    "HKLM:\\SOFTWARE\\Trae",
-    "HKLM:\\SOFTWARE\\WOW6432Node\\Trae"
-   ],
-   "note": "来源：TRAE 官方文档"
-  },
-  {
-   "name": "有道龙虾缓存",
-   "group": "cache",
-   "kind": "dir",
-   "safe": "安全",
-   "desc": "清理有道龙虾 LobsterAI 的缓存、日志与临时文件（对话记录和技能文件不动）",
-   "cat": "AI工具",
-   "dprobe": "LobsterAI",
-   "paths": [
-    "$env:APPDATA\\LobsterAI\\Cache",
-    "$env:APPDATA\\LobsterAI\\logs",
-    "$env:APPDATA\\LobsterAI\\temp",
-    "$env:APPDATA\\LobsterAI\\GPUCache",
-    "$env:APPDATA\\LobsterAI\\Code Cache",
-    "$env:LOCALAPPDATA\\LobsterAI\\Cache",
-    "$env:LOCALAPPDATA\\LobsterAI\\logs",
-    "$env:LOCALAPPDATA\\LobsterAI\\temp"
-   ],
-   "note": "来源：LobsterAI 官方手册（数据目录 LobsterAI），Windows 对应 %APPDATA%"
-  },
-  {
-   "name": "卸载残留-有道龙虾",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "安全",
-   "desc": "清理网易有道龙虾 LobsterAI 卸载后残留的数据目录与注册表项",
-   "exes": [
-    "C:\\Program Files\\LobsterAI\\*.exe",
-    "$env:LOCALAPPDATA\\Programs\\LobsterAI\\*.exe"
-   ],
-   "procs": [
-    "LobsterAI"
-   ],
-   "dirs": [
-    "C:\\Program Files\\LobsterAI",
-    "$env:LOCALAPPDATA\\Programs\\LobsterAI",
-    "$env:APPDATA\\LobsterAI",
-    "$env:LOCALAPPDATA\\LobsterAI"
-   ],
-   "regs": [
-    "HKCU:\\Software\\LobsterAI",
-    "HKLM:\\SOFTWARE\\LobsterAI",
-    "HKLM:\\SOFTWARE\\WOW6432Node\\LobsterAI"
-   ],
-   "note": "来源：官方手册 + 常见安装位置"
-  },
-  {
-   "name": "库库AI缓存",
-   "group": "cache",
-   "kind": "dir",
-   "safe": "安全",
-   "desc": "清理库库AI的缓存、日志与临时文件（文档、任务记录和登录状态不动）",
-   "cat": "AI工具",
-   "dprobe": "KukuAI|库库",
-   "paths": [
-    "$env:APPDATA\\KukuAI\\Cache",
-    "$env:APPDATA\\KukuAI\\logs",
-    "$env:APPDATA\\KukuAI\\temp",
-    "$env:APPDATA\\KukuAI\\GPUCache",
-    "$env:APPDATA\\KukuAI\\Code Cache",
-    "$env:LOCALAPPDATA\\KukuAI\\Cache",
-    "$env:LOCALAPPDATA\\KukuAI\\logs",
-    "$env:LOCALAPPDATA\\KukuAI\\temp",
-    "$env:APPDATA\\库库\\Cache",
-    "$env:APPDATA\\库库\\logs",
-    "$env:LOCALAPPDATA\\库库\\Cache",
-    "$env:LOCALAPPDATA\\库库\\logs"
-   ],
-   "note": "来源：库库AI 为百度文库网盘 GenFlow 独立端；目录按常见安装位置多路覆盖，不存在自动跳过"
-  },
-  {
-   "name": "卸载残留-库库AI",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "安全",
-   "desc": "清理库库AI卸载后残留的安装目录、数据目录与注册表项",
-   "exes": [
-    "C:\\Program Files\\KukuAI\\*.exe",
-    "C:\\Program Files\\库库\\*.exe",
-    "$env:LOCALAPPDATA\\Programs\\KukuAI\\*.exe",
-    "$env:LOCALAPPDATA\\Programs\\库库\\*.exe"
-   ],
-   "procs": [
-    "KukuAI"
-   ],
-   "dirs": [
-    "C:\\Program Files\\KukuAI",
-    "C:\\Program Files\\库库",
-    "$env:LOCALAPPDATA\\Programs\\KukuAI",
-    "$env:LOCALAPPDATA\\Programs\\库库",
-    "$env:APPDATA\\KukuAI",
-    "$env:APPDATA\\库库",
-    "$env:LOCALAPPDATA\\KukuAI",
-    "$env:LOCALAPPDATA\\库库"
-   ],
-   "regs": [
-    "HKCU:\\Software\\KukuAI",
-    "HKLM:\\SOFTWARE\\KukuAI",
-    "HKLM:\\SOFTWARE\\WOW6432Node\\KukuAI"
-   ],
-   "note": "来源：多路覆盖，路径不存在则跳过"
-  },
-  {
-   "name": "卸载残留-微软OfficePLUS",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "谨慎",
-   "desc": "清理微软 OfficePLUS 插件卸载后残留的安装目录（建议先用插件自带的卸载程序，清完重开 Office 生效）",
-   "exes": [
-    "C:\\Program Files\\MS office plus\\*.exe",
-    "C:\\Program Files (x86)\\MS office plus\\*.exe"
-   ],
-   "procs": [
-    "MSOfficePlus"
-   ],
-   "dirs": [
-    "C:\\Program Files\\MS office plus",
-    "C:\\Program Files (x86)\\MS office plus"
-   ],
-   "regs": [],
-   "note": "来源：微软社区问答，安装目录 C:\\Program Files\\MS office plus 内含 uninstall 程序"
-  },
-  {
-   "name": "联想电脑管家缓存",
-   "group": "cache",
-   "kind": "dir",
-   "safe": "安全",
-   "desc": "清理联想电脑管家的日志、硬件检测缓存与锁屏壁纸日志（不影响管家设置与账号）",
-   "cat": "安全与系统工具",
-   "dprobe": "Lenovo PC Manager|LCC|devicecenter",
-   "paths": [
-    "C:\\ProgramData\\Lenovo\\devicecenter\\logs",
-    "C:\\ProgramData\\Lenovo\\devicecenter\\Hardware",
-    "C:\\ProgramData\\Lenovo\\devicecenter\\healthweekly",
-    "C:\\ProgramData\\Lenovo\\devicecenter\\LockScreen\\logs",
-    "C:\\ProgramData\\Lenovo\\devicecenter\\LStoreSoftsCache",
-    "$env:LOCALAPPDATA\\Lenovo\\LCC",
-    "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\Cache",
-    "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\GPUCache",
-    "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\Code Cache",
-    "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\logs"
-   ],
-   "note": "来源：联想官方知识库（devicecenter\\logs / Hardware / healthweekly）+ 联想社区（%LOCALAPPDATA%\\Lenovo\\LCC、Lenovo PC Manager）"
-  },
-  {
-   "name": "卸载残留-联想电脑管家",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "谨慎",
-   "desc": "清理联想电脑管家卸载后残留的安装目录、ProgramData 数据目录与注册表项（建议先走官方卸载程序）",
-   "exes": [
-    "C:\\Program Files (x86)\\Lenovo\\Lenovo PC Manager\\*.exe",
-    "C:\\Program Files\\Lenovo\\Lenovo PC Manager\\*.exe",
-    "C:\\Program Files (x86)\\Lenovo\\LCC\\*.exe",
-    "C:\\Program Files\\Lenovo\\LCC\\*.exe"
-   ],
-   "procs": [
-    "LenovoPcManager",
-    "LenovoPCManager",
-    "LCC",
-    "LenovoDeviceCenter"
-   ],
-   "dirs": [
-    "C:\\Program Files (x86)\\Lenovo\\Lenovo PC Manager",
-    "C:\\Program Files\\Lenovo\\Lenovo PC Manager",
-    "C:\\Program Files (x86)\\Lenovo\\LCC",
-    "C:\\Program Files\\Lenovo\\LCC",
-    "C:\\ProgramData\\Lenovo\\devicecenter",
-    "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager",
-    "$env:LOCALAPPDATA\\Lenovo\\LCC"
-   ],
-   "regs": [
-    "HKLM:\\SOFTWARE\\Lenovo\\Lenovo PC Manager",
-    "HKLM:\\SOFTWARE\\WOW6432Node\\Lenovo\\Lenovo PC Manager",
-    "HKCU:\\Software\\Lenovo\\Lenovo PC Manager"
-   ],
-   "note": "来源：联想官方知识库 + 联想社区；ProgramData\\Lenovo 下其他联想软件共用数据，只清 devicecenter 子目录"
-  },
-  {
-   "name": "希沃白板5缓存",
-   "group": "cache",
-   "kind": "dir",
-   "safe": "安全",
-   "desc": "清理希沃白板5的日志、插件与依赖组件缓存（课件正文、账号和备课数据不动）",
-   "cat": "教育学习",
-   "dprobe": "Seewo|EasiNote",
-   "paths": [
-    "$env:APPDATA\\Seewo\\EasiNote5\\Log",
-    "$env:APPDATA\\Seewo\\EasiNote5\\Extensions",
-    "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\WpfCefCore",
-    "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\WinFormCefCore",
-    "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Audio",
-    "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Metadata",
-    "$env:APPDATA\\Seewo\\EasiNote5\\Cache",
-    "$env:APPDATA\\Seewo\\EasiNote5\\GPUCache",
-    "$env:APPDATA\\Seewo\\EasiNote5\\Code Cache"
-   ],
-   "note": "来源：希沃官方帮助中心（%APPDATA%\\Seewo\\EasiNote5 下 Log / Extensions / Dependencies 各子目录）"
-  },
-  {
-   "name": "卸载残留-希沃白板5",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "谨慎",
-   "desc": "清理希沃白板5卸载后残留的安装目录、用户数据目录与注册表项（课件和云备课数据不在本地）",
-   "exes": [
-    "C:\\Program Files (x86)\\Seewo\\EasiNote5\\*.exe",
-    "C:\\Program Files\\Seewo\\EasiNote5\\*.exe"
-   ],
-   "procs": [
-    "EasiNote",
-    "EasiNote5",
-    "SeewoEasiNote"
-   ],
-   "dirs": [
-    "C:\\Program Files (x86)\\Seewo\\EasiNote5",
-    "C:\\Program Files\\Seewo\\EasiNote5",
-    "$env:APPDATA\\Seewo\\EasiNote5",
-    "$env:LOCALAPPDATA\\Seewo"
-   ],
-   "regs": [
-    "HKLM:\\SOFTWARE\\Seewo\\EasiNote5",
-    "HKLM:\\SOFTWARE\\WOW6432Node\\Seewo\\EasiNote5",
-    "HKCU:\\Software\\Seewo"
-   ],
-   "note": "来源：希沃官方帮助中心 + 常见安装位置（希沃允许装 D 盘，这里只覆盖默认 C 盘）"
-  },
-  {
-   "name": "抖音直播伴侣缓存",
-   "group": "cache",
-   "kind": "dir",
-   "safe": "安全",
-   "desc": "清理抖音直播伴侣的渲染缓存、日志与崩溃转储（推流码、账号和素材不动）",
-   "cat": "直播",
-   "dprobe": "DouyinStreamingTool",
-   "paths": [
-    "$env:LOCALAPPDATA\\DouyinStreamingTool\\Cache",
-    "$env:LOCALAPPDATA\\DouyinStreamingTool\\Code Cache",
-    "$env:LOCALAPPDATA\\DouyinStreamingTool\\GPUCache",
-    "$env:LOCALAPPDATA\\DouyinStreamingTool\\ShaderCache",
-    "$env:LOCALAPPDATA\\DouyinStreamingTool\\Log",
-    "$env:LOCALAPPDATA\\DouyinStreamingTool\\logs",
-    "$env:LOCALAPPDATA\\DouyinStreamingTool\\Crashpad",
-    "$env:LOCALAPPDATA\\DouyinStreamingTool\\CrashReport"
-   ],
-   "note": "来源：公开技术资料（数据目录 %LOCALAPPDATA%\\DouyinStreamingTool，Cache 为最大占用项）"
-  },
-  {
-   "name": "卸载残留-抖音直播伴侣",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "谨慎",
-   "desc": "清理抖音直播伴侣卸载后残留的安装目录、数据目录与注册表项",
-   "exes": [
-    "C:\\Program Files\\DouyinStreamingTool\\*.exe",
-    "C:\\Program Files (x86)\\DouyinStreamingTool\\*.exe",
-    "$env:LOCALAPPDATA\\Programs\\DouyinStreamingTool\\*.exe"
-   ],
-   "procs": [
-    "DouyinStreamingTool"
-   ],
-   "dirs": [
-    "C:\\Program Files\\DouyinStreamingTool",
-    "C:\\Program Files (x86)\\DouyinStreamingTool",
-    "$env:LOCALAPPDATA\\Programs\\DouyinStreamingTool",
-    "$env:LOCALAPPDATA\\DouyinStreamingTool"
-   ],
-   "regs": [
-    "HKLM:\\SOFTWARE\\DouyinStreamingTool",
-    "HKLM:\\SOFTWARE\\WOW6432Node\\DouyinStreamingTool",
-    "HKCU:\\Software\\DouyinStreamingTool"
-   ],
-   "note": "来源：常见安装位置 + 公开资料；安装目录按官方英文名 DouyinStreamingTool"
-  },
-  {
-   "name": "卸载残留-EV录屏",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "谨慎",
-   "desc": "清理EV录屏卸载后残留的安装目录与注册表项（录好的视频在你自己选的文件夹里，这里不碰）",
-   "exes": [
-    "C:\\Program Files (x86)\\EVCapture\\*.exe",
-    "C:\\Program Files\\EVCapture\\*.exe",
-    "$env:LOCALAPPDATA\\Programs\\EVCapture\\*.exe"
-   ],
-   "procs": [
-    "EVCapture"
-   ],
-   "dirs": [
-    "C:\\Program Files (x86)\\EVCapture",
-    "C:\\Program Files\\EVCapture",
-    "$env:LOCALAPPDATA\\Programs\\EVCapture"
-   ],
-   "regs": [
-    "HKLM:\\SOFTWARE\\EVCapture",
-    "HKLM:\\SOFTWARE\\WOW6432Node\\EVCapture",
-    "HKCU:\\Software\\EVCapture"
-   ],
-   "note": "来源：第三方卸载记录（安装目录 C:\\Program Files (x86)\\EVCapture，主程序 EVCapture.exe，一唯科技）。缓存目录无官方说明，本条目只做卸载残留"
-  },
-  {
-   "name": "卸载残留-元气桌面壁纸",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "谨慎",
-   "desc": "清理元气桌面壁纸卸载后残留的安装目录与注册表项（自制的壁纸工程在 %APPDATA%\\cfwpeditor\\projects，不碰）",
-   "exes": [
-    "C:\\Program Files (x86)\\YuanqiDesktop\\*.exe",
-    "C:\\Program Files\\YuanqiDesktop\\*.exe"
-   ],
-   "procs": [
-    "YuanqiDesktop"
-   ],
-   "dirs": [
-    "C:\\Program Files (x86)\\YuanqiDesktop",
-    "C:\\Program Files\\YuanqiDesktop"
-   ],
-   "regs": [
-    "HKLM:\\SOFTWARE\\YuanqiDesktop",
-    "HKLM:\\SOFTWARE\\WOW6432Node\\YuanqiDesktop",
-    "HKCU:\\Software\\YuanqiDesktop"
-   ],
-   "note": "来源：官网 desk.duba.com（金山/天极）。%APPDATA%\\cfwpeditor\\projects 是用户自制壁纸工程，属用户作品，不清理"
-  },
-  {
-   "name": "360压缩使用痕迹",
-   "group": "trace",
-   "kind": "trace",
-   "safe": "谨慎",
-   "desc": "清理360压缩最近打开过的压缩包记录清单（只清记录，zip 包本身不动）",
-   "keys": [
-    "HKCU:\\Software\\360zip\\Recent Document List"
-   ],
-   "note": "只删 Recent Document List 下的值，不碰同根 FileAssoc/InstallPath；体积约 0，属隐私痕迹非空间垃圾"
-  },
-  {
-   "name": "卸载残留-微信输入法",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "安全",
-   "desc": "清理微信输入法卸载后残留的安装目录（该目录卸载时不会自删，重装会报「已安装当前版本」）",
-   "exes": [
-    "C:\\Program Files\\Tencent\\WeType\\*.exe"
-   ],
-   "procs": [],
-   "dirs": [
-    "C:\\Program Files\\Tencent\\WeType"
-   ],
-   "regs": [
-    "HKCU:\\Software\\Tencent\\WeType",
-    "HKLM:\\SOFTWARE\\Tencent\\WeType",
-    "HKLM:\\SOFTWARE\\WOW6432Node\\Tencent\\WeType"
-   ],
-   "note": "来源：微信开放社区用户实测，卸载后 C:\\Program Files\\Tencent\\WeType 不会自动删除"
-  },
-  {
-   "name": "卸载残留-CAD快速看图",
-   "group": "residue",
-   "kind": "residue",
-   "safe": "谨慎",
-   "desc": "清理 CAD快速看图（广联达·鸿鹄云图出品）卸载后残留的安装目录（只针对本软件自己的目录，不动广联达其他软件）",
-   "exes": [
-    "C:\\Program Files\\CAD快速看图\\*.exe",
-    "C:\\Program Files (x86)\\CAD快速看图\\*.exe",
-    "$env:LOCALAPPDATA\\CAD快速看图\\*.exe"
-   ],
-   "procs": [],
-   "dirs": [
-    "C:\\Program Files\\CAD快速看图",
-    "C:\\Program Files (x86)\\CAD快速看图",
-    "$env:LOCALAPPDATA\\CAD快速看图",
-    "$env:APPDATA\\CAD快速看图"
-   ],
-   "regs": [
-    "HKCU:\\Software\\CAD快速看图",
-    "HKLM:\\SOFTWARE\\CAD快速看图"
-   ],
-   "note": "来源：第三方卸载教程；未在官方文档核实，路径不符时扫不到不影响安全"
-  }
- ]
+  "schema": 1,
+  "version": "2026-11-14-cache-supplement",
+  "updated": "2026-11-14",
+  "items": [
+    {
+      "name": "TRAE缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理 TRAE 编辑器的缓存、日志与崩溃转储（AI 对话记录、工作区数据和登录状态不动）",
+      "cat": "开发工具",
+      "dprobe": "Trae",
+      "paths": [
+        "$env:APPDATA\\Trae\\Cache",
+        "$env:APPDATA\\Trae\\Cache_Data",
+        "$env:APPDATA\\Trae\\Code Cache",
+        "$env:APPDATA\\Trae\\GPUCache",
+        "$env:APPDATA\\Trae\\CachedData",
+        "$env:APPDATA\\Trae\\logs",
+        "$env:APPDATA\\Trae\\Crashpad",
+        "$env:APPDATA\\Trae CN\\Cache",
+        "$env:APPDATA\\Trae CN\\Cache_Data",
+        "$env:APPDATA\\Trae CN\\Code Cache",
+        "$env:APPDATA\\Trae CN\\GPUCache",
+        "$env:APPDATA\\Trae CN\\CachedData",
+        "$env:APPDATA\\Trae CN\\logs",
+        "$env:APPDATA\\Trae CN\\Crashpad"
+      ],
+      "note": "来源：TRAE 官方文档 %APPDATA%\\Trae（国际版）/ Trae CN（国内版）"
+    },
+    {
+      "name": "卸载残留-TRAE",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理 TRAE 编辑器卸载后残留的数据目录与注册表项（国际版 Trae 与国内版 Trae CN 都覆盖）",
+      "exes": [
+        "C:\\Program Files\\Trae\\*.exe",
+        "C:\\Program Files\\Trae CN\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\Trae\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\Trae CN\\*.exe"
+      ],
+      "procs": [
+        "Trae"
+      ],
+      "dirs": [
+        "C:\\Program Files\\Trae",
+        "C:\\Program Files\\Trae CN",
+        "$env:LOCALAPPDATA\\Programs\\Trae",
+        "$env:LOCALAPPDATA\\Programs\\Trae CN",
+        "$env:APPDATA\\Trae",
+        "$env:APPDATA\\Trae CN",
+        "$env:USERPROFILE\\.trae"
+      ],
+      "regs": [
+        "HKCU:\\Software\\Trae",
+        "HKLM:\\SOFTWARE\\Trae",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Trae"
+      ],
+      "note": "来源：TRAE 官方文档"
+    },
+    {
+      "name": "有道龙虾缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理有道龙虾 LobsterAI 的缓存、日志与临时文件（对话记录和技能文件不动）",
+      "cat": "AI工具",
+      "dprobe": "LobsterAI",
+      "paths": [
+        "$env:APPDATA\\LobsterAI\\Cache",
+        "$env:APPDATA\\LobsterAI\\logs",
+        "$env:APPDATA\\LobsterAI\\temp",
+        "$env:APPDATA\\LobsterAI\\GPUCache",
+        "$env:APPDATA\\LobsterAI\\Code Cache",
+        "$env:LOCALAPPDATA\\LobsterAI\\Cache",
+        "$env:LOCALAPPDATA\\LobsterAI\\logs",
+        "$env:LOCALAPPDATA\\LobsterAI\\temp"
+      ],
+      "note": "来源：LobsterAI 官方手册（数据目录 LobsterAI），Windows 对应 %APPDATA%"
+    },
+    {
+      "name": "卸载残留-有道龙虾",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理网易有道龙虾 LobsterAI 卸载后残留的数据目录与注册表项",
+      "exes": [
+        "C:\\Program Files\\LobsterAI\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\LobsterAI\\*.exe"
+      ],
+      "procs": [
+        "LobsterAI"
+      ],
+      "dirs": [
+        "C:\\Program Files\\LobsterAI",
+        "$env:LOCALAPPDATA\\Programs\\LobsterAI",
+        "$env:APPDATA\\LobsterAI",
+        "$env:LOCALAPPDATA\\LobsterAI"
+      ],
+      "regs": [
+        "HKCU:\\Software\\LobsterAI",
+        "HKLM:\\SOFTWARE\\LobsterAI",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\LobsterAI"
+      ],
+      "note": "来源：官方手册 + 常见安装位置"
+    },
+    {
+      "name": "库库AI缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理库库AI的缓存、日志与临时文件（文档、任务记录和登录状态不动）",
+      "cat": "AI工具",
+      "dprobe": "KukuAI|库库",
+      "paths": [
+        "$env:APPDATA\\KukuAI\\Cache",
+        "$env:APPDATA\\KukuAI\\logs",
+        "$env:APPDATA\\KukuAI\\temp",
+        "$env:APPDATA\\KukuAI\\GPUCache",
+        "$env:APPDATA\\KukuAI\\Code Cache",
+        "$env:LOCALAPPDATA\\KukuAI\\Cache",
+        "$env:LOCALAPPDATA\\KukuAI\\logs",
+        "$env:LOCALAPPDATA\\KukuAI\\temp",
+        "$env:APPDATA\\库库\\Cache",
+        "$env:APPDATA\\库库\\logs",
+        "$env:LOCALAPPDATA\\库库\\Cache",
+        "$env:LOCALAPPDATA\\库库\\logs"
+      ],
+      "note": "来源：库库AI 为百度文库网盘 GenFlow 独立端；目录按常见安装位置多路覆盖，不存在自动跳过"
+    },
+    {
+      "name": "卸载残留-库库AI",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理库库AI卸载后残留的安装目录、数据目录与注册表项",
+      "exes": [
+        "C:\\Program Files\\KukuAI\\*.exe",
+        "C:\\Program Files\\库库\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\KukuAI\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\库库\\*.exe"
+      ],
+      "procs": [
+        "KukuAI"
+      ],
+      "dirs": [
+        "C:\\Program Files\\KukuAI",
+        "C:\\Program Files\\库库",
+        "$env:LOCALAPPDATA\\Programs\\KukuAI",
+        "$env:LOCALAPPDATA\\Programs\\库库",
+        "$env:APPDATA\\KukuAI",
+        "$env:APPDATA\\库库",
+        "$env:LOCALAPPDATA\\KukuAI",
+        "$env:LOCALAPPDATA\\库库"
+      ],
+      "regs": [
+        "HKCU:\\Software\\KukuAI",
+        "HKLM:\\SOFTWARE\\KukuAI",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\KukuAI"
+      ],
+      "note": "来源：多路覆盖，路径不存在则跳过"
+    },
+    {
+      "name": "卸载残留-微软OfficePLUS",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理微软 OfficePLUS 插件卸载后残留的安装目录（建议先用插件自带的卸载程序，清完重开 Office 生效）",
+      "exes": [
+        "C:\\Program Files\\MS office plus\\*.exe",
+        "C:\\Program Files (x86)\\MS office plus\\*.exe"
+      ],
+      "procs": [
+        "MSOfficePlus"
+      ],
+      "dirs": [
+        "C:\\Program Files\\MS office plus",
+        "C:\\Program Files (x86)\\MS office plus"
+      ],
+      "regs": [],
+      "note": "来源：微软社区问答，安装目录 C:\\Program Files\\MS office plus 内含 uninstall 程序"
+    },
+    {
+      "name": "联想电脑管家缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理联想电脑管家的日志、硬件检测缓存与锁屏壁纸日志（不影响管家设置与账号）",
+      "cat": "安全与系统工具",
+      "dprobe": "Lenovo PC Manager|LCC|devicecenter",
+      "paths": [
+        "C:\\ProgramData\\Lenovo\\devicecenter\\logs",
+        "C:\\ProgramData\\Lenovo\\devicecenter\\Hardware",
+        "C:\\ProgramData\\Lenovo\\devicecenter\\healthweekly",
+        "C:\\ProgramData\\Lenovo\\devicecenter\\LockScreen\\logs",
+        "C:\\ProgramData\\Lenovo\\devicecenter\\LStoreSoftsCache",
+        "$env:LOCALAPPDATA\\Lenovo\\LCC",
+        "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\Cache",
+        "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\GPUCache",
+        "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\Code Cache",
+        "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\logs"
+      ],
+      "note": "来源：联想官方知识库（devicecenter\\logs / Hardware / healthweekly）+ 联想社区（%LOCALAPPDATA%\\Lenovo\\LCC、Lenovo PC Manager）"
+    },
+    {
+      "name": "卸载残留-联想电脑管家",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理联想电脑管家卸载后残留的安装目录、ProgramData 数据目录与注册表项（建议先走官方卸载程序）",
+      "exes": [
+        "C:\\Program Files (x86)\\Lenovo\\Lenovo PC Manager\\*.exe",
+        "C:\\Program Files\\Lenovo\\Lenovo PC Manager\\*.exe",
+        "C:\\Program Files (x86)\\Lenovo\\LCC\\*.exe",
+        "C:\\Program Files\\Lenovo\\LCC\\*.exe"
+      ],
+      "procs": [
+        "LenovoPcManager",
+        "LenovoPCManager",
+        "LCC",
+        "LenovoDeviceCenter"
+      ],
+      "dirs": [
+        "C:\\Program Files (x86)\\Lenovo\\Lenovo PC Manager",
+        "C:\\Program Files\\Lenovo\\Lenovo PC Manager",
+        "C:\\Program Files (x86)\\Lenovo\\LCC",
+        "C:\\Program Files\\Lenovo\\LCC",
+        "C:\\ProgramData\\Lenovo\\devicecenter",
+        "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager",
+        "$env:LOCALAPPDATA\\Lenovo\\LCC"
+      ],
+      "regs": [
+        "HKLM:\\SOFTWARE\\Lenovo\\Lenovo PC Manager",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Lenovo\\Lenovo PC Manager",
+        "HKCU:\\Software\\Lenovo\\Lenovo PC Manager"
+      ],
+      "note": "来源：联想官方知识库 + 联想社区；ProgramData\\Lenovo 下其他联想软件共用数据，只清 devicecenter 子目录"
+    },
+    {
+      "name": "希沃白板5缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理希沃白板5的日志、插件与依赖组件缓存（课件正文、账号和备课数据不动）",
+      "cat": "教育学习",
+      "dprobe": "Seewo|EasiNote",
+      "paths": [
+        "$env:APPDATA\\Seewo\\EasiNote5\\Log",
+        "$env:APPDATA\\Seewo\\EasiNote5\\Extensions",
+        "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\WpfCefCore",
+        "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\WinFormCefCore",
+        "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Audio",
+        "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Metadata",
+        "$env:APPDATA\\Seewo\\EasiNote5\\Cache",
+        "$env:APPDATA\\Seewo\\EasiNote5\\GPUCache",
+        "$env:APPDATA\\Seewo\\EasiNote5\\Code Cache"
+      ],
+      "note": "来源：希沃官方帮助中心（%APPDATA%\\Seewo\\EasiNote5 下 Log / Extensions / Dependencies 各子目录）"
+    },
+    {
+      "name": "卸载残留-希沃白板5",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理希沃白板5卸载后残留的安装目录、用户数据目录与注册表项（课件和云备课数据不在本地）",
+      "exes": [
+        "C:\\Program Files (x86)\\Seewo\\EasiNote5\\*.exe",
+        "C:\\Program Files\\Seewo\\EasiNote5\\*.exe"
+      ],
+      "procs": [
+        "EasiNote",
+        "EasiNote5",
+        "SeewoEasiNote"
+      ],
+      "dirs": [
+        "C:\\Program Files (x86)\\Seewo\\EasiNote5",
+        "C:\\Program Files\\Seewo\\EasiNote5",
+        "$env:APPDATA\\Seewo\\EasiNote5",
+        "$env:LOCALAPPDATA\\Seewo"
+      ],
+      "regs": [
+        "HKLM:\\SOFTWARE\\Seewo\\EasiNote5",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Seewo\\EasiNote5",
+        "HKCU:\\Software\\Seewo"
+      ],
+      "note": "来源：希沃官方帮助中心 + 常见安装位置（希沃允许装 D 盘，这里只覆盖默认 C 盘）"
+    },
+    {
+      "name": "抖音直播伴侣缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理抖音直播伴侣的渲染缓存、日志与崩溃转储（推流码、账号和素材不动）",
+      "cat": "直播",
+      "dprobe": "DouyinStreamingTool",
+      "paths": [
+        "$env:LOCALAPPDATA\\DouyinStreamingTool\\Cache",
+        "$env:LOCALAPPDATA\\DouyinStreamingTool\\Code Cache",
+        "$env:LOCALAPPDATA\\DouyinStreamingTool\\GPUCache",
+        "$env:LOCALAPPDATA\\DouyinStreamingTool\\ShaderCache",
+        "$env:LOCALAPPDATA\\DouyinStreamingTool\\Log",
+        "$env:LOCALAPPDATA\\DouyinStreamingTool\\logs",
+        "$env:LOCALAPPDATA\\DouyinStreamingTool\\Crashpad",
+        "$env:LOCALAPPDATA\\DouyinStreamingTool\\CrashReport"
+      ],
+      "note": "来源：公开技术资料（数据目录 %LOCALAPPDATA%\\DouyinStreamingTool，Cache 为最大占用项）"
+    },
+    {
+      "name": "卸载残留-抖音直播伴侣",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理抖音直播伴侣卸载后残留的安装目录、数据目录与注册表项",
+      "exes": [
+        "C:\\Program Files\\DouyinStreamingTool\\*.exe",
+        "C:\\Program Files (x86)\\DouyinStreamingTool\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\DouyinStreamingTool\\*.exe"
+      ],
+      "procs": [
+        "DouyinStreamingTool"
+      ],
+      "dirs": [
+        "C:\\Program Files\\DouyinStreamingTool",
+        "C:\\Program Files (x86)\\DouyinStreamingTool",
+        "$env:LOCALAPPDATA\\Programs\\DouyinStreamingTool",
+        "$env:LOCALAPPDATA\\DouyinStreamingTool"
+      ],
+      "regs": [
+        "HKLM:\\SOFTWARE\\DouyinStreamingTool",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\DouyinStreamingTool",
+        "HKCU:\\Software\\DouyinStreamingTool"
+      ],
+      "note": "来源：常见安装位置 + 公开资料；安装目录按官方英文名 DouyinStreamingTool"
+    },
+    {
+      "name": "卸载残留-EV录屏",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理EV录屏卸载后残留的安装目录与注册表项（录好的视频在你自己选的文件夹里，这里不碰）",
+      "exes": [
+        "C:\\Program Files (x86)\\EVCapture\\*.exe",
+        "C:\\Program Files\\EVCapture\\*.exe",
+        "$env:LOCALAPPDATA\\Programs\\EVCapture\\*.exe"
+      ],
+      "procs": [
+        "EVCapture"
+      ],
+      "dirs": [
+        "C:\\Program Files (x86)\\EVCapture",
+        "C:\\Program Files\\EVCapture",
+        "$env:LOCALAPPDATA\\Programs\\EVCapture"
+      ],
+      "regs": [
+        "HKLM:\\SOFTWARE\\EVCapture",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\EVCapture",
+        "HKCU:\\Software\\EVCapture"
+      ],
+      "note": "来源：第三方卸载记录（安装目录 C:\\Program Files (x86)\\EVCapture，主程序 EVCapture.exe，一唯科技）。缓存目录无官方说明，本条目只做卸载残留"
+    },
+    {
+      "name": "卸载残留-元气桌面壁纸",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理元气桌面壁纸卸载后残留的安装目录与注册表项（自制的壁纸工程在 %APPDATA%\\cfwpeditor\\projects，不碰）",
+      "exes": [
+        "C:\\Program Files (x86)\\YuanqiDesktop\\*.exe",
+        "C:\\Program Files\\YuanqiDesktop\\*.exe"
+      ],
+      "procs": [
+        "YuanqiDesktop"
+      ],
+      "dirs": [
+        "C:\\Program Files (x86)\\YuanqiDesktop",
+        "C:\\Program Files\\YuanqiDesktop"
+      ],
+      "regs": [
+        "HKLM:\\SOFTWARE\\YuanqiDesktop",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\YuanqiDesktop",
+        "HKCU:\\Software\\YuanqiDesktop"
+      ],
+      "note": "来源：官网 desk.duba.com（金山/天极）。%APPDATA%\\cfwpeditor\\projects 是用户自制壁纸工程，属用户作品，不清理"
+    },
+    {
+      "name": "360压缩使用痕迹",
+      "group": "trace",
+      "kind": "trace",
+      "safe": "谨慎",
+      "desc": "清理360压缩最近打开过的压缩包记录清单（只清记录，zip 包本身不动）",
+      "keys": [
+        "HKCU:\\Software\\360zip\\Recent Document List"
+      ],
+      "note": "只删 Recent Document List 下的值，不碰同根 FileAssoc/InstallPath；体积约 0，属隐私痕迹非空间垃圾"
+    },
+    {
+      "name": "卸载残留-微信输入法",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理微信输入法卸载后残留的安装目录（该目录卸载时不会自删，重装会报「已安装当前版本」）",
+      "exes": [
+        "C:\\Program Files\\Tencent\\WeType\\*.exe"
+      ],
+      "procs": [],
+      "dirs": [
+        "C:\\Program Files\\Tencent\\WeType"
+      ],
+      "regs": [
+        "HKCU:\\Software\\Tencent\\WeType",
+        "HKLM:\\SOFTWARE\\Tencent\\WeType",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Tencent\\WeType"
+      ],
+      "note": "来源：微信开放社区用户实测，卸载后 C:\\Program Files\\Tencent\\WeType 不会自动删除"
+    },
+    {
+      "name": "卸载残留-CAD快速看图",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理 CAD快速看图（广联达·鸿鹄云图出品）卸载后残留的安装目录（只针对本软件自己的目录，不动广联达其他软件）",
+      "exes": [
+        "C:\\Program Files\\CAD快速看图\\*.exe",
+        "C:\\Program Files (x86)\\CAD快速看图\\*.exe",
+        "$env:LOCALAPPDATA\\CAD快速看图\\*.exe"
+      ],
+      "procs": [],
+      "dirs": [
+        "C:\\Program Files\\CAD快速看图",
+        "C:\\Program Files (x86)\\CAD快速看图",
+        "$env:LOCALAPPDATA\\CAD快速看图",
+        "$env:APPDATA\\CAD快速看图"
+      ],
+      "regs": [
+        "HKCU:\\Software\\CAD快速看图",
+        "HKLM:\\SOFTWARE\\CAD快速看图"
+      ],
+      "note": "来源：第三方卸载教程；未在官方文档核实，路径不符时扫不到不影响安全"
+    },
+    {
+      "name": "360安全浏览器补充缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "补充清理360安全浏览器在用户目录下的媒体缓存、着色器缓存与图形缓存（不动收藏夹、书签、账号、密码、登录状态和浏览记录）",
+      "cat": "浏览器",
+      "dprobe": "360se6",
+      "paths": [
+        "$env:APPDATA\\360se6\\User Data\\Default\\Media Cache",
+        "$env:APPDATA\\360se6\\User Data\\Default\\ShaderCache",
+        "$env:APPDATA\\360se6\\User Data\\Default\\GrShaderCache",
+        "$env:APPDATA\\360se6\\User Data\\Default\\GraphiteDawnCache",
+        "$env:APPDATA\\360se6\\User Data\\GrShaderCache64",
+        "$env:APPDATA\\360se6\\User Data\\ShaderCache64",
+        "$env:APPDATA\\360se6\\User Data\\GraphiteDawnCache",
+        "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Cache",
+        "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Code Cache",
+        "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\GPUCache",
+        "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Media Cache",
+        "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Service Worker\\CacheStorage"
+      ],
+      "note": "内置规则只覆盖 %APPDATA%\\360se6 下的 Cache/Code Cache/GPUCache/Service Worker 四项，这里补齐 Media Cache、ShaderCache、GrShaderCache、GraphiteDawnCache 等图形与媒体缓存，并补 %LOCALAPPDATA% 分支"
+    },
+    {
+      "name": "WPS插件池缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "谨慎",
+      "desc": "清理WPS各功能插件（PDF转换、云文档、公文模板等）在本地下载池里缓存的安装包（删后首次使用对应功能会重新下载，不影响已打开的文档和账号）",
+      "cat": "办公文档",
+      "dprobe": "WPS Office",
+      "paths": [
+        "$env:APPDATA\\kingsoft\\wps\\addons\\pool"
+      ],
+      "note": "内置WPS缓存只清 office6\\cache / clscache / log，未覆盖 wps\\addons\\pool（本机实测 733MB）"
+    }
+  ]
 }
