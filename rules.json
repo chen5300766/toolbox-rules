@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-14-cache-supplement",
+  "version": "2026-11-14-360cache-supplement",
   "updated": "2026-11-14",
   "items": [
     {
@@ -462,19 +462,6 @@
         "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Service Worker\\CacheStorage"
       ],
       "note": "内置规则只覆盖 %APPDATA%\\360se6 下的 Cache/Code Cache/GPUCache/Service Worker 四项，这里补齐 Media Cache、ShaderCache、GrShaderCache、GraphiteDawnCache 等图形与媒体缓存，并补 %LOCALAPPDATA% 分支"
-    },
-    {
-      "name": "WPS插件池缓存",
-      "group": "cache",
-      "kind": "dir",
-      "safe": "谨慎",
-      "desc": "清理WPS各功能插件（PDF转换、云文档、公文模板等）在本地下载池里缓存的安装包（删后首次使用对应功能会重新下载，不影响已打开的文档和账号）",
-      "cat": "办公文档",
-      "dprobe": "WPS Office",
-      "paths": [
-        "$env:APPDATA\\kingsoft\\wps\\addons\\pool"
-      ],
-      "note": "内置WPS缓存只清 office6\\cache / clscache / log，未覆盖 wps\\addons\\pool（本机实测 733MB）"
     }
   ]
 }
