@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "2026-11-14-清理条目补充",
-  "updated": "2026-11-14",
+  "version": "2026-11-15-删除无依据条目",
+  "updated": "2026-11-15",
   "items": [
     {
       "name": "TRAE缓存",
@@ -105,62 +105,6 @@
         "HKLM:\\SOFTWARE\\WOW6432Node\\LobsterAI"
       ],
       "note": "来源：官方手册 + 常见安装位置"
-    },
-    {
-      "name": "库库AI缓存",
-      "group": "cache",
-      "kind": "dir",
-      "safe": "安全",
-      "desc": "清理库库AI的缓存、日志与临时文件（文档、任务记录和登录状态不动）",
-      "cat": "AI工具",
-      "dprobe": "KukuAI|库库",
-      "paths": [
-        "$env:APPDATA\\KukuAI\\Cache",
-        "$env:APPDATA\\KukuAI\\logs",
-        "$env:APPDATA\\KukuAI\\temp",
-        "$env:APPDATA\\KukuAI\\GPUCache",
-        "$env:APPDATA\\KukuAI\\Code Cache",
-        "$env:LOCALAPPDATA\\KukuAI\\Cache",
-        "$env:LOCALAPPDATA\\KukuAI\\logs",
-        "$env:LOCALAPPDATA\\KukuAI\\temp",
-        "$env:APPDATA\\库库\\Cache",
-        "$env:APPDATA\\库库\\logs",
-        "$env:LOCALAPPDATA\\库库\\Cache",
-        "$env:LOCALAPPDATA\\库库\\logs"
-      ],
-      "note": "来源：库库AI 为百度文库网盘 GenFlow 独立端；目录按常见安装位置多路覆盖，不存在自动跳过"
-    },
-    {
-      "name": "卸载残留-库库AI",
-      "group": "residue",
-      "kind": "residue",
-      "safe": "安全",
-      "desc": "清理库库AI卸载后残留的安装目录、数据目录与注册表项",
-      "exes": [
-        "C:\\Program Files\\KukuAI\\*.exe",
-        "C:\\Program Files\\库库\\*.exe",
-        "$env:LOCALAPPDATA\\Programs\\KukuAI\\*.exe",
-        "$env:LOCALAPPDATA\\Programs\\库库\\*.exe"
-      ],
-      "procs": [
-        "KukuAI"
-      ],
-      "dirs": [
-        "C:\\Program Files\\KukuAI",
-        "C:\\Program Files\\库库",
-        "$env:LOCALAPPDATA\\Programs\\KukuAI",
-        "$env:LOCALAPPDATA\\Programs\\库库",
-        "$env:APPDATA\\KukuAI",
-        "$env:APPDATA\\库库",
-        "$env:LOCALAPPDATA\\KukuAI",
-        "$env:LOCALAPPDATA\\库库"
-      ],
-      "regs": [
-        "HKCU:\\Software\\KukuAI",
-        "HKLM:\\SOFTWARE\\KukuAI",
-        "HKLM:\\SOFTWARE\\WOW6432Node\\KukuAI"
-      ],
-      "note": "来源：多路覆盖，路径不存在则跳过"
     },
     {
       "name": "卸载残留-微软OfficePLUS",
@@ -306,33 +250,6 @@
         "$env:LOCALAPPDATA\\DouyinStreamingTool\\CrashReport"
       ],
       "note": "来源：公开技术资料（数据目录 %LOCALAPPDATA%\\DouyinStreamingTool，Cache 为最大占用项）"
-    },
-    {
-      "name": "卸载残留-抖音直播伴侣",
-      "group": "residue",
-      "kind": "residue",
-      "safe": "谨慎",
-      "desc": "清理抖音直播伴侣卸载后残留的安装目录、数据目录与注册表项",
-      "exes": [
-        "C:\\Program Files\\DouyinStreamingTool\\*.exe",
-        "C:\\Program Files (x86)\\DouyinStreamingTool\\*.exe",
-        "$env:LOCALAPPDATA\\Programs\\DouyinStreamingTool\\*.exe"
-      ],
-      "procs": [
-        "DouyinStreamingTool"
-      ],
-      "dirs": [
-        "C:\\Program Files\\DouyinStreamingTool",
-        "C:\\Program Files (x86)\\DouyinStreamingTool",
-        "$env:LOCALAPPDATA\\Programs\\DouyinStreamingTool",
-        "$env:LOCALAPPDATA\\DouyinStreamingTool"
-      ],
-      "regs": [
-        "HKLM:\\SOFTWARE\\DouyinStreamingTool",
-        "HKLM:\\SOFTWARE\\WOW6432Node\\DouyinStreamingTool",
-        "HKCU:\\Software\\DouyinStreamingTool"
-      ],
-      "note": "来源：常见安装位置 + 公开资料；安装目录按官方英文名 DouyinStreamingTool"
     },
     {
       "name": "卸载残留-EV录屏",
