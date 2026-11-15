@@ -729,7 +729,9 @@
       ],
       "force_dirs": [
         "C:\\Program Files\\Tencent\\WeType",
-        "$env:LOCALAPPDATA\\Tencent\\WeType"
+        "$env:LOCALAPPDATA\\Tencent\\WeType",
+        "$env:APPDATA\\wetype_renderer",
+        "$env:APPDATA\\wetype_update"
       ],
       "note": "来源：2026-11-15 本机实测。卸载器删掉主目录后，WetypeCore_3.0.1.35.tmp0 还留 11.36MB/4 文件，重启后才由系统清成空壳。卸载过程中 wetype_update.exe（依赖同目录 flurry.dll）被反复拉起，曾同时堆积 20 个进程并弹「找不到 flurry.dll」，弹窗最后被 csrss 托管成孤儿窗口只能重启。清理时先结束更新进程再删目录"
     },
