@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-15-删除与内置重复条目",
+  "version": "2026-11-15-卸载残留整目录清除",
   "updated": "2026-11-15",
   "items": [
     {
@@ -432,7 +432,17 @@
         "HKLM:\\SOFTWARE\\DoubaoWork",
         "HKLM:\\SOFTWARE\\WOW6432Node\\DoubaoWork"
       ],
-      "note": "来源：2026-11-15 本机实测。卸载后实留 E:\\HRSoftstore\\Install\\doubaogongzuo 空壳、%LOCALAPPDATA%\\DoubaoWork 空壳、HKCU:\\Software\\DoubaoWork 子键。安装走火绒应用商店，目录落在 E:\\HRSoftstore\\Install\\<拼音名>。HKLM 两处为常规登记位置，本机卸载后未查到，写上是为覆盖其他机器"
+      "note": "来源：2026-11-15 本机实测。卸载后实留 E:\\HRSoftstore\\Install\\doubaogongzuo 空壳、%LOCALAPPDATA%\\DoubaoWork 空壳、HKCU:\\Software\\DoubaoWork 子键。安装走火绒应用商店，目录落在 E:\\HRSoftstore\\Install\\<拼音名>。HKLM 两处为常规登记位置，本机卸载后未查到，写上是为覆盖其他机器",
+      "force_dirs": [
+        "$env:LOCALAPPDATA\\DoubaoWork",
+        "$env:APPDATA\\DoubaoWork",
+        "E:\\HRSoftstore\\Install\\doubaogongzuo",
+        "C:\\Program Files\\DoubaoWork",
+        "C:\\Program Files (x86)\\DoubaoWork",
+        "D:\\Program Files\\DoubaoWork",
+        "D:\\Program Files (x86)\\DoubaoWork",
+        "$env:LOCALAPPDATA\\Programs\\DoubaoWork"
+      ]
     },
     {
       "name": "卸载残留-CAD迷你画图",
@@ -466,7 +476,16 @@
         "HKLM:\\SOFTWARE\\Classes\\dwgdrawstart",
         "HKCU:\\Software\\Classes\\dwgdraw"
       ],
-      "note": "来源：2026-11-15 本机实测（装在 D:\\Program Files (x86)\\CADDraw，主程序 DwgDraw.exe，上海晓材科技）。卸载后安装目录 C/D/E 全清，只剩 HKLM:\\SOFTWARE\\Classes\\dwgdraw（子键2值1，DefaultIcon 还指向不存在路径）。AppData 三个位置全查过没有任何数据目录，属绿色便携式。E:\\HRSoftstore\\Install\\cadminihuatu 是按商店规则预留，本机这款不是商店装的，扫不到不影响"
+      "note": "来源：2026-11-15 本机实测（装在 D:\\Program Files (x86)\\CADDraw，主程序 DwgDraw.exe，上海晓材科技）。卸载后安装目录 C/D/E 全清，只剩 HKLM:\\SOFTWARE\\Classes\\dwgdraw（子键2值1，DefaultIcon 还指向不存在路径）。AppData 三个位置全查过没有任何数据目录，属绿色便携式。E:\\HRSoftstore\\Install\\cadminihuatu 是按商店规则预留，本机这款不是商店装的，扫不到不影响",
+      "force_dirs": [
+        "D:\\Program Files (x86)\\CADDraw",
+        "C:\\Program Files\\CADDraw",
+        "C:\\Program Files (x86)\\CADDraw",
+        "D:\\Program Files\\CADDraw",
+        "E:\\Program Files\\CADDraw",
+        "E:\\Program Files (x86)\\CADDraw",
+        "E:\\HRSoftstore\\Install\\cadminihuatu"
+      ]
     }
   ]
 }
