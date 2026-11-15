@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-15-补齐豆包工作剪映腾讯文档CAD",
+  "version": "2026-11-15-删除与内置重复条目",
   "updated": "2026-11-15",
   "items": [
     {
@@ -467,121 +467,6 @@
         "HKCU:\\Software\\Classes\\dwgdraw"
       ],
       "note": "来源：2026-11-15 本机实测（装在 D:\\Program Files (x86)\\CADDraw，主程序 DwgDraw.exe，上海晓材科技）。卸载后安装目录 C/D/E 全清，只剩 HKLM:\\SOFTWARE\\Classes\\dwgdraw（子键2值1，DefaultIcon 还指向不存在路径）。AppData 三个位置全查过没有任何数据目录，属绿色便携式。E:\\HRSoftstore\\Install\\cadminihuatu 是按商店规则预留，本机这款不是商店装的，扫不到不影响"
-    },
-    {
-      "name": "腾讯文档新版缓存",
-      "group": "cache",
-      "kind": "dir",
-      "safe": "安全",
-      "desc": "清理腾讯文档 3.x 新版数据目录的渲染缓存与安装包残留（不动账号、离线模型、离线模型包和文档内容）",
-      "cat": "办公文档",
-      "dprobe": "DocsDesktop|TencentDocs",
-      "paths": [
-        "$env:APPDATA\\DocsDesktop\\Cache",
-        "$env:APPDATA\\DocsDesktop\\GPUCache",
-        "$env:APPDATA\\DocsDesktop\\DawnWebGPUCache",
-        "$env:APPDATA\\DocsDesktop\\DawnGraphiteCache",
-        "$env:APPDATA\\DocsDesktop\\Code Cache",
-        "$env:APPDATA\\DocsDesktop\\logs",
-        "$env:APPDATA\\DocsDesktop\\logs-cache",
-        "$env:APPDATA\\DocsDesktop\\logs-diagnostic",
-        "$env:APPDATA\\DocsDesktop\\Shared Dictionary",
-        "$env:LOCALAPPDATA\\@docs-desktopapp-updater"
-      ],
-      "note": "来源：2026-11-15 本机实测（腾讯文档 3.13.2，数据目录 %APPDATA%\\DocsDesktop 1.11GB / 11489 文件）。实测子项：Cache 65.1MB / 329 文件、GPUCache 1.6MB、DawnWebGPUCache 544.4KB、DawnGraphiteCache 544.4KB、Code Cache 198.9KB、logs 100.2KB、logs-cache 150KB、logs-diagnostic 2.5KB、Shared Dictionary 44.1KB；更新包 %LOCALAPPDATA%\\@docs-desktopapp-updater 370.9MB。models 640MB 离线模型、edge-infer-* 161MB 推理运行时、accounts 82.6MB 账号数据都不在缓存条目里动，只在卸载残留清"
-    },
-    {
-      "name": "卸载残留-腾讯文档新版",
-      "group": "residue",
-      "kind": "residue",
-      "safe": "谨慎",
-      "desc": "清理腾讯文档 3.x 卸载后残留的 DocsDesktop 数据目录（含 640MB 离线模型）、更新包与旧版目录（会话与登录态一起清，重装需重新登录）",
-      "exes": [
-        "C:\\Program Files\\TencentDocs\\*.exe",
-        "C:\\Program Files (x86)\\TencentDocs\\*.exe",
-        "D:\\Program Files\\TencentDocs\\*.exe",
-        "D:\\Program Files (x86)\\TencentDocs\\*.exe",
-        "E:\\Program Files\\TencentDocs\\*.exe",
-        "E:\\Program Files (x86)\\TencentDocs\\*.exe",
-        "E:\\HRSoftstore\\Install\\tencentwendang\\*.exe"
-      ],
-      "procs": [
-        "TencentDocs",
-        "TencentDocsLauncher",
-        "Docs"
-      ],
-      "dirs": [
-        "$env:APPDATA\\DocsDesktop",
-        "$env:LOCALAPPDATA\\DocsDesktop",
-        "$env:LOCALAPPDATA\\DocsDesktop-instance",
-        "$env:LOCALAPPDATA\\@docs-desktopapp-updater",
-        "C:\\Program Files\\TencentDocs",
-        "C:\\Program Files (x86)\\TencentDocs",
-        "D:\\Program Files\\TencentDocs",
-        "D:\\Program Files (x86)\\TencentDocs",
-        "E:\\Program Files\\TencentDocs",
-        "E:\\Program Files (x86)\\TencentDocs",
-        "E:\\HRSoftstore\\Install\\tencentwendang"
-      ],
-      "regs": [
-        "HKCU:\\Software\\TencentDocs",
-        "HKLM:\\SOFTWARE\\TencentDocs",
-        "HKLM:\\SOFTWARE\\WOW6432Node\\TencentDocs"
-      ],
-      "note": "来源：2026-11-15 本机实测（装在 D:\\Program Files\\TencentDocs，1.21GB）。卸载后安装目录已清干净，但 %APPDATA%\\DocsDesktop 1.11GB / 11491 个文件原封不动（models 640.4MB 离线模型、runtime 160.5MB、edge-infer-runtime 113MB、accounts 82.6MB）、%LOCALAPPDATA%\\@docs-desktopapp-updater 370.9MB 更新包原封不动、DocsDesktop-instance 空壳、HKCU:\\Software\\TencentDocs 空键。火绒强力清理这三项一个都没动"
-    },
-    {
-      "name": "剪映专业版缓存",
-      "group": "cache",
-      "kind": "dir",
-      "safe": "安全",
-      "desc": "清理剪映专业版 User Data 下的渲染缓存与打点日志（草稿工程、素材资源、MMKV 配置索引不动）",
-      "cat": "视频音频编辑",
-      "dprobe": "JianyingPro|CapCut",
-      "paths": [
-        "$env:LOCALAPPDATA\\JianyingPro\\User Data\\Cache",
-        "$env:LOCALAPPDATA\\JianyingPro\\User Data\\CEF",
-        "$env:LOCALAPPDATA\\JianyingPro\\User Data\\Log",
-        "$env:LOCALAPPDATA\\JianyingPro\\User Data\\Crash",
-        "$env:LOCALAPPDATA\\JianyingPro\\User Data\\ByteBench",
-        "$env:LOCALAPPDATA\\JianyingPro\\User Data\\Tracking"
-      ],
-      "note": "来源：2026-11-15 本机实测（%LOCALAPPDATA%\\JianyingPro\\User Data 42.9MB / 1636 文件）。实测子项：CEF 720.7KB、Log 292.1KB、ByteBench 128KB、Tracking 56KB、Cache 8KB、Crash 456B。Resources 33.7MB / 1580 文件是素材资源、MMKV 8.0MB 是配置索引，两者都不动"
-    },
-    {
-      "name": "卸载残留-剪映专业版",
-      "group": "residue",
-      "kind": "residue",
-      "safe": "谨慎",
-      "desc": "清理剪映专业版卸载后残留的商店安装目录与 User Data 数据目录（草稿工程在你自己选的工程目录里，这里不碰）",
-      "exes": [
-        "C:\\Program Files\\JianyingPro\\*.exe",
-        "C:\\Program Files (x86)\\JianyingPro\\*.exe",
-        "D:\\Program Files\\JianyingPro\\*.exe",
-        "D:\\Program Files (x86)\\JianyingPro\\*.exe",
-        "E:\\HRSoftstore\\Install\\jianyangzhuanyeban\\*.exe",
-        "$env:LOCALAPPDATA\\JianyingPro\\*.exe",
-        "$env:LOCALAPPDATA\\Programs\\JianyingPro\\*.exe"
-      ],
-      "procs": [
-        "JianyingPro"
-      ],
-      "dirs": [
-        "C:\\Program Files\\JianyingPro",
-        "C:\\Program Files (x86)\\JianyingPro",
-        "D:\\Program Files\\JianyingPro",
-        "D:\\Program Files (x86)\\JianyingPro",
-        "E:\\HRSoftstore\\Install\\jianyangzhuanyeban",
-        "$env:LOCALAPPDATA\\JianyingPro",
-        "$env:LOCALAPPDATA\\Programs\\JianyingPro",
-        "$env:APPDATA\\JianyingPro"
-      ],
-      "regs": [
-        "HKCU:\\Software\\JianyingPro",
-        "HKLM:\\SOFTWARE\\JianyingPro",
-        "HKLM:\\SOFTWARE\\WOW6432Node\\JianyingPro"
-      ],
-      "note": "来源：2026-11-15 本机实测。卸载后实留 E:\\HRSoftstore\\Install\\jianyangzhuanyeban 439.4MB / 63 个文件（火绒应用商店安装目录，卸载程序不删）、%LOCALAPPDATA%\\JianyingPro 3.8MB / 5 个文件、HKCU:\\Software\\JianyingPro 值2。%APPDATA%\\JianyingPro 本机不存在，写上兼容其他机器。安装走火绒应用商店，目录落在 E:\\HRSoftstore\\Install\\<拼音名>"
     }
   ]
 }
