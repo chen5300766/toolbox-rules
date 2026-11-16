@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "2026-11-15-六款实测规则重做",
-  "updated": "2026-11-15",
+  "version": "2026-11-16-加速器与搜狗输入法实测",
+  "updated": "2026-11-16",
   "items": [
     {
       "name": "TRAE缓存",
@@ -767,6 +767,178 @@
         "C:\\Program Files\\PalmInput"
       ],
       "note": "来源：2026-11-15 本机实测（PalmInput 3.3.0.1030，装 C:\\Program Files (x86)\\PalmInput，99.9MB/84 文件，进程 PalmInputService.exe/PalmInputGuard.exe）。本机卸载后自身清得很干净（安装目录与 AppData/ProgramData 三处都没找到残留），本条是为其他版本/异常中断的情况兜底。内置原本没有，本条新增"
+    },
+    {
+      "name": "迅游加速器缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理迅游加速器的临时文件与游戏排行缓存（账号配置、加速记录不动）",
+      "cat": "游戏平台",
+      "dprobe": "Xunyou|xunyou",
+      "paths": [
+        "C:\\Program Files (x86)\\xunyou\\tmp",
+        "C:\\Program Files\\xunyou\\tmp",
+        "D:\\Program Files (x86)\\xunyou\\tmp",
+        "D:\\Program Files\\xunyou\\tmp",
+        "C:\\Program Files (x86)\\xunyou\\logs",
+        "C:\\Program Files\\xunyou\\logs"
+      ],
+      "note": "来源：2026-11-16 本机实测（装 C:\\Program Files (x86)\\xunyou，477.9MB）。tmp\\game_rankings 下 8 个 MD5 命名文件约 22MB 是游戏排行缓存。原内置条目按 Electron 结构写 %APPDATA%\\Xunyou\\Cache/GPUCache/Code Cache，实测全不存在（迅游是自研 Win32），已删内置改云端"
+    },
+    {
+      "name": "卸载残留-迅游加速器",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理迅游加速器卸载后的程序目录、注册表与明文账号凭据文件（卸载后本体 486MB 比装时还大）",
+      "exes": [
+        "C:\\Program Files (x86)\\xunyou\\*.exe",
+        "C:\\Program Files\\xunyou\\*.exe",
+        "D:\\Program Files (x86)\\xunyou\\*.exe",
+        "D:\\Program Files\\xunyou\\*.exe"
+      ],
+      "procs": [
+        "XYlauncher",
+        "ForkFramework",
+        "XYSpeedCollector",
+        "XYServiceLink"
+      ],
+      "dirs": [
+        "C:\\Program Files (x86)\\xunyou",
+        "C:\\Program Files\\xunyou",
+        "D:\\Program Files (x86)\\xunyou",
+        "D:\\Program Files\\xunyou",
+        "$env:APPDATA\\xunyou",
+        "$env:LOCALAPPDATA\\xunyou",
+        "C:\\ProgramData\\xunyou"
+      ],
+      "regs": [
+        "HKCU:\\Software\\xunyou",
+        "HKLM:\\SOFTWARE\\xunyou",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\xunyou",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\迅游加速器"
+      ],
+      "force_dirs": [
+        "C:\\Program Files (x86)\\xunyou",
+        "C:\\Program Files\\xunyou"
+      ],
+      "note": "来源：2026-11-16 本机实测。真实进程是 XYlauncher/ForkFramework/XYSpeedCollector/XYServiceLink（原内置写的 XunyouAcc 实测不存在）。dialConfig.ini 明文存 username/userid/token7/autologin=1，删目录即一并清除。另留 XunYouFilter 内核驱动（WFP 网络过滤，Start=1），设备管理器里不可见，会持续拦截流量；驱动清理见「驱动残留审计」"
+    },
+    {
+      "name": "搜狗输入法缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理搜狗输入法的渲染缓存、更新包与日志（词库、皮肤、账号配置不动）",
+      "cat": "输入法",
+      "dprobe": "SogouInput|SogouPY",
+      "paths": [
+        "C:\\ProgramData\\SogouInput\\SGCefCache",
+        "C:\\ProgramData\\SogouInput\\cache",
+        "C:\\ProgramData\\SogouInput\\ShiplyUpdate",
+        "C:\\ProgramData\\SogouInput\\SGSysToast",
+        "C:\\ProgramData\\SogouInput\\ShareBuffer",
+        "D:\\ProgramData\\SogouInput\\SGCefCache",
+        "$env:LOCALAPPDATA\\sogoupdf\\cache",
+        "$env:LOCALAPPDATA\\kfastpic_sogou\\cache"
+      ],
+      "note": "来源：2026-11-16 本机实测（装 D:\\Program Files (x86)\\SogouInput，975.1MB）。真实缓存集中在 C:\\ProgramData\\SogouInput（169.1MB）：SGCefCache 42.7MB、cache 7.3MB、ShiplyUpdate 4.9MB、SGSysToast 0.2MB、ShareBuffer 0.7MB。原内置条目按通用规律写 %APPDATA%\\SogouInput\\Cache/logs/temp，实测全不存在，已删内置改云端。词库在 %LOCALAPPDATA%\\Low\\SogouPY，本条不碰"
+    },
+    {
+      "name": "卸载残留-搜狗输入法",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理搜狗输入法卸载后的 ProgramData、LocalLow 用户数据与拼音命名的注册表项（LocalLow 那 629MB 常规工具扫不到）",
+      "exes": [
+        "C:\\Program Files (x86)\\SogouInput\\*.exe",
+        "C:\\Program Files\\SogouInput\\*.exe",
+        "D:\\Program Files (x86)\\SogouInput\\*.exe",
+        "D:\\Program Files\\SogouInput\\*.exe"
+      ],
+      "procs": [
+        "SogouCloud",
+        "SGTool",
+        "SOGOUSmartAssistant",
+        "SogouImeBroker"
+      ],
+      "dirs": [
+        "C:\\ProgramData\\SogouInput",
+        "D:\\ProgramData\\SogouInput",
+        "$env:LOCALAPPDATA\\Low\\SogouPY",
+        "$env:LOCALAPPDATA\\Low\\SogouPY.users",
+        "$env:LOCALAPPDATA\\SogouPY",
+        "$env:LOCALAPPDATA\\SogouPY.users",
+        "$env:APPDATA\\SogouPY",
+        "$env:LOCALAPPDATA\\sogoupdf",
+        "$env:LOCALAPPDATA\\kfastpic_sogou",
+        "$env:LOCALAPPDATA\\kzip_sogou",
+        "$env:LOCALAPPDATA\\sogousdk",
+        "C:\\Program Files (x86)\\SogouInput",
+        "C:\\Program Files\\SogouInput"
+      ],
+      "regs": [
+        "HKLM:\\SOFTWARE\\SogouInput",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\SogouInput",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\SogouComponents",
+        "HKCU:\\Software\\SogouInput",
+        "HKCU:\\Software\\SogouInput.ppup",
+        "HKCU:\\Software\\SogouInput.ppup.user",
+        "HKCU:\\Software\\SogouInput.store.user",
+        "HKCU:\\Software\\SogouInput.tc",
+        "HKCU:\\Software\\SogouInput.user",
+        "HKCU:\\Software\\kdiskmgr_sogou",
+        "HKCU:\\Software\\kfastpic_sogou",
+        "HKCU:\\Software\\kwallpaper_sogou",
+        "HKCU:\\Software\\kzip_sogou",
+        "HKCU:\\Software\\sogoupdf",
+        "HKCU:\\Software\\sogoupdfsdk"
+      ],
+      "force_dirs": [
+        "C:\\ProgramData\\SogouInput",
+        "$env:LOCALAPPDATA\\Low\\SogouPY",
+        "$env:LOCALAPPDATA\\SogouPY",
+        "$env:APPDATA\\SogouPY",
+        "C:\\Program Files (x86)\\SogouInput",
+        "C:\\Program Files\\SogouInput"
+      ],
+      "note": "来源：2026-11-16 本机实测。最大一块 %LOCALAPPDATA%\\Low\\SogouPY 629.3MB，沙箱类和常规清理工具扫不到 LocalLow 层。注册表用拼音命名（kdiskmgr_sogou/kfastpic_sogou/kwallpaper_sogou/kzip_sogou），按中文「搜狗」搜索零命中，原内置只写 3 个键漏了 12 个。注入文件 System32\\SogouPY.ime 与 SogouTSF.ime 属系统目录，工具不动，需卸载时由官方卸载程序注销；残留的输入法列表项要手动清"
+    },
+    {
+      "name": "卸载残留-雷神加速器",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理雷神加速器卸载后的程序目录、两套重复工具包与用户数据（启动后膨胀到 846.7MB）",
+      "exes": [
+        "C:\\Program Files (x86)\\LeiGod_Acc\\*.exe",
+        "C:\\Program Files\\LeiGod_Acc\\*.exe",
+        "D:\\Program Files (x86)\\LeiGod_Acc\\*.exe",
+        "D:\\Program Files\\LeiGod_Acc\\*.exe"
+      ],
+      "procs": [
+        "leigod"
+      ],
+      "dirs": [
+        "C:\\Program Files (x86)\\LeiGod_Acc",
+        "C:\\Program Files\\LeiGod_Acc",
+        "D:\\Program Files (x86)\\LeiGod_Acc",
+        "D:\\Program Files\\LeiGod_Acc",
+        "$env:APPDATA\\leigod",
+        "$env:LOCALAPPDATA\\acc_kernel",
+        "C:\\ProgramData\\leigod_person_7002"
+      ],
+      "regs": [
+        "HKCU:\\Software\\leigod",
+        "HKLM:\\SOFTWARE\\leigod",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\leigod"
+      ],
+      "force_dirs": [
+        "C:\\Program Files (x86)\\LeiGod_Acc",
+        "C:\\Program Files\\LeiGod_Acc"
+      ],
+      "note": "来源：2026-11-16 本机实测（雷神 11.99.1.7，装 C:\\Program Files (x86)\\LeiGod_Acc 573.8MB，启动后 846.7MB）。resources\\tools 363.1MB 与 leishenSdk 181.7MB 是同一批工具存两份。自启项在 Run 键下（electron.app.leigod），云端规则禁止碰 Run，需手动删或走内置条目"
     }
   ]
 }
