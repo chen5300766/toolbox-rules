@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-16-加速器与搜狗输入法实测",
+  "version": "2026-11-16-全量路径通用化",
   "updated": "2026-11-16",
   "items": [
     {
@@ -12,20 +12,34 @@
       "cat": "开发工具",
       "dprobe": "Trae",
       "paths": [
-        "$env:APPDATA\\Trae\\Cache",
-        "$env:APPDATA\\Trae\\Cache_Data",
-        "$env:APPDATA\\Trae\\Code Cache",
-        "$env:APPDATA\\Trae\\GPUCache",
-        "$env:APPDATA\\Trae\\CachedData",
-        "$env:APPDATA\\Trae\\logs",
-        "$env:APPDATA\\Trae\\Crashpad",
-        "$env:APPDATA\\Trae CN\\Cache",
-        "$env:APPDATA\\Trae CN\\Cache_Data",
-        "$env:APPDATA\\Trae CN\\Code Cache",
-        "$env:APPDATA\\Trae CN\\GPUCache",
-        "$env:APPDATA\\Trae CN\\CachedData",
-        "$env:APPDATA\\Trae CN\\logs",
-        "$env:APPDATA\\Trae CN\\Crashpad"
+        "C:\\Users\\*\\AppData\\Roaming\\Trae\\Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae\\Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae\\Cache_Data",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae\\Cache_Data",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae\\Code Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae\\Code Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae\\GPUCache",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae\\GPUCache",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae\\CachedData",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae\\CachedData",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae\\logs",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae\\logs",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae\\Crashpad",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae\\Crashpad",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae CN\\Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae CN\\Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae CN\\Cache_Data",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae CN\\Cache_Data",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae CN\\Code Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae CN\\Code Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae CN\\GPUCache",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae CN\\GPUCache",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae CN\\CachedData",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae CN\\CachedData",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae CN\\logs",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae CN\\logs",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae CN\\Crashpad",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae CN\\Crashpad"
       ],
       "note": "来源：TRAE 官方文档 %APPDATA%\\Trae（国际版）/ Trae CN（国内版）"
     },
@@ -52,9 +66,17 @@
         "C:\\Program Files*\\Trae CN",
         "D:\\Program Files*\\Trae CN",
         "$env:LOCALAPPDATA\\Programs\\Trae",
+        "C:\\Users\\*\\AppData\\Local\\Programs\\Trae",
+        "D:\\Users\\*\\AppData\\Local\\Programs\\Trae",
         "$env:LOCALAPPDATA\\Programs\\Trae CN",
+        "C:\\Users\\*\\AppData\\Local\\Programs\\Trae CN",
+        "D:\\Users\\*\\AppData\\Local\\Programs\\Trae CN",
         "$env:APPDATA\\Trae",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae",
         "$env:APPDATA\\Trae CN",
+        "C:\\Users\\*\\AppData\\Roaming\\Trae CN",
+        "D:\\Users\\*\\AppData\\Roaming\\Trae CN",
         "$env:USERPROFILE\\.trae"
       ],
       "regs": [
@@ -74,13 +96,29 @@
       "dprobe": "LobsterAI",
       "paths": [
         "$env:APPDATA\\LobsterAI\\Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\LobsterAI\\Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\LobsterAI\\Cache",
         "$env:APPDATA\\LobsterAI\\logs",
+        "C:\\Users\\*\\AppData\\Roaming\\LobsterAI\\logs",
+        "D:\\Users\\*\\AppData\\Roaming\\LobsterAI\\logs",
         "$env:APPDATA\\LobsterAI\\temp",
+        "C:\\Users\\*\\AppData\\Roaming\\LobsterAI\\temp",
+        "D:\\Users\\*\\AppData\\Roaming\\LobsterAI\\temp",
         "$env:APPDATA\\LobsterAI\\GPUCache",
+        "C:\\Users\\*\\AppData\\Roaming\\LobsterAI\\GPUCache",
+        "D:\\Users\\*\\AppData\\Roaming\\LobsterAI\\GPUCache",
         "$env:APPDATA\\LobsterAI\\Code Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\LobsterAI\\Code Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\LobsterAI\\Code Cache",
         "$env:LOCALAPPDATA\\LobsterAI\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\LobsterAI\\Cache",
+        "D:\\Users\\*\\AppData\\Local\\LobsterAI\\Cache",
         "$env:LOCALAPPDATA\\LobsterAI\\logs",
-        "$env:LOCALAPPDATA\\LobsterAI\\temp"
+        "C:\\Users\\*\\AppData\\Local\\LobsterAI\\logs",
+        "D:\\Users\\*\\AppData\\Local\\LobsterAI\\logs",
+        "$env:LOCALAPPDATA\\LobsterAI\\temp",
+        "C:\\Users\\*\\AppData\\Local\\LobsterAI\\temp",
+        "D:\\Users\\*\\AppData\\Local\\LobsterAI\\temp"
       ],
       "note": "来源：LobsterAI 官方手册（数据目录 LobsterAI），Windows 对应 %APPDATA%"
     },
@@ -102,8 +140,14 @@
         "C:\\Program Files*\\LobsterAI",
         "D:\\Program Files*\\LobsterAI",
         "$env:LOCALAPPDATA\\Programs\\LobsterAI",
+        "C:\\Users\\*\\AppData\\Local\\Programs\\LobsterAI",
+        "D:\\Users\\*\\AppData\\Local\\Programs\\LobsterAI",
         "$env:APPDATA\\LobsterAI",
-        "$env:LOCALAPPDATA\\LobsterAI"
+        "C:\\Users\\*\\AppData\\Roaming\\LobsterAI",
+        "D:\\Users\\*\\AppData\\Roaming\\LobsterAI",
+        "$env:LOCALAPPDATA\\LobsterAI",
+        "C:\\Users\\*\\AppData\\Local\\LobsterAI",
+        "D:\\Users\\*\\AppData\\Local\\LobsterAI"
       ],
       "regs": [
         "HKCU:\\Software\\LobsterAI",
@@ -147,10 +191,20 @@
         "C:\\ProgramData\\Lenovo\\devicecenter\\LockScreen\\logs",
         "C:\\ProgramData\\Lenovo\\devicecenter\\LStoreSoftsCache",
         "$env:LOCALAPPDATA\\Lenovo\\LCC",
+        "C:\\Users\\*\\AppData\\Local\\Lenovo\\LCC",
+        "D:\\Users\\*\\AppData\\Local\\Lenovo\\LCC",
         "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager\\Cache",
+        "D:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager\\Cache",
         "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\GPUCache",
+        "C:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager\\GPUCache",
+        "D:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager\\GPUCache",
         "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\Code Cache",
-        "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\logs"
+        "C:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager\\Code Cache",
+        "D:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager\\Code Cache",
+        "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager\\logs",
+        "C:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager\\logs",
+        "D:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager\\logs"
       ],
       "note": "来源：联想官方知识库（devicecenter\\logs / Hardware / healthweekly）+ 联想社区（%LOCALAPPDATA%\\Lenovo\\LCC、Lenovo PC Manager）"
     },
@@ -179,7 +233,11 @@
         "D:\\Program Files*\\Lenovo\\LCC",
         "C:\\ProgramData\\Lenovo\\devicecenter",
         "$env:LOCALAPPDATA\\Lenovo\\Lenovo PC Manager",
-        "$env:LOCALAPPDATA\\Lenovo\\LCC"
+        "C:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager",
+        "D:\\Users\\*\\AppData\\Local\\Lenovo\\Lenovo PC Manager",
+        "$env:LOCALAPPDATA\\Lenovo\\LCC",
+        "C:\\Users\\*\\AppData\\Local\\Lenovo\\LCC",
+        "D:\\Users\\*\\AppData\\Local\\Lenovo\\LCC"
       ],
       "regs": [
         "HKLM:\\SOFTWARE\\Lenovo\\Lenovo PC Manager",
@@ -198,14 +256,32 @@
       "dprobe": "Seewo|EasiNote",
       "paths": [
         "$env:APPDATA\\Seewo\\EasiNote5\\Log",
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Log",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Log",
         "$env:APPDATA\\Seewo\\EasiNote5\\Extensions",
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Extensions",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Extensions",
         "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\WpfCefCore",
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Dependencies\\WpfCefCore",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Dependencies\\WpfCefCore",
         "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\WinFormCefCore",
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Dependencies\\WinFormCefCore",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Dependencies\\WinFormCefCore",
         "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Audio",
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Audio",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Audio",
         "$env:APPDATA\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Metadata",
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Metadata",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Dependencies\\ClassicalWorks_Metadata",
         "$env:APPDATA\\Seewo\\EasiNote5\\Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Cache",
         "$env:APPDATA\\Seewo\\EasiNote5\\GPUCache",
-        "$env:APPDATA\\Seewo\\EasiNote5\\Code Cache"
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\GPUCache",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\GPUCache",
+        "$env:APPDATA\\Seewo\\EasiNote5\\Code Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Code Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5\\Code Cache"
       ],
       "note": "来源：希沃官方帮助中心（%APPDATA%\\Seewo\\EasiNote5 下 Log / Extensions / Dependencies 各子目录）"
     },
@@ -228,7 +304,11 @@
         "C:\\Program Files*\\Seewo\\EasiNote5",
         "D:\\Program Files*\\Seewo\\EasiNote5",
         "$env:APPDATA\\Seewo\\EasiNote5",
-        "$env:LOCALAPPDATA\\Seewo"
+        "C:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5",
+        "D:\\Users\\*\\AppData\\Roaming\\Seewo\\EasiNote5",
+        "$env:LOCALAPPDATA\\Seewo",
+        "C:\\Users\\*\\AppData\\Local\\Seewo",
+        "D:\\Users\\*\\AppData\\Local\\Seewo"
       ],
       "regs": [
         "HKLM:\\SOFTWARE\\Seewo\\EasiNote5",
@@ -247,13 +327,29 @@
       "dprobe": "DouyinStreamingTool",
       "paths": [
         "$env:LOCALAPPDATA\\DouyinStreamingTool\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\Cache",
+        "D:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\Cache",
         "$env:LOCALAPPDATA\\DouyinStreamingTool\\Code Cache",
+        "C:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\Code Cache",
+        "D:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\Code Cache",
         "$env:LOCALAPPDATA\\DouyinStreamingTool\\GPUCache",
+        "C:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\GPUCache",
+        "D:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\GPUCache",
         "$env:LOCALAPPDATA\\DouyinStreamingTool\\ShaderCache",
+        "C:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\ShaderCache",
+        "D:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\ShaderCache",
         "$env:LOCALAPPDATA\\DouyinStreamingTool\\Log",
+        "C:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\Log",
+        "D:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\Log",
         "$env:LOCALAPPDATA\\DouyinStreamingTool\\logs",
+        "C:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\logs",
+        "D:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\logs",
         "$env:LOCALAPPDATA\\DouyinStreamingTool\\Crashpad",
-        "$env:LOCALAPPDATA\\DouyinStreamingTool\\CrashReport"
+        "C:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\Crashpad",
+        "D:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\Crashpad",
+        "$env:LOCALAPPDATA\\DouyinStreamingTool\\CrashReport",
+        "C:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\CrashReport",
+        "D:\\Users\\*\\AppData\\Local\\DouyinStreamingTool\\CrashReport"
       ],
       "note": "来源：公开技术资料（数据目录 %LOCALAPPDATA%\\DouyinStreamingTool，Cache 为最大占用项）"
     },
@@ -274,7 +370,9 @@
       "dirs": [
         "C:\\Program Files*\\EVCapture",
         "D:\\Program Files*\\EVCapture",
-        "$env:LOCALAPPDATA\\Programs\\EVCapture"
+        "$env:LOCALAPPDATA\\Programs\\EVCapture",
+        "C:\\Users\\*\\AppData\\Local\\Programs\\EVCapture",
+        "D:\\Users\\*\\AppData\\Local\\Programs\\EVCapture"
       ],
       "regs": [
         "HKLM:\\SOFTWARE\\EVCapture",
@@ -334,7 +432,11 @@
         "C:\\Program Files*\\CAD快速看图",
         "D:\\Program Files*\\CAD快速看图",
         "$env:LOCALAPPDATA\\CAD快速看图",
-        "$env:APPDATA\\CAD快速看图"
+        "C:\\Users\\*\\AppData\\Local\\CAD快速看图",
+        "D:\\Users\\*\\AppData\\Local\\CAD快速看图",
+        "$env:APPDATA\\CAD快速看图",
+        "C:\\Users\\*\\AppData\\Roaming\\CAD快速看图",
+        "D:\\Users\\*\\AppData\\Roaming\\CAD快速看图"
       ],
       "regs": [
         "HKCU:\\Software\\CAD快速看图",
@@ -352,17 +454,41 @@
       "dprobe": "360se6",
       "paths": [
         "$env:APPDATA\\360se6\\User Data\\Default\\Media Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\Media Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\Media Cache",
         "$env:APPDATA\\360se6\\User Data\\Default\\ShaderCache",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\ShaderCache",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\ShaderCache",
         "$env:APPDATA\\360se6\\User Data\\Default\\GrShaderCache",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\GrShaderCache",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\GrShaderCache",
         "$env:APPDATA\\360se6\\User Data\\Default\\GraphiteDawnCache",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\GraphiteDawnCache",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\GraphiteDawnCache",
         "$env:APPDATA\\360se6\\User Data\\GrShaderCache64",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\GrShaderCache64",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\GrShaderCache64",
         "$env:APPDATA\\360se6\\User Data\\ShaderCache64",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\ShaderCache64",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\ShaderCache64",
         "$env:APPDATA\\360se6\\User Data\\GraphiteDawnCache",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\GraphiteDawnCache",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\GraphiteDawnCache",
         "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\Cache",
+        "D:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\Cache",
         "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Code Cache",
+        "C:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\Code Cache",
+        "D:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\Code Cache",
         "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\GPUCache",
+        "C:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\GPUCache",
+        "D:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\GPUCache",
         "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Media Cache",
-        "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Service Worker\\CacheStorage"
+        "C:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\Media Cache",
+        "D:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\Media Cache",
+        "$env:LOCALAPPDATA\\360se6\\User Data\\Default\\Service Worker\\CacheStorage",
+        "C:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\Service Worker\\CacheStorage",
+        "D:\\Users\\*\\AppData\\Local\\360se6\\User Data\\Default\\Service Worker\\CacheStorage"
       ],
       "note": "内置规则只覆盖 %APPDATA%\\360se6 下的 Cache/Code Cache/GPUCache/Service Worker 四项，这里补齐 Media Cache、ShaderCache、GrShaderCache、GraphiteDawnCache 等图形与媒体缓存，并补 %LOCALAPPDATA% 分支"
     },
@@ -376,13 +502,29 @@
       "dprobe": "DoubaoWork",
       "paths": [
         "$env:LOCALAPPDATA\\DoubaoWork\\User Data\\gecko_cache",
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\gecko_cache",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\gecko_cache",
         "$env:LOCALAPPDATA\\DoubaoWork\\User Data\\GrShaderCache",
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\GrShaderCache",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\GrShaderCache",
         "$env:LOCALAPPDATA\\DoubaoWork\\User Data\\ShaderCache",
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\ShaderCache",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\ShaderCache",
         "$env:LOCALAPPDATA\\DoubaoWork\\User Data\\GraphiteDawnCache",
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\GraphiteDawnCache",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\GraphiteDawnCache",
         "$env:LOCALAPPDATA\\DoubaoWork\\User Data\\Crashpad",
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\Crashpad",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\Crashpad",
         "$env:LOCALAPPDATA\\DoubaoWork\\User Data\\sdk_storage\\log",
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\sdk_storage\\log",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\sdk_storage\\log",
         "$env:LOCALAPPDATA\\DoubaoWork\\User Data\\repair\\cache",
-        "$env:LOCALAPPDATA\\DoubaoWork\\User Data\\update_downloads"
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\repair\\cache",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\repair\\cache",
+        "$env:LOCALAPPDATA\\DoubaoWork\\User Data\\update_downloads",
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\update_downloads",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data\\update_downloads"
       ],
       "note": "来源：2026-11-15 本机实测（装 E:\\HRSoftstore\\Install\\doubaogongzuo，数据目录 %LOCALAPPDATA%\\DoubaoWork\\User Data 约 294MB / 824 文件）。实测子项：gecko_cache 17.9MB / 331 文件、GrShaderCache 4.6MB、ShaderCache 544KB、GraphiteDawnCache 544KB、sdk_storage 6MB、repair 5MB；update_downloads 是安装时下的更新包，曾涨到 809.8MB 装完自删。Profile 1（11.3MB 账号配置）不动"
     },
@@ -404,8 +546,14 @@
         "C:\\Program Files*\\DoubaoWork",
         "D:\\Program Files*\\DoubaoWork",
         "$env:LOCALAPPDATA\\Programs\\DoubaoWork",
+        "C:\\Users\\*\\AppData\\Local\\Programs\\DoubaoWork",
+        "D:\\Users\\*\\AppData\\Local\\Programs\\DoubaoWork",
         "$env:LOCALAPPDATA\\DoubaoWork",
-        "$env:APPDATA\\DoubaoWork"
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork",
+        "$env:APPDATA\\DoubaoWork",
+        "C:\\Users\\*\\AppData\\Roaming\\DoubaoWork",
+        "D:\\Users\\*\\AppData\\Roaming\\DoubaoWork"
       ],
       "regs": [
         "HKCU:\\Software\\DoubaoWork",
@@ -415,12 +563,18 @@
       "note": "来源：2026-11-15 本机实测。卸载后实留 E:\\HRSoftstore\\Install\\doubaogongzuo 空壳、%LOCALAPPDATA%\\DoubaoWork 空壳、HKCU:\\Software\\DoubaoWork 子键。安装走火绒应用商店，目录落在 E:\\HRSoftstore\\Install\\<拼音名>。HKLM 两处为常规登记位置，本机卸载后未查到，写上是为覆盖其他机器",
       "force_dirs": [
         "$env:LOCALAPPDATA\\DoubaoWork",
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork",
         "$env:APPDATA\\DoubaoWork",
+        "C:\\Users\\*\\AppData\\Roaming\\DoubaoWork",
+        "D:\\Users\\*\\AppData\\Roaming\\DoubaoWork",
         "C:\\Program Files\\DoubaoWork",
         "C:\\Program Files (x86)\\DoubaoWork",
         "D:\\Program Files\\DoubaoWork",
         "D:\\Program Files (x86)\\DoubaoWork",
-        "$env:LOCALAPPDATA\\Programs\\DoubaoWork"
+        "$env:LOCALAPPDATA\\Programs\\DoubaoWork",
+        "C:\\Users\\*\\AppData\\Local\\Programs\\DoubaoWork",
+        "D:\\Users\\*\\AppData\\Local\\Programs\\DoubaoWork"
       ]
     },
     {
@@ -463,9 +617,17 @@
       "dprobe": "KuGou",
       "paths": [
         "$env:APPDATA\\KuGou8\\OfflinePackage",
+        "C:\\Users\\*\\AppData\\Roaming\\KuGou8\\OfflinePackage",
+        "D:\\Users\\*\\AppData\\Roaming\\KuGou8\\OfflinePackage",
         "$env:LOCALAPPDATA\\KuGou8\\OfflinePackage",
+        "C:\\Users\\*\\AppData\\Local\\KuGou8\\OfflinePackage",
+        "D:\\Users\\*\\AppData\\Local\\KuGou8\\OfflinePackage",
         "$env:APPDATA\\KuGou8\\AppStore",
-        "$env:LOCALAPPDATA\\KuGou8\\AppStore"
+        "C:\\Users\\*\\AppData\\Roaming\\KuGou8\\AppStore",
+        "D:\\Users\\*\\AppData\\Roaming\\KuGou8\\AppStore",
+        "$env:LOCALAPPDATA\\KuGou8\\AppStore",
+        "C:\\Users\\*\\AppData\\Local\\KuGou8\\AppStore",
+        "D:\\Users\\*\\AppData\\Local\\KuGou8\\AppStore"
       ],
       "note": "来源：2026-11-15 本机实测（酷狗 20.1.61.28014，装 E:\\HRSoftstore\\Install\\kugouyinyue）。%APPDATA%\\KuGou8 共 25.68MB/65 文件，其中 OfflinePackage 23.8MB 是离线歌曲包。原内置条目写的 KuGou8\\Cache/log/temp 实测不存在，已删内置改云端。Skin10 皮肤、KuGou.ini 设置不动"
     },
@@ -486,7 +648,11 @@
       ],
       "dirs": [
         "$env:APPDATA\\KuGou8",
+        "C:\\Users\\*\\AppData\\Roaming\\KuGou8",
+        "D:\\Users\\*\\AppData\\Roaming\\KuGou8",
         "$env:LOCALAPPDATA\\KuGou8",
+        "C:\\Users\\*\\AppData\\Local\\KuGou8",
+        "D:\\Users\\*\\AppData\\Local\\KuGou8",
         "C:\\ProgramData\\KuGou",
         "C:\\Program Files*\\KuGou",
         "D:\\Program Files*\\KuGou"
@@ -499,6 +665,8 @@
       ],
       "force_dirs": [
         "$env:APPDATA\\KuGou8",
+        "C:\\Users\\*\\AppData\\Roaming\\KuGou8",
+        "D:\\Users\\*\\AppData\\Roaming\\KuGou8",
         "C:\\ProgramData\\KuGou",
         "C:\\Program Files\\KuGou",
         "C:\\Program Files (x86)\\KuGou",
@@ -517,7 +685,11 @@
       "dprobe": "Baofeng",
       "paths": [
         "$env:APPDATA\\baofeng\\cefcache",
-        "$env:LOCALAPPDATA\\baofeng\\cefcache"
+        "C:\\Users\\*\\AppData\\Roaming\\baofeng\\cefcache",
+        "D:\\Users\\*\\AppData\\Roaming\\baofeng\\cefcache",
+        "$env:LOCALAPPDATA\\baofeng\\cefcache",
+        "C:\\Users\\*\\AppData\\Local\\baofeng\\cefcache",
+        "D:\\Users\\*\\AppData\\Local\\baofeng\\cefcache"
       ],
       "note": "来源：2026-11-15 本机实测（暴风影音5 5.92.0824.1111）。真实缓存目录是 %APPDATA%\\baofeng\\cefcache，13.21MB/56 文件。原内置条目写 BaoFeng\\Cache/logs/temp 与 Storm\\Cache，实测一个都不存在（命中 0 项），已删改云端"
     },
@@ -539,7 +711,11 @@
       ],
       "dirs": [
         "$env:APPDATA\\baofeng",
+        "C:\\Users\\*\\AppData\\Roaming\\baofeng",
+        "D:\\Users\\*\\AppData\\Roaming\\baofeng",
         "$env:LOCALAPPDATA\\baofeng",
+        "C:\\Users\\*\\AppData\\Local\\baofeng",
+        "D:\\Users\\*\\AppData\\Local\\baofeng",
         "C:\\ProgramData\\Baofeng",
         "C:\\Program Files*\\Baofeng",
         "D:\\Program Files*\\Baofeng"
@@ -551,6 +727,8 @@
       ],
       "force_dirs": [
         "$env:APPDATA\\baofeng",
+        "C:\\Users\\*\\AppData\\Roaming\\baofeng",
+        "D:\\Users\\*\\AppData\\Roaming\\baofeng",
         "C:\\ProgramData\\Baofeng",
         "C:\\Program Files\\Baofeng",
         "C:\\Program Files (x86)\\Baofeng",
@@ -593,7 +771,11 @@
         "D:\\Program Files*\\i4Tools9",
         "C:\\ProgramData\\i4",
         "$env:APPDATA\\爱思助手",
-        "$env:LOCALAPPDATA\\爱思助手"
+        "C:\\Users\\*\\AppData\\Roaming\\爱思助手",
+        "D:\\Users\\*\\AppData\\Roaming\\爱思助手",
+        "$env:LOCALAPPDATA\\爱思助手",
+        "C:\\Users\\*\\AppData\\Local\\爱思助手",
+        "D:\\Users\\*\\AppData\\Local\\爱思助手"
       ],
       "regs": [
         "HKLM:\\SOFTWARE\\i4Tools",
@@ -648,7 +830,11 @@
         "D:\\Program Files*\\万能视频播放器",
         "C:\\ProgramData\\JZYingYinLx",
         "$env:APPDATA\\JZYingYinLx",
-        "$env:LOCALAPPDATA\\JZYingYinLx"
+        "C:\\Users\\*\\AppData\\Roaming\\JZYingYinLx",
+        "D:\\Users\\*\\AppData\\Roaming\\JZYingYinLx",
+        "$env:LOCALAPPDATA\\JZYingYinLx",
+        "C:\\Users\\*\\AppData\\Local\\JZYingYinLx",
+        "D:\\Users\\*\\AppData\\Local\\JZYingYinLx"
       ],
       "regs": [
         "HKCU:\\Software\\JZYingYinLx",
@@ -674,8 +860,14 @@
       "dprobe": "WeType|wetype",
       "paths": [
         "$env:LOCALAPPDATA\\Tencent\\WeType",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
         "$env:APPDATA\\wetype_renderer",
+        "C:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
+        "D:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
         "$env:APPDATA\\wetype_update",
+        "C:\\Users\\*\\AppData\\Roaming\\wetype_update",
+        "D:\\Users\\*\\AppData\\Roaming\\wetype_update",
         "C:\\Program Files*\\Tencent\\WeType\\WetypeCore_*.tmp*",
         "D:\\Program Files*\\Tencent\\WeType\\WetypeCore_*.tmp*"
       ],
@@ -700,8 +892,14 @@
         "C:\\Program Files*\\Tencent\\WeType",
         "D:\\Program Files*\\Tencent\\WeType",
         "$env:LOCALAPPDATA\\Tencent\\WeType",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
         "$env:APPDATA\\wetype_renderer",
-        "$env:APPDATA\\wetype_update"
+        "C:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
+        "D:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
+        "$env:APPDATA\\wetype_update",
+        "C:\\Users\\*\\AppData\\Roaming\\wetype_update",
+        "D:\\Users\\*\\AppData\\Roaming\\wetype_update"
       ],
       "regs": [
         "HKCU:\\Software\\Tencent\\WeType",
@@ -714,8 +912,14 @@
         "D:\\Program Files\\Tencent\\WeType",
         "D:\\Program Files (x86)\\Tencent\\WeType",
         "$env:LOCALAPPDATA\\Tencent\\WeType",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
         "$env:APPDATA\\wetype_renderer",
-        "$env:APPDATA\\wetype_update"
+        "C:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
+        "D:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
+        "$env:APPDATA\\wetype_update",
+        "C:\\Users\\*\\AppData\\Roaming\\wetype_update",
+        "D:\\Users\\*\\AppData\\Roaming\\wetype_update"
       ],
       "note": "来源：2026-11-15 本机实测。卸载器删掉主目录后，WetypeCore_3.0.1.35.tmp0 还留 11.36MB/4 文件，重启后才由系统清成空壳。卸载过程中 wetype_update.exe（依赖同目录 flurry.dll）被反复拉起，曾同时堆积 20 个进程并弹「找不到 flurry.dll」，弹窗最后被 csrss 托管成孤儿窗口只能重启。清理时先结束更新进程再删目录"
     },
@@ -738,7 +942,11 @@
         "C:\\Program Files*\\PalmInput",
         "D:\\Program Files*\\PalmInput",
         "$env:APPDATA\\PalmInput",
+        "C:\\Users\\*\\AppData\\Roaming\\PalmInput",
+        "D:\\Users\\*\\AppData\\Roaming\\PalmInput",
         "$env:LOCALAPPDATA\\PalmInput",
+        "C:\\Users\\*\\AppData\\Local\\PalmInput",
+        "D:\\Users\\*\\AppData\\Local\\PalmInput",
         "C:\\ProgramData\\PalmInput"
       ],
       "regs": [
@@ -790,7 +998,11 @@
         "C:\\Program Files*\\xunyou",
         "D:\\Program Files*\\xunyou",
         "$env:APPDATA\\xunyou",
+        "C:\\Users\\*\\AppData\\Roaming\\xunyou",
+        "D:\\Users\\*\\AppData\\Roaming\\xunyou",
         "$env:LOCALAPPDATA\\xunyou",
+        "C:\\Users\\*\\AppData\\Local\\xunyou",
+        "D:\\Users\\*\\AppData\\Local\\xunyou",
         "C:\\ProgramData\\xunyou"
       ],
       "regs": [
@@ -823,7 +1035,11 @@
         "C:\\ProgramData\\SogouInput\\ShareBuffer",
         "D:\\ProgramData\\SogouInput\\SGCefCache",
         "$env:LOCALAPPDATA\\sogoupdf\\cache",
-        "$env:LOCALAPPDATA\\kfastpic_sogou\\cache"
+        "C:\\Users\\*\\AppData\\Local\\sogoupdf\\cache",
+        "D:\\Users\\*\\AppData\\Local\\sogoupdf\\cache",
+        "$env:LOCALAPPDATA\\kfastpic_sogou\\cache",
+        "C:\\Users\\*\\AppData\\Local\\kfastpic_sogou\\cache",
+        "D:\\Users\\*\\AppData\\Local\\kfastpic_sogou\\cache"
       ],
       "note": "来源：2026-11-16 本机实测（装 D:\\Program Files (x86)\\SogouInput，975.1MB）。真实缓存集中在 C:\\ProgramData\\SogouInput（169.1MB）：SGCefCache 42.7MB、cache 7.3MB、ShiplyUpdate 4.9MB、SGSysToast 0.2MB、ShareBuffer 0.7MB。原内置条目按通用规律写 %APPDATA%\\SogouInput\\Cache/logs/temp，实测全不存在，已删内置改云端。词库在 %LOCALAPPDATA%\\Low\\SogouPY，本条不碰"
     },
@@ -847,14 +1063,32 @@
         "C:\\ProgramData\\SogouInput",
         "D:\\ProgramData\\SogouInput",
         "$env:LOCALAPPDATA\\Low\\SogouPY",
+        "C:\\Users\\*\\AppData\\Local\\Low\\SogouPY",
+        "D:\\Users\\*\\AppData\\Local\\Low\\SogouPY",
         "$env:LOCALAPPDATA\\Low\\SogouPY.users",
+        "C:\\Users\\*\\AppData\\Local\\Low\\SogouPY.users",
+        "D:\\Users\\*\\AppData\\Local\\Low\\SogouPY.users",
         "$env:LOCALAPPDATA\\SogouPY",
+        "C:\\Users\\*\\AppData\\Local\\SogouPY",
+        "D:\\Users\\*\\AppData\\Local\\SogouPY",
         "$env:LOCALAPPDATA\\SogouPY.users",
+        "C:\\Users\\*\\AppData\\Local\\SogouPY.users",
+        "D:\\Users\\*\\AppData\\Local\\SogouPY.users",
         "$env:APPDATA\\SogouPY",
+        "C:\\Users\\*\\AppData\\Roaming\\SogouPY",
+        "D:\\Users\\*\\AppData\\Roaming\\SogouPY",
         "$env:LOCALAPPDATA\\sogoupdf",
+        "C:\\Users\\*\\AppData\\Local\\sogoupdf",
+        "D:\\Users\\*\\AppData\\Local\\sogoupdf",
         "$env:LOCALAPPDATA\\kfastpic_sogou",
+        "C:\\Users\\*\\AppData\\Local\\kfastpic_sogou",
+        "D:\\Users\\*\\AppData\\Local\\kfastpic_sogou",
         "$env:LOCALAPPDATA\\kzip_sogou",
+        "C:\\Users\\*\\AppData\\Local\\kzip_sogou",
+        "D:\\Users\\*\\AppData\\Local\\kzip_sogou",
         "$env:LOCALAPPDATA\\sogousdk",
+        "C:\\Users\\*\\AppData\\Local\\sogousdk",
+        "D:\\Users\\*\\AppData\\Local\\sogousdk",
         "C:\\Program Files*\\SogouInput",
         "D:\\Program Files*\\SogouInput"
       ],
@@ -878,8 +1112,14 @@
       "force_dirs": [
         "C:\\ProgramData\\SogouInput",
         "$env:LOCALAPPDATA\\Low\\SogouPY",
+        "C:\\Users\\*\\AppData\\Local\\Low\\SogouPY",
+        "D:\\Users\\*\\AppData\\Local\\Low\\SogouPY",
         "$env:LOCALAPPDATA\\SogouPY",
+        "C:\\Users\\*\\AppData\\Local\\SogouPY",
+        "D:\\Users\\*\\AppData\\Local\\SogouPY",
         "$env:APPDATA\\SogouPY",
+        "C:\\Users\\*\\AppData\\Roaming\\SogouPY",
+        "D:\\Users\\*\\AppData\\Roaming\\SogouPY",
         "C:\\Program Files\\SogouInput",
         "C:\\Program Files (x86)\\SogouInput",
         "D:\\Program Files\\SogouInput",
@@ -904,7 +1144,11 @@
         "C:\\Program Files*\\LeiGod_Acc",
         "D:\\Program Files*\\LeiGod_Acc",
         "$env:APPDATA\\leigod",
+        "C:\\Users\\*\\AppData\\Roaming\\leigod",
+        "D:\\Users\\*\\AppData\\Roaming\\leigod",
         "$env:LOCALAPPDATA\\acc_kernel",
+        "C:\\Users\\*\\AppData\\Local\\acc_kernel",
+        "D:\\Users\\*\\AppData\\Local\\acc_kernel",
         "C:\\ProgramData\\leigod_person_7002"
       ],
       "regs": [
