@@ -580,21 +580,6 @@
         "D:\\Users\\*\\AppData\\Roaming\\TypeEasyData"
       ],
       "note": "来源：2026-11-17 官方文档。金山打字通用户数据目录在 %APPDATA%\\TypeEasyData，包含打字成绩和练习记录。清理后打字成绩会丢失，软件本身不受影响。"
-    },
-    {
-      "name": "豆包工作缓存",
-      "group": "cache",
-      "kind": "dir",
-      "safe": "安全",
-      "desc": "清理豆包工作的浏览器缓存（不影响软件本身和用户数据）",
-      "cat": "办公效率",
-      "dprobe": "Doubao",
-      "paths": [
-        "$env:LOCALAPPDATA\\Doubao\\User Data\\Default\\Cache",
-        "C:\\Users\\*\\AppData\\Local\\Doubao\\User Data\\Default\\Cache",
-        "D:\\Users\\*\\AppData\\Local\\Doubao\\User Data\\Default\\Cache"
-      ],
-      "note": "来源：2026-11-17 本机实测。豆包工作安装路径：D:\\Program Files (x86)\\Doubao\\app\\Doubao.exe。用户数据目录：%LOCALAPPDATA%\\Doubao\\User Data（2491.24 MB），缓存目录：%LOCALAPPDATA%\\Doubao\\User Data\\Default\\Cache（41.82 MB）。清理后不影响账号和历史任务，只是网页缓存会重新加载。"
     }
   ]
 }
