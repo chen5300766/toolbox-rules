@@ -586,15 +586,15 @@
       "group": "cache",
       "kind": "dir",
       "safe": "安全",
-      "desc": "清理豆包工作的用户数据目录（不影响软件本身）",
+      "desc": "清理豆包工作的浏览器缓存（不影响软件本身和用户数据）",
       "cat": "办公效率",
-      "dprobe": "DoubaoWork",
+      "dprobe": "Doubao",
       "paths": [
-        "$env:LOCALAPPDATA\\DoubaoWork\\User Data",
-        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data",
-        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data"
+        "$env:LOCALAPPDATA\\Doubao\\User Data\\Default\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\Doubao\\User Data\\Default\\Cache",
+        "D:\\Users\\*\\AppData\\Local\\Doubao\\User Data\\Default\\Cache"
       ],
-      "note": "来源：2026-11-17 豆包工作官方帮助文档。豆包工作数据目录在 %LOCALAPPDATA%\\DoubaoWork\\User Data，包含用户配置和缓存。清理后需要重新登录，历史任务和产物不受影响。"
+      "note": "来源：2026-11-17 本机实测。豆包工作安装路径：D:\\Program Files (x86)\\Doubao\\app\\Doubao.exe。用户数据目录：%LOCALAPPDATA%\\Doubao\\User Data（2491.24 MB），缓存目录：%LOCALAPPDATA%\\Doubao\\User Data\\Default\\Cache（41.82 MB）。清理后不影响账号和历史任务，只是网页缓存会重新加载。"
     }
   ]
 }
