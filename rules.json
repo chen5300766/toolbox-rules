@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-17-去重精选14条",
+  "version": "2026-11-17-新增百度网盘日志",
   "updated": "2026-11-17",
   "items": [
     {
@@ -491,6 +491,29 @@
         "D:\\Program Files (x86)\\LeiGod_Acc"
       ],
       "note": "来源：2026-11-16 本机实测（雷神 11.99.1.7，装 C:\\Program Files (x86)\\LeiGod_Acc 573.8MB，启动后 846.7MB）。resources\\tools 363.1MB 与 leishenSdk 181.7MB 是同一批工具存两份。自启项在 Run 键下（electron.app.leigod），云端规则禁止碰 Run，需手动删或走内置条目"
+    },
+    {
+      "name": "百度网盘日志",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理百度网盘的运行日志，主程序、配置、账号与下载文件一律不动",
+      "cat": "网盘同步",
+      "dprobe": "BaiduNetdisk",
+      "paths": [
+        "$env:APPDATA\\BaiduYunGuanjia\\logs",
+        "C:\\Users\\*\\AppData\\Roaming\\BaiduYunGuanjia\\logs",
+        "D:\\Users\\*\\AppData\\Roaming\\BaiduYunGuanjia\\logs",
+        "$env:APPDATA\\BaiduYunGuanjia\\BaiduYunKernel\\Data",
+        "C:\\Users\\*\\AppData\\Roaming\\BaiduYunGuanjia\\BaiduYunKernel\\Data",
+        "D:\\Users\\*\\AppData\\Roaming\\BaiduYunGuanjia\\BaiduYunKernel\\Data",
+        "$env:APPDATA\\BaiduYunKernel\\Data",
+        "C:\\Users\\*\\AppData\\Roaming\\BaiduYunKernel\\Data",
+        "D:\\Users\\*\\AppData\\Roaming\\BaiduYunKernel\\Data",
+        "$env:APPDATA\\BaiduYunGuanjia\\BaiduYunKernel\\VideoLog",
+        "$env:APPDATA\\BaiduYunGuanjia\\BaiduYunKernel\\LocalVideoLog"
+      ],
+      "note": "来源：2026-11-17 本机实测（重装 8.10.3 并登录后）。百度网盘数据分三处：程序本体在 %APPDATA%\\baidu\\BaiduNetdisk（1516.6MB，module 独占 1148.9MB，绝不能清）；日志另在 %APPDATA%\\BaiduYunGuanjia 与 %APPDATA%\\BaiduYunKernel 两个独立目录。可清日志实测合计约 1.4MB：logs 下 XLog_*.txt 1.22MB、BaiduYunKernel\\Data 下 BaiduKernel_*.log 141.6KB 与 MVastLog_*.log 0.6KB。原内置条目把整个 BaiduNetdisk 安装目录当缓存，1.0.2 实测直接删掉 BaiduNetdisk.exe 致软件报废、隔离区无备份，该内置条目须删除。注意 BaiduYunKernel\\Config 内是 index.s3dbs / kernel.cfg 配置、BaiduYunGuanjia\\AppData 内是 at_* 统计库，均不在本条范围；BaiduNetdisk\\AutoUpdate\\Download 在新版仅剩 0.21MB xml，已无旧版 783MB 安装包"
     }
   ]
 }
