@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-17-新增百度网盘日志",
+  "version": "2026-11-17-新增五款软件缓存",
   "updated": "2026-11-17",
   "items": [
     {
@@ -514,6 +514,87 @@
         "$env:APPDATA\\BaiduYunGuanjia\\BaiduYunKernel\\LocalVideoLog"
       ],
       "note": "来源：2026-11-17 本机实测（重装 8.10.3 并登录后）。百度网盘数据分三处：程序本体在 %APPDATA%\\baidu\\BaiduNetdisk（1516.6MB，module 独占 1148.9MB，绝不能清）；日志另在 %APPDATA%\\BaiduYunGuanjia 与 %APPDATA%\\BaiduYunKernel 两个独立目录。可清日志实测合计约 1.4MB：logs 下 XLog_*.txt 1.22MB、BaiduYunKernel\\Data 下 BaiduKernel_*.log 141.6KB 与 MVastLog_*.log 0.6KB。原内置条目把整个 BaiduNetdisk 安装目录当缓存，1.0.2 实测直接删掉 BaiduNetdisk.exe 致软件报废、隔离区无备份，该内置条目须删除。注意 BaiduYunKernel\\Config 内是 index.s3dbs / kernel.cfg 配置、BaiduYunGuanjia\\AppData 内是 at_* 统计库，均不在本条范围；BaiduNetdisk\\AutoUpdate\\Download 在新版仅剩 0.21MB xml，已无旧版 783MB 安装包"
+    },
+    {
+      "name": "Xmind缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理Xmind的文件缓存（自动备份的编辑文件，不影响已保存的思维导图）",
+      "cat": "办公效率",
+      "dprobe": "Xmind",
+      "paths": [
+        "$env:APPDATA\\XMind\\Electron v3\\vana\\file-cache",
+        "C:\\Users\\*\\AppData\\Roaming\\XMind\\Electron v3\\vana\\file-cache",
+        "D:\\Users\\*\\AppData\\Roaming\\XMind\\Electron v3\\vana\\file-cache"
+      ],
+      "note": "来源：2026-11-17 Xmind官方帮助文档。文件缓存自动备份编辑过的xmind文件，断电或关机后可通过 文件>文件缓存 取回。清理后不影响已保存的思维导图，只是未保存的临时备份会丢失。"
+    },
+    {
+      "name": "Pycharm缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理Pycharm的缓存、索引和日志（不影响项目和配置）",
+      "cat": "开发工具",
+      "dprobe": "PyCharm",
+      "paths": [
+        "$env:LOCALAPPDATA\\JetBrains\\PyCharm*\\caches",
+        "C:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\caches",
+        "D:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\caches",
+        "$env:LOCALAPPDATA\\JetBrains\\PyCharm*\\log",
+        "C:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\log",
+        "D:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\log",
+        "$env:LOCALAPPDATA\\JetBrains\\PyCharm*\\tmp",
+        "C:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\tmp",
+        "D:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\tmp"
+      ],
+      "note": "来源：2026-11-17 JetBrains官方文档。Pycharm缓存目录在 %LOCALAPPDATA%\\JetBrains\\PyCharm<版本> 下，包含 caches（索引缓存）、log（日志）、tmp（临时文件）。清理后下次打开项目会重新建立索引，首次打开会慢一些。"
+    },
+    {
+      "name": "Zoom缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理Zoom的缓存和cookie（不影响账号和会议记录）",
+      "cat": "办公效率",
+      "dprobe": "Zoom",
+      "paths": [
+        "$env:APPDATA\\Zoom\\data",
+        "C:\\Users\\*\\AppData\\Roaming\\Zoom\\data",
+        "D:\\Users\\*\\AppData\\Roaming\\Zoom\\data"
+      ],
+      "note": "来源：2026-11-17 Zoom官方支持文档。Zoom缓存目录在 %APPDATA%\\Zoom 下，包含数据目录和缓存。清理后需要重新登录账号，会议记录和设置不受影响。"
+    },
+    {
+      "name": "金山打字通缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理金山打字通的用户数据（不影响软件本身）",
+      "cat": "学习教育",
+      "dprobe": "TypeEasy|KPT",
+      "paths": [
+        "$env:APPDATA\\TypeEasyData",
+        "C:\\Users\\*\\AppData\\Roaming\\TypeEasyData",
+        "D:\\Users\\*\\AppData\\Roaming\\TypeEasyData"
+      ],
+      "note": "来源：2026-11-17 官方文档。金山打字通用户数据目录在 %APPDATA%\\TypeEasyData，包含打字成绩和练习记录。清理后打字成绩会丢失，软件本身不受影响。"
+    },
+    {
+      "name": "豆包工作缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理豆包工作的用户数据目录（不影响软件本身）",
+      "cat": "办公效率",
+      "dprobe": "DoubaoWork",
+      "paths": [
+        "$env:LOCALAPPDATA\\DoubaoWork\\User Data",
+        "C:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data",
+        "D:\\Users\\*\\AppData\\Local\\DoubaoWork\\User Data"
+      ],
+      "note": "来源：2026-11-17 豆包工作官方帮助文档。豆包工作数据目录在 %LOCALAPPDATA%\\DoubaoWork\\User Data，包含用户配置和缓存。清理后需要重新登录，历史任务和产物不受影响。"
     }
   ]
 }
