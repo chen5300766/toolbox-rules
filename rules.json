@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "2026-11-17-新增五款软件缓存",
-  "updated": "2026-11-17",
+  "version": "2026-11-18-新增WinRAR痕迹与Anaconda缓存并去除重复",
+  "updated": "2026-11-18",
   "items": [
     {
       "name": "暴风影音缓存",
@@ -552,21 +552,6 @@
       "note": "来源：2026-11-17 JetBrains官方文档。Pycharm缓存目录在 %LOCALAPPDATA%\\JetBrains\\PyCharm<版本> 下，包含 caches（索引缓存）、log（日志）、tmp（临时文件）。清理后下次打开项目会重新建立索引，首次打开会慢一些。"
     },
     {
-      "name": "Zoom缓存",
-      "group": "cache",
-      "kind": "dir",
-      "safe": "安全",
-      "desc": "清理Zoom的缓存和cookie（不影响账号和会议记录）",
-      "cat": "办公效率",
-      "dprobe": "Zoom",
-      "paths": [
-        "$env:APPDATA\\Zoom\\data",
-        "C:\\Users\\*\\AppData\\Roaming\\Zoom\\data",
-        "D:\\Users\\*\\AppData\\Roaming\\Zoom\\data"
-      ],
-      "note": "来源：2026-11-17 Zoom官方支持文档。Zoom缓存目录在 %APPDATA%\\Zoom 下，包含数据目录和缓存。清理后需要重新登录账号，会议记录和设置不受影响。"
-    },
-    {
       "name": "金山打字通缓存",
       "group": "cache",
       "kind": "dir",
@@ -580,6 +565,41 @@
         "D:\\Users\\*\\AppData\\Roaming\\TypeEasyData"
       ],
       "note": "来源：2026-11-17 官方文档。金山打字通用户数据目录在 %APPDATA%\\TypeEasyData，包含打字成绩和练习记录。清理后打字成绩会丢失，软件本身不受影响。"
+    },
+    {
+      "name": "WinRAR压缩历史使用痕迹",
+      "group": "trace",
+      "kind": "trace",
+      "safe": "谨慎",
+      "desc": "清理 WinRAR 最近压缩文件、解压路径与压缩名历史（仅记录，不影响压缩包和软件配置）",
+      "keys": [
+        "HKCU:\\Software\\WinRAR\\ArcHistory",
+        "HKCU:\\Software\\WinRAR\\DialogEditHistory\\ExtrPath",
+        "HKCU:\\Software\\WinRAR\\DialogEditHistory\\ArcName"
+      ],
+      "note": "来源：2026-11-18 公开教程与取证资料印证。最近打开的压缩包记录在 ArcHistory；解压路径历史在 DialogEditHistory\\ExtrPath；压缩文件名历史在 DialogEditHistory\\ArcName。三个均为历史专用子键，键级清空只删历史，不碰 WinRAR 其他配置。"
+    },
+    {
+      "name": "Anaconda与Miniconda缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理 Anaconda/Miniconda 的 conda 包缓存（解压后的安装包缓存，不影响已建好的环境和配置）",
+      "cat": "开发工具",
+      "dprobe": "Anaconda3|miniconda3|conda",
+      "paths": [
+        "$env:USERPROFILE\\anaconda3\\pkgs",
+        "C:\\Users\\*\\anaconda3\\pkgs",
+        "D:\\Users\\*\\anaconda3\\pkgs",
+        "$env:USERPROFILE\\miniconda3\\pkgs",
+        "C:\\Users\\*\\miniconda3\\pkgs",
+        "D:\\Users\\*\\miniconda3\\pkgs",
+        "C:\\Anaconda3\\pkgs",
+        "D:\\Anaconda3\\pkgs",
+        "C:\\Miniconda3\\pkgs",
+        "D:\\Miniconda3\\pkgs"
+      ],
+      "note": "来源：2026-11-18 Anaconda 官方文档（package cache 在安装目录 pkgs 文件夹；Windows 默认 C:\\Users\\<用户>\\anaconda3 或 miniconda3，Miniconda 把 anaconda3 换成 miniconda3）。pkgs 是解压后的包缓存，清掉后下次装包重新下载；envs 环境目录与配置不在本条范围。内置已覆盖老路径 %LOCALAPPDATA%\\Continuum\\anaconda3\\pkgs，本条补用户目录与根目录安装位置，不重复。"
     }
   ]
 }
