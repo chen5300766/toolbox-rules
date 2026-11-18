@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-18-新增WinRAR痕迹与Anaconda缓存并去除重复",
+  "version": "2026-11-18-修正残留通配路径归位与网盘日志改名",
   "updated": "2026-11-18",
   "items": [
     {
@@ -38,13 +38,11 @@
         "tbb"
       ],
       "dirs": [
-        "$env:APPDATA\\baofeng",
         "C:\\Users\\*\\AppData\\Roaming\\baofeng",
         "D:\\Users\\*\\AppData\\Roaming\\baofeng",
         "$env:LOCALAPPDATA\\baofeng",
         "C:\\Users\\*\\AppData\\Local\\baofeng",
         "D:\\Users\\*\\AppData\\Local\\baofeng",
-        "C:\\ProgramData\\Baofeng",
         "C:\\Program Files*\\Baofeng",
         "D:\\Program Files*\\Baofeng"
       ],
@@ -55,8 +53,6 @@
       ],
       "force_dirs": [
         "$env:APPDATA\\baofeng",
-        "C:\\Users\\*\\AppData\\Roaming\\baofeng",
-        "D:\\Users\\*\\AppData\\Roaming\\baofeng",
         "C:\\ProgramData\\Baofeng",
         "C:\\Program Files\\Baofeng",
         "C:\\Program Files (x86)\\Baofeng",
@@ -219,13 +215,10 @@
       "dirs": [
         "C:\\Program Files*\\Tencent\\WeType",
         "D:\\Program Files*\\Tencent\\WeType",
-        "$env:LOCALAPPDATA\\Tencent\\WeType",
         "C:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
         "D:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
-        "$env:APPDATA\\wetype_renderer",
         "C:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
         "D:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
-        "$env:APPDATA\\wetype_update",
         "C:\\Users\\*\\AppData\\Roaming\\wetype_update",
         "D:\\Users\\*\\AppData\\Roaming\\wetype_update"
       ],
@@ -240,14 +233,8 @@
         "D:\\Program Files\\Tencent\\WeType",
         "D:\\Program Files (x86)\\Tencent\\WeType",
         "$env:LOCALAPPDATA\\Tencent\\WeType",
-        "C:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
-        "D:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
         "$env:APPDATA\\wetype_renderer",
-        "C:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
-        "D:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
-        "$env:APPDATA\\wetype_update",
-        "C:\\Users\\*\\AppData\\Roaming\\wetype_update",
-        "D:\\Users\\*\\AppData\\Roaming\\wetype_update"
+        "$env:APPDATA\\wetype_update"
       ],
       "note": "来源：2026-11-15 本机实测。卸载器删掉主目录后，WetypeCore_3.0.1.35.tmp0 还留 11.36MB/4 文件，重启后才由系统清成空壳。卸载过程中 wetype_update.exe（依赖同目录 flurry.dll）被反复拉起，曾同时堆积 20 个进程并弹「找不到 flurry.dll」，弹窗最后被 csrss 托管成孤儿窗口只能重启。清理时先结束更新进程再删目录"
     },
@@ -388,21 +375,17 @@
         "SogouImeBroker"
       ],
       "dirs": [
-        "C:\\ProgramData\\SogouInput",
         "D:\\ProgramData\\SogouInput",
-        "$env:LOCALAPPDATA\\Low\\SogouPY",
         "C:\\Users\\*\\AppData\\Local\\Low\\SogouPY",
         "D:\\Users\\*\\AppData\\Local\\Low\\SogouPY",
         "$env:LOCALAPPDATA\\Low\\SogouPY.users",
         "C:\\Users\\*\\AppData\\Local\\Low\\SogouPY.users",
         "D:\\Users\\*\\AppData\\Local\\Low\\SogouPY.users",
-        "$env:LOCALAPPDATA\\SogouPY",
         "C:\\Users\\*\\AppData\\Local\\SogouPY",
         "D:\\Users\\*\\AppData\\Local\\SogouPY",
         "$env:LOCALAPPDATA\\SogouPY.users",
         "C:\\Users\\*\\AppData\\Local\\SogouPY.users",
         "D:\\Users\\*\\AppData\\Local\\SogouPY.users",
-        "$env:APPDATA\\SogouPY",
         "C:\\Users\\*\\AppData\\Roaming\\SogouPY",
         "D:\\Users\\*\\AppData\\Roaming\\SogouPY",
         "$env:LOCALAPPDATA\\sogoupdf",
@@ -440,14 +423,8 @@
       "force_dirs": [
         "C:\\ProgramData\\SogouInput",
         "$env:LOCALAPPDATA\\Low\\SogouPY",
-        "C:\\Users\\*\\AppData\\Local\\Low\\SogouPY",
-        "D:\\Users\\*\\AppData\\Local\\Low\\SogouPY",
         "$env:LOCALAPPDATA\\SogouPY",
-        "C:\\Users\\*\\AppData\\Local\\SogouPY",
-        "D:\\Users\\*\\AppData\\Local\\SogouPY",
         "$env:APPDATA\\SogouPY",
-        "C:\\Users\\*\\AppData\\Roaming\\SogouPY",
-        "D:\\Users\\*\\AppData\\Roaming\\SogouPY",
         "C:\\Program Files\\SogouInput",
         "C:\\Program Files (x86)\\SogouInput",
         "D:\\Program Files\\SogouInput",
@@ -493,12 +470,12 @@
       "note": "来源：2026-11-16 本机实测（雷神 11.99.1.7，装 C:\\Program Files (x86)\\LeiGod_Acc 573.8MB，启动后 846.7MB）。resources\\tools 363.1MB 与 leishenSdk 181.7MB 是同一批工具存两份。自启项在 Run 键下（electron.app.leigod），云端规则禁止碰 Run，需手动删或走内置条目"
     },
     {
-      "name": "百度网盘日志",
+      "name": "百度网盘日志缓存",
       "group": "cache",
       "kind": "dir",
       "safe": "安全",
       "desc": "清理百度网盘的运行日志，主程序、配置、账号与下载文件一律不动",
-      "cat": "网盘同步",
+      "cat": "网盘与下载",
       "dprobe": "BaiduNetdisk",
       "paths": [
         "$env:APPDATA\\BaiduYunGuanjia\\logs",
@@ -601,5 +578,6 @@
       ],
       "note": "来源：2026-11-18 Anaconda 官方文档（package cache 在安装目录 pkgs 文件夹；Windows 默认 C:\\Users\\<用户>\\anaconda3 或 miniconda3，Miniconda 把 anaconda3 换成 miniconda3）。pkgs 是解压后的包缓存，清掉后下次装包重新下载；envs 环境目录与配置不在本条范围。内置已覆盖老路径 %LOCALAPPDATA%\\Continuum\\anaconda3\\pkgs，本条补用户目录与根目录安装位置，不重复。"
     }
-  ]
+  ],
+  "note": "云端补充规则：收录内置清单之外的软件缓存、卸载残留与使用痕迹；缓存/日志类只清缓存、日志与更新包，账号、配置、收藏和下载文件一律不动。"
 }
