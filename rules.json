@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-19-新增通义千问缓存与更新残留",
+  "version": "2026-11-19-千问残留规则移除旧版备份与安装包",
   "updated": "2026-11-19",
   "items": [
     {
@@ -790,19 +790,15 @@
       "group": "cache",
       "kind": "dir",
       "safe": "安全",
-      "desc": "清理千问升级后保留的旧版主程序备份、更新器安装包与更新器日志；当前版本主程序与运行依赖不动",
+      "desc": "清理千问升级临时目录与更新器日志；旧版主程序备份、更新器安装包及当前版本主程序与运行依赖不动",
       "cat": "AI助手",
       "dprobe": "qianwen|Qianwen|qwen|Qwen|tongyi",
       "paths": [
         "$env:LOCALAPPDATA\\Qianwen\\User Data\\upgrade",
-        "C:\\Program Files*\\QianwenApp\\Temp",
-        "D:\\Program Files*\\QianwenApp\\Temp",
-        "C:\\Program Files*\\QianwenApp\\*\\Installer\\QianwenUpdaterSetup.exe",
-        "D:\\Program Files*\\QianwenApp\\*\\Installer\\QianwenUpdaterSetup.exe",
         "C:\\Program Files\\QianwenUpdater\\QianwenUpdater\\updater.log",
         "C:\\Program Files\\QianwenUpdater\\QianwenUpdater\\updater.log.old"
       ],
-      "note": "来源：2026-11-19 本机实测。安装目录 D:\\Program Files\\QianwenApp\\Temp\\old_qianwen.exe 为升级后保留的旧版主程序备份（13.01MB，2026-11-10，删除后失去本次版本回滚能力）；版本目录 5.2.5.305\\Installer\\QianwenUpdaterSetup.exe 为更新器安装包（8.12MB）；C:\\Program Files\\QianwenUpdater\\QianwenUpdater\\updater.log 与 updater.log.old 为更新器日志（合计约 1.83MB）。Installer 内 qianwen_swap_util.exe 为运行工具、更新器版本目录 1.0.0.10 内 updater.exe/utdid.dll/utforpc.dll/wtnet.dll/msvcr120.dll/zlib 为更新器运行依赖，均不纳入。"
+      "note": "来源：2026-11-19 本机实测（通义千问 5.2.5.305）。本规则仅纳入升级临时目录 %LOCALAPPDATA%\\Qianwen\\User Data\\upgrade 与更新器日志 C:\\Program Files\\QianwenUpdater\\QianwenUpdater\\updater.log / updater.log.old（合计约 1.83MB）。旧版主程序备份 Temp\\old_qianwen.exe（13.01MB，用于版本回滚）与 Installer\\QianwenUpdaterSetup.exe（更新器安装包 8.12MB）按要求不纳入自动清理；Installer 内 qianwen_swap_util.exe 为运行工具、更新器版本目录 1.0.0.10 内 updater.exe/utdid.dll/utforpc.dll/wtnet.dll/msvcr120.dll/zlib 为运行依赖，均不纳入。"
     }
   ],
   "note": "云端补充规则：收录内置清单之外的软件缓存、卸载残留与使用痕迹；缓存/日志类只清缓存、日志与更新包，账号、配置、收藏和下载文件一律不动。"
