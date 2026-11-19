@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "2026-11-19-修正4条缓存归类用词",
-  "updated": "2026-11-19",
+  "version": "2026-11-20-收窄万能播放器与打字通缓存移除微信输入法缓存",
+  "updated": "2026-11-20",
   "items": [
     {
       "name": "暴风影音缓存",
@@ -123,13 +123,15 @@
       "group": "cache",
       "kind": "dir",
       "safe": "安全",
-      "desc": "清理万能视频播放器的公共数据缓存（播放记录与播放设置不动）",
+      "desc": "清理万能视频播放器的缓存、临时文件与错误日志（播放记录、登录态与播放设置不动）",
       "cat": "视频播放",
       "dprobe": "JZYingYinLx|JZVideoPlayer",
       "paths": [
-        "C:\\ProgramData\\JZYingYinLx"
+        "C:\\ProgramData\\JZYingYinLx\\cache",
+        "C:\\ProgramData\\JZYingYinLx\\temp",
+        "C:\\ProgramData\\JZYingYinLx\\player_error.log"
       ],
-      "note": "来源：2026-11-15 本机实测（万能视频播放器 2.2.5.0，江下信息科技，装 E:\\HRSoftstore\\Install\\wannengshipinbofangqi\\JZYingYinLx）。数据目录只有 C:\\ProgramData\\JZYingYinLx（4 个文件，体积很小）。内置原本没有这个软件，本条新增"
+      "note": "来源：2026-11-20 本机实测（万能视频播放器 2.2.5.0）。程序本体在 %APPDATA%\\jinzhousoft\\JZYingYinLx（用户目录，禁整目录删）；公共数据在 C:\\ProgramData\\JZYingYinLx，仅收窄 cache/temp/player_error.log；jzsqllite.db（播放列表与逐文件播放配置）、cookie.dat/cookie、config.ini、PlayerSetting.ini、watermark 保留不动。"
     },
     {
       "name": "卸载残留-万能视频播放器",
@@ -173,29 +175,6 @@
         "D:\\Program Files (x86)\\wannengshipinbofangqi"
       ],
       "note": "来源：2026-11-15 本机实测。卸载器清掉主体 354.8MB 后，E:\\HRSoftstore\\Install\\wannengshipinbofangqi\\JZYingYinLx 还留 1.66MB/1 文件（火绒商店截图里那个「8 项 1.66MB 卸载残留」就是它），重启后变空壳。主程序 JZVideoPlayerLx.exe。内置原本没有，本条新增"
-    },
-    {
-      "name": "微信输入法缓存",
-      "group": "cache",
-      "kind": "dir",
-      "safe": "安全",
-      "desc": "清理微信输入法的渲染缓存与更新临时包（词库、账号、输入习惯不动）",
-      "cat": "输入法",
-      "dprobe": "WeType|wetype",
-      "paths": [
-        "$env:LOCALAPPDATA\\Tencent\\WeType",
-        "C:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
-        "D:\\Users\\*\\AppData\\Local\\Tencent\\WeType",
-        "$env:APPDATA\\wetype_renderer",
-        "C:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
-        "D:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
-        "$env:APPDATA\\wetype_update",
-        "C:\\Users\\*\\AppData\\Roaming\\wetype_update",
-        "D:\\Users\\*\\AppData\\Roaming\\wetype_update",
-        "C:\\Program Files*\\Tencent\\WeType\\WetypeCore_*.tmp*",
-        "D:\\Program Files*\\Tencent\\WeType\\WetypeCore_*.tmp*"
-      ],
-      "note": "来源：2026-11-15 本机实测（微信输入法 3.0.1.35，腾讯，装 C:\\Program Files\\Tencent\\WeType，418.7MB/706 文件）。安装目录里 WetypeCore_<版本>.tmp0 是更新临时包（实测 11.36MB/4 文件）。内置原本没有这个软件的缓存条目，本条新增"
     },
     {
       "name": "卸载残留-微信输入法",
@@ -533,15 +512,18 @@
       "group": "cache",
       "kind": "dir",
       "safe": "安全",
-      "desc": "清理金山打字通的用户数据（不影响软件本身）",
+      "desc": "清理金山打字通的更新补丁残留与更新日志（皮肤、登录配置与练习成绩不动）",
       "cat": "教育学习",
       "dprobe": "TypeEasy|KPT",
       "paths": [
-        "$env:APPDATA\\TypeEasyData",
-        "C:\\Users\\*\\AppData\\Roaming\\TypeEasyData",
-        "D:\\Users\\*\\AppData\\Roaming\\TypeEasyData"
+        "%APPDATA%\\TypeEasyData\\download",
+        "C:\\Users\\*\\AppData\\Roaming\\TypeEasyData\\download",
+        "D:\\Users\\*\\AppData\\Roaming\\TypeEasyData\\download",
+        "%APPDATA%\\Kingsoft\\TypeEasy\\update\\log",
+        "C:\\Users\\*\\AppData\\Roaming\\Kingsoft\\TypeEasy\\update\\log",
+        "D:\\Users\\*\\AppData\\Roaming\\Kingsoft\\TypeEasy\\update\\log"
       ],
-      "note": "来源：2026-11-17 官方文档。金山打字通用户数据目录在 %APPDATA%\\TypeEasyData，包含打字成绩和练习记录。清理后打字成绩会丢失，软件本身不受影响。"
+      "note": "来源：2026-11-20 本机实测（金山打字通 2.2.0.63）。程序本体在 %LOCALAPPDATA%\\Typeeasy\\12.3；仅收窄 TypeEasyData\\download（更新补丁 uplive.exe）与 Kingsoft\\TypeEasy\\update\\log；skin 皮肤、config/config.xml 登录配置保留不动。"
     },
     {
       "name": "WinRAR压缩历史使用痕迹",
