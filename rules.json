@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-19-千问残留规则移除旧版备份与安装包",
+  "version": "2026-11-19-修正4条缓存归类用词",
   "updated": "2026-11-19",
   "items": [
     {
@@ -498,7 +498,7 @@
       "kind": "dir",
       "safe": "安全",
       "desc": "清理Xmind的文件缓存（自动备份的编辑文件，不影响已保存的思维导图）",
-      "cat": "办公效率",
+      "cat": "办公文档",
       "dprobe": "Xmind",
       "paths": [
         "$env:APPDATA\\XMind\\Electron v3\\vana\\file-cache",
@@ -534,7 +534,7 @@
       "kind": "dir",
       "safe": "安全",
       "desc": "清理金山打字通的用户数据（不影响软件本身）",
-      "cat": "学习教育",
+      "cat": "教育学习",
       "dprobe": "TypeEasy|KPT",
       "paths": [
         "$env:APPDATA\\TypeEasyData",
@@ -671,7 +671,7 @@
       "kind": "dir",
       "safe": "安全",
       "desc": "清理美图秀秀的网页渲染缓存、崩溃转储与临时文件，创作记录、用户文件、素材库与付费配置一律不动",
-      "cat": "图像处理",
+      "cat": "图像设计",
       "dprobe": "XiuXiu|Meitu|MTXX",
       "paths": [
         "$env:LOCALAPPDATA\\XiuXiu\\QtWebEngine\\Default\\Cache",
@@ -722,7 +722,7 @@
       "kind": "dir",
       "safe": "安全",
       "desc": "清理通义千问客户端的网页组件缓存、着色器缓存、运行日志与指标上报；账号登录态、会话记录、Agent 工作区与技能包一律不动",
-      "cat": "AI助手",
+      "cat": "AI工具",
       "dprobe": "qianwen|Qianwen|qwen|Qwen|tongyi",
       "paths": [
         "$env:LOCALAPPDATA\\Qianwen\\User Data\\Default\\Cache",
