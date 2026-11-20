@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-20-核减万能播放器与微信输入法残留条目",
+  "version": "2026-11-20-修正夸克千问更新包条目命名归类",
   "updated": "2026-11-20",
   "items": [
     {
@@ -605,7 +605,7 @@
       "note": "来源：2026-11-19 本机实测。夸克网盘为 Chromium 内核，缓存分散在两处：%LOCALAPPDATA%\\QuarkCloudDrive\\User Data（Default\\Cache 25.4MB、GPUCache 5.6MB、GrShaderCache 6.0MB、component_crx_cache 5.8MB、ulog 日志）与 %APPDATA%\\quark-cloud-drive（Cache 18.6MB、Code Cache、GPUCache、DawnCache、logs、ulog），另 %APPDATA%\\QuarkCloudDrive\\Cache。Local Storage、IndexedDB、Session Storage、Network、下载目录不在本条范围；QuarkCloudDriveMini\\download 内是下载的安装包，属下载目录，不纳入。"
     },
     {
-      "name": "夸克网盘更新包残留",
+      "name": "夸克网盘更新包缓存",
       "group": "cache",
       "kind": "dir",
       "safe": "安全",
@@ -743,12 +743,12 @@
       "note": "来源：2026-11-19 本机实测（通义千问 5.2.5.305，进程 qianwen.exe，装 D:\\Program Files\\QianwenApp，Electron/Chromium 多进程）。可清：Default\\Cache 54.5MB、remote_resource_cache 89.8MB、GPUCache 5.6MB、Code Cache 1.1MB、DawnGraphiteCache/DawnWebGPUCache、image_cache 1.2MB、Service Worker\\ScriptCache 3.5MB，根目录 GrShaderCache 4.8MB、ShaderCache、GraphiteDawnCache、resource_cache、component_crx_cache、extensions_crx_cache、ulog 4.3MB、BrowserMetrics 4.0MB、EfsReports、Crashpad、temp_data。明确排除：Local Storage、IndexedDB、Session Storage、Network、Cookies、WebStorage、quark_leveldb_storage（账号会话）；qianwen_user_info（账号信息）；qwen-agent\\resources（Agent 内嵌 Python 运行时与依赖）；qwen-agent\\iiXf5Ka2aj\\skills（技能包）与 projects/state/host-state（工作区）；pars_data\\files（解析子模块数据包）；cms_data、unet、OnDeviceHeadSuggestModel、WasmTtsEngine、WidevineCdm、Extensions（功能组件）。"
     },
     {
-      "name": "千问更新包残留",
+      "name": "千问更新包缓存",
       "group": "cache",
       "kind": "dir",
       "safe": "安全",
       "desc": "清理千问升级临时目录与更新器日志；旧版主程序备份、更新器安装包及当前版本主程序与运行依赖不动",
-      "cat": "AI助手",
+      "cat": "AI工具",
       "dprobe": "qianwen|Qianwen|qwen|Qwen|tongyi",
       "paths": [
         "$env:LOCALAPPDATA\\Qianwen\\User Data\\upgrade",
