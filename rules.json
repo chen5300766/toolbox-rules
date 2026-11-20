@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-20-收窄万能播放器与打字通缓存移除微信输入法缓存",
+  "version": "2026-11-20-核减万能播放器与微信输入法残留条目",
   "updated": "2026-11-20",
   "items": [
     {
@@ -138,43 +138,20 @@
       "group": "residue",
       "kind": "residue",
       "safe": "安全",
-      "desc": "清理万能视频播放器卸载后残留的安装目录与公共数据目录（火绒商店装的落在 E:\\HRSoftstore\\Install）",
-      "exes": [
-        "C:\\Program Files*\\wannengshipinbofangqi\\*.exe",
-        "D:\\Program Files*\\wannengshipinbofangqi\\*.exe",
-        "C:\\Program Files*\\万能视频播放器\\*.exe",
-        "D:\\Program Files*\\万能视频播放器\\*.exe"
-      ],
+      "desc": "清理万能视频播放器卸载后残留的用户目录空壳与注册表项（程序本体与播放记录不动）",
       "procs": [
         "JZVideoPlayerLx",
         "JZYingYinLx"
       ],
       "dirs": [
-        "C:\\Program Files*\\wannengshipinbofangqi",
-        "D:\\Program Files*\\wannengshipinbofangqi",
-        "C:\\Program Files*\\万能视频播放器",
-        "D:\\Program Files*\\万能视频播放器",
-        "C:\\ProgramData\\JZYingYinLx",
-        "$env:APPDATA\\JZYingYinLx",
-        "C:\\Users\\*\\AppData\\Roaming\\JZYingYinLx",
-        "D:\\Users\\*\\AppData\\Roaming\\JZYingYinLx",
-        "$env:LOCALAPPDATA\\JZYingYinLx",
-        "C:\\Users\\*\\AppData\\Local\\JZYingYinLx",
-        "D:\\Users\\*\\AppData\\Local\\JZYingYinLx"
+        "$env:APPDATA\\jinzhousoft",
+        "C:\\Users\\*\\AppData\\Roaming\\jinzhousoft",
+        "D:\\Users\\*\\AppData\\Roaming\\jinzhousoft"
       ],
       "regs": [
-        "HKCU:\\Software\\JZYingYinLx",
-        "HKLM:\\SOFTWARE\\JZYingYinLx",
-        "HKLM:\\SOFTWARE\\WOW6432Node\\JZYingYinLx"
+        "HKCU:\\SOFTWARE\\JZYingYinLx"
       ],
-      "force_dirs": [
-        "C:\\ProgramData\\JZYingYinLx",
-        "C:\\Program Files\\wannengshipinbofangqi",
-        "C:\\Program Files (x86)\\wannengshipinbofangqi",
-        "D:\\Program Files\\wannengshipinbofangqi",
-        "D:\\Program Files (x86)\\wannengshipinbofangqi"
-      ],
-      "note": "来源：2026-11-15 本机实测。卸载器清掉主体 354.8MB 后，E:\\HRSoftstore\\Install\\wannengshipinbofangqi\\JZYingYinLx 还留 1.66MB/1 文件（火绒商店截图里那个「8 项 1.66MB 卸载残留」就是它），重启后变空壳。主程序 JZVideoPlayerLx.exe。内置原本没有，本条新增"
+      "note": "来源：2026-11-20 公司机实测（万能视频播放器 2.2.5.0）。卸载后仅留 %APPDATA%\\jinzhousoft 空壳（0 子项）与 HKCU\\SOFTWARE\\JZYingYinLx（number/type/single=0）；Program Files 猜测目录与 ProgramData/AppData/Local\\JZYingYinLx 真机均不存在，已剔除。指向已删 exe 的 Run 死值由「注册表-失效启动项」模块清理，不在本条登记。程序本体在用户目录，禁整目录删。"
     },
     {
       "name": "卸载残留-微信输入法",
@@ -202,9 +179,7 @@
         "D:\\Users\\*\\AppData\\Roaming\\wetype_update"
       ],
       "regs": [
-        "HKCU:\\Software\\Tencent\\WeType",
-        "HKLM:\\SOFTWARE\\Tencent\\WeType",
-        "HKLM:\\SOFTWARE\\WOW6432Node\\Tencent\\WeType"
+        "HKCU:\\SOFTWARE\\WeType Project"
       ],
       "force_dirs": [
         "C:\\Program Files\\Tencent\\WeType",
@@ -215,7 +190,7 @@
         "$env:APPDATA\\wetype_renderer",
         "$env:APPDATA\\wetype_update"
       ],
-      "note": "来源：2026-11-15 本机实测。卸载器删掉主目录后，WetypeCore_3.0.1.35.tmp0 还留 11.36MB/4 文件，重启后才由系统清成空壳。卸载过程中 wetype_update.exe（依赖同目录 flurry.dll）被反复拉起，曾同时堆积 20 个进程并弹「找不到 flurry.dll」，弹窗最后被 csrss 托管成孤儿窗口只能重启。清理时先结束更新进程再删目录"
+      "note": "来源：2026-11-20 公司机实测（微信输入法 WeType 3.0.2.44）。实测注册表根键为 HKCU\\SOFTWARE\\WeType Project\\WeType（game_policies_enabled=1），旧 HKCU\\Software\\Tencent\\WeType 真机不存在，已改正。Local\\Tencent\\WeType 为个人语音密钥目录（VoiceSummary 存 dpapi 密钥），仅在 Uninstall 登记已不存在时才判残留，在用状态由卸载登记判据保护；wetype_renderer / wetype_update 为空目录壳。清理前先结束 wetype_update 更新进程。"
     },
     {
       "name": "卸载残留-PalmInput",
@@ -516,10 +491,10 @@
       "cat": "教育学习",
       "dprobe": "TypeEasy|KPT",
       "paths": [
-        "%APPDATA%\\TypeEasyData\\download",
+        "$env:APPDATA\\TypeEasyData\\download",
         "C:\\Users\\*\\AppData\\Roaming\\TypeEasyData\\download",
         "D:\\Users\\*\\AppData\\Roaming\\TypeEasyData\\download",
-        "%APPDATA%\\Kingsoft\\TypeEasy\\update\\log",
+        "$env:APPDATA\\Kingsoft\\TypeEasy\\update\\log",
         "C:\\Users\\*\\AppData\\Roaming\\Kingsoft\\TypeEasy\\update\\log",
         "D:\\Users\\*\\AppData\\Roaming\\Kingsoft\\TypeEasy\\update\\log"
       ],
