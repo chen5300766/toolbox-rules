@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-23-两款浏览器缓存与卸载残留",
+  "version": "2026-11-23-网盘组补FDM与Box缓存",
   "updated": "2026-11-23",
   "items": [
     {
@@ -923,6 +923,52 @@
         "$env:LOCALAPPDATA\\JiasuBrowser"
       ],
       "note": "来源：2026-11-23 本机卸载实测（123加速浏览器 3.102.12.18，佛山市鑫卓讯软件科技有限公司，Chromium 104 内核，用户目录安装于 %LOCALAPPDATA%\\JiasuBrowser\\Bin）。卸载器已清除程序目录 Bin、User Data 用户数据与 Uninstall 登记项、HKCU\\Software\\JiasuBrowser 注册表键，本机无残留；本条为其他机器或卸载异常中断的情况兜底。用户目录安装，在用判据保护：注册表 Uninstall 仍登记且 InstallLocation 存在即视为在用，不整目录删；本条目仅在确认软件已卸载后清理残留。"
+    },
+    {
+      "name": "FDM缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理 Free Download Manager 的界面缓存与数据库历史备份（下载队列、历史记录和配置不动）",
+      "cat": "网盘与下载",
+      "dprobe": "fdm|Free Download Manager",
+      "paths": [
+        "$env:LOCALAPPDATA\\Softdeluxe\\Free Download Manager\\cache\\qmlcache",
+        "C:\\Users\\*\\AppData\\Local\\Softdeluxe\\Free Download Manager\\cache\\qmlcache",
+        "D:\\Users\\*\\AppData\\Local\\Softdeluxe\\Free Download Manager\\cache\\qmlcache",
+        "$env:LOCALAPPDATA\\Softdeluxe\\Free Download Manager\\backup\\db\\*.daily",
+        "C:\\Users\\*\\AppData\\Local\\Softdeluxe\\Free Download Manager\\backup\\db\\*.daily",
+        "D:\\Users\\*\\AppData\\Local\\Softdeluxe\\Free Download Manager\\backup\\db\\*.daily",
+        "$env:LOCALAPPDATA\\Softdeluxe\\Free Download Manager\\backup\\db\\*.older",
+        "C:\\Users\\*\\AppData\\Local\\Softdeluxe\\Free Download Manager\\backup\\db\\*.older",
+        "D:\\Users\\*\\AppData\\Local\\Softdeluxe\\Free Download Manager\\backup\\db\\*.older"
+      ],
+      "procs": [
+        "fdm"
+      ],
+      "note": "来源：FDM v6.33/6.23 装机取证，数据目录在 Local\\Softdeluxe\\Free Download Manager；cache\\qmlcache 为 QML 界面缓存，backup\\db\\*.daily/.older 为数据库历史备份；主库 db.sqlite（队列/历史/凭证）不碰。内置旧条目误写 Roaming\\Free Download Manager，已整条撤除改由云端下发。"
+    },
+    {
+      "name": "Box缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理 Box Drive 的本地缓存与日志（已同步文件和账号不动，缓存删后按需重新下载）",
+      "cat": "网盘与下载",
+      "dprobe": "Box",
+      "paths": [
+        "$env:LOCALAPPDATA\\Box\\Box\\cache",
+        "C:\\Users\\*\\AppData\\Local\\Box\\Box\\cache",
+        "D:\\Users\\*\\AppData\\Local\\Box\\Box\\cache",
+        "$env:LOCALAPPDATA\\Box\\Box\\logs",
+        "C:\\Users\\*\\AppData\\Local\\Box\\Box\\logs",
+        "D:\\Users\\*\\AppData\\Local\\Box\\Box\\logs",
+        "$env:PROGRAMDATA\\Box\\Box\\Logs"
+      ],
+      "procs": [
+        "Box"
+      ],
+      "note": "来源：Box 官方《Technical Information for Box Drive Administrators》。Windows 下缓存目录 %LocalAppData%\\Box\\Box\\cache，日志 %LocalAppData%\\Box\\Box\\logs 与 C:\\ProgramData\\Box\\Box\\logs。cache 为本地副本缓存，删除不影响云端文件；内置条目漏列了 cache 目录，本次补齐。"
     }
   ],
   "note": "云端补充规则：收录内置清单之外的软件缓存、卸载残留与使用痕迹；缓存/日志类只清缓存、日志与更新包，账号、配置、收藏和下载文件一律不动。"
