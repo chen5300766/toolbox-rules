@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-23-网盘组补FDM与Box缓存",
+  "version": "2026-11-23-QQ浏览器缓存路径压减至39条",
   "updated": "2026-11-23",
   "items": [
     {
@@ -778,9 +778,6 @@
         "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\DawnGraphiteCache",
         "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\DawnGraphiteCache",
         "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\DawnGraphiteCache",
-        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\DawnWebGPUCache",
-        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\DawnWebGPUCache",
-        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\DawnWebGPUCache",
         "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\Service Worker\\ScriptCache",
         "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\Service Worker\\ScriptCache",
         "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\Service Worker\\ScriptCache",
@@ -796,12 +793,6 @@
         "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\ShaderCache",
         "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\ShaderCache",
         "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\ShaderCache",
-        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\component_crx_cache",
-        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\component_crx_cache",
-        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\component_crx_cache",
-        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\extensions_crx_cache",
-        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\extensions_crx_cache",
-        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\extensions_crx_cache",
         "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\UBALog",
         "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\UBALog",
         "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\UBALog",
@@ -815,7 +806,7 @@
         "C:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser\\Extensions\\Temp",
         "D:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser\\Extensions\\Temp"
       ],
-      "note": "来源：2026-11-23 本机实测（QQ浏览器，装 C:\\Program Files\\Tencent\\QQBrowser，用户数据 %LOCALAPPDATA%\\Tencent\\QQBrowser\\User Data）。可清：Default\\Cache 29.18MB、Code Cache 7.9MB、GPUCache 1.57MB、DawnGraphiteCache/DawnWebGPUCache、Service Worker\\ScriptCache 5.74MB、blob_storage，根目录 GraphiteDawnCache、GrShaderCache 4.76MB、ShaderCache、component_crx_cache、extensions_crx_cache、UBALog 行为日志；Roaming 下 LiveupLog/SetupLog 日志与 Extensions\\Temp 扩展临时文件。明确排除：Bookmarks 书签、Login Data 密码、Network(Cookies) 登录态、Extensions/Extension State/Local Extension Settings 扩展、Preferences/Secure Preferences 配置、Local Storage/Session Storage/IndexedDB/WebStorage 站点存储、History/Top Sites 浏览历史、Autofill/Account Web Data 表单、Sync Data、Favicons。Report 目录含 beacon_sdk.dll、qimei.dll 上报运行库，Liveup\\Temp 为升级器 exe 副本，均不整目录删除。"
+      "note": "来源：2026-11-23 本机实测（QQ浏览器，装 C:\\Program Files\\Tencent\\QQBrowser，用户数据 %LOCALAPPDATA%\\Tencent\\QQBrowser\\User Data）。可清：Default\\Cache 29.18MB、Code Cache 7.9MB、GPUCache 1.57MB、DawnGraphiteCache/DawnWebGPUCache、Service Worker\\ScriptCache 5.74MB、blob_storage，根目录 GraphiteDawnCache、GrShaderCache 4.76MB、ShaderCache、component_crx_cache、extensions_crx_cache、UBALog 行为日志；Roaming 下 LiveupLog/SetupLog 日志与 Extensions\\Temp 扩展临时文件。明确排除：Bookmarks 书签、Login Data 密码、Network(Cookies) 登录态、Extensions/Extension State/Local Extension Settings 扩展、Preferences/Secure Preferences 配置、Local Storage/Session Storage/IndexedDB/WebStorage 站点存储、History/Top Sites 浏览历史、Autofill/Account Web Data 表单、Sync Data、Favicons。Report 目录含 beacon_sdk.dll、qimei.dll 上报运行库，Liveup\\Temp 为升级器 exe 副本，均不整目录删除。（2026-11-23 压减：去掉 DawnWebGPUCache、component_crx_cache、extensions_crx_cache 三组共 9 条低价值缓存，由 48 条压到 39 条，以符合云端单条 40 条路径上限，此前整条被丢弃不生效。）"
     },
     {
       "name": "123加速浏览器缓存",
