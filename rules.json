@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "2026-11-20-修正夸克千问更新包条目命名归类",
-  "updated": "2026-11-20",
+  "version": "2026-11-23-两款浏览器缓存与卸载残留",
+  "updated": "2026-11-23",
   "items": [
     {
       "name": "暴风影音缓存",
@@ -756,6 +756,173 @@
         "C:\\Program Files\\QianwenUpdater\\QianwenUpdater\\updater.log.old"
       ],
       "note": "来源：2026-11-19 本机实测（通义千问 5.2.5.305）。本规则仅纳入升级临时目录 %LOCALAPPDATA%\\Qianwen\\User Data\\upgrade 与更新器日志 C:\\Program Files\\QianwenUpdater\\QianwenUpdater\\updater.log / updater.log.old（合计约 1.83MB）。旧版主程序备份 Temp\\old_qianwen.exe（13.01MB，用于版本回滚）与 Installer\\QianwenUpdaterSetup.exe（更新器安装包 8.12MB）按要求不纳入自动清理；Installer 内 qianwen_swap_util.exe 为运行工具、更新器版本目录 1.0.0.10 内 updater.exe/utdid.dll/utforpc.dll/wtnet.dll/msvcr120.dll/zlib 为运行依赖，均不纳入。"
+    },
+    {
+      "name": "QQ浏览器缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理QQ浏览器的网页缓存、脚本/着色器缓存、组件缓存与运行日志；书签、密码、登录态、收藏、扩展、表单与下载文件一律不动",
+      "cat": "浏览器",
+      "dprobe": "QQBrowser",
+      "paths": [
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\Cache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\Cache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\Code Cache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\Code Cache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\Code Cache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\GPUCache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\GPUCache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\GPUCache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\DawnGraphiteCache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\DawnGraphiteCache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\DawnGraphiteCache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\DawnWebGPUCache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\DawnWebGPUCache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\DawnWebGPUCache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\Service Worker\\ScriptCache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\Service Worker\\ScriptCache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\Service Worker\\ScriptCache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\Default\\blob_storage",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\blob_storage",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\Default\\blob_storage",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\GraphiteDawnCache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\GraphiteDawnCache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\GraphiteDawnCache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\GrShaderCache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\GrShaderCache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\GrShaderCache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\ShaderCache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\ShaderCache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\ShaderCache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\component_crx_cache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\component_crx_cache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\component_crx_cache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\extensions_crx_cache",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\extensions_crx_cache",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\extensions_crx_cache",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser\\User Data\\UBALog",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\UBALog",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser\\User Data\\UBALog",
+        "$env:APPDATA\\Tencent\\QQBrowser\\LiveupLog",
+        "C:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser\\LiveupLog",
+        "D:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser\\LiveupLog",
+        "$env:APPDATA\\Tencent\\QQBrowser\\SetupLog",
+        "C:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser\\SetupLog",
+        "D:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser\\SetupLog",
+        "$env:APPDATA\\Tencent\\QQBrowser\\Extensions\\Temp",
+        "C:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser\\Extensions\\Temp",
+        "D:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser\\Extensions\\Temp"
+      ],
+      "note": "来源：2026-11-23 本机实测（QQ浏览器，装 C:\\Program Files\\Tencent\\QQBrowser，用户数据 %LOCALAPPDATA%\\Tencent\\QQBrowser\\User Data）。可清：Default\\Cache 29.18MB、Code Cache 7.9MB、GPUCache 1.57MB、DawnGraphiteCache/DawnWebGPUCache、Service Worker\\ScriptCache 5.74MB、blob_storage，根目录 GraphiteDawnCache、GrShaderCache 4.76MB、ShaderCache、component_crx_cache、extensions_crx_cache、UBALog 行为日志；Roaming 下 LiveupLog/SetupLog 日志与 Extensions\\Temp 扩展临时文件。明确排除：Bookmarks 书签、Login Data 密码、Network(Cookies) 登录态、Extensions/Extension State/Local Extension Settings 扩展、Preferences/Secure Preferences 配置、Local Storage/Session Storage/IndexedDB/WebStorage 站点存储、History/Top Sites 浏览历史、Autofill/Account Web Data 表单、Sync Data、Favicons。Report 目录含 beacon_sdk.dll、qimei.dll 上报运行库，Liveup\\Temp 为升级器 exe 副本，均不整目录删除。"
+    },
+    {
+      "name": "123加速浏览器缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理123加速浏览器的网页缓存、脚本/着色器缓存与指标上报；书签、密码、登录态、收藏、扩展、表单与下载文件一律不动",
+      "cat": "浏览器",
+      "dprobe": "JiasuBrowser",
+      "paths": [
+        "$env:LOCALAPPDATA\\JiasuBrowser\\User Data\\Default\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\Cache",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\Cache",
+        "$env:LOCALAPPDATA\\JiasuBrowser\\User Data\\Default\\Code Cache",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\Code Cache",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\Code Cache",
+        "$env:LOCALAPPDATA\\JiasuBrowser\\User Data\\Default\\GPUCache",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\GPUCache",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\GPUCache",
+        "$env:LOCALAPPDATA\\JiasuBrowser\\User Data\\Default\\blob_storage",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\blob_storage",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\blob_storage",
+        "$env:LOCALAPPDATA\\JiasuBrowser\\User Data\\Default\\Safe Browsing Network",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\Safe Browsing Network",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\Default\\Safe Browsing Network",
+        "$env:LOCALAPPDATA\\JiasuBrowser\\User Data\\GrShaderCache",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\GrShaderCache",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\GrShaderCache",
+        "$env:LOCALAPPDATA\\JiasuBrowser\\User Data\\ShaderCache",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\ShaderCache",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\ShaderCache",
+        "$env:LOCALAPPDATA\\JiasuBrowser\\User Data\\BrowserMetrics",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\BrowserMetrics",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser\\User Data\\BrowserMetrics"
+      ],
+      "note": "来源：2026-11-23 本机实测（123加速浏览器 3.102.12.18，佛山市鑫卓讯软件科技有限公司，Chromium 104 内核，程序目录 %LOCALAPPDATA%\\JiasuBrowser\\Bin，用户数据 %LOCALAPPDATA%\\JiasuBrowser\\User Data）。可清：Default\\Cache 0.82MB、Code Cache、GPUCache 0.53MB、blob_storage、Safe Browsing Network，根目录 GrShaderCache 4.57MB、ShaderCache 0.53MB、BrowserMetrics 指标上报 pma 4.0MB。明确排除：Network(Cookies) 登录态、Login Data 密码、Extensions 扩展、Preferences/Secure Preferences 配置、Local Storage/Session Storage 站点存储、IndexedDB、History/Top Sites/Visited Links/Shortcuts 浏览历史、Sync Data、Favicons。本机实测无 DawnGraphiteCache/DawnWebGPUCache/GraphiteDawnCache 目录，未写。"
+    },
+    {
+      "name": "卸载残留-QQ浏览器",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理QQ浏览器卸载后残留的程序目录、用户数据目录与注册表项（书签、密码、登录态在软件在用期间由在用判据保护，不整目录删）",
+      "exes": [
+        "C:\\Program Files*\\Tencent\\QQBrowser\\*.exe",
+        "D:\\Program Files*\\Tencent\\QQBrowser\\*.exe"
+      ],
+      "procs": [
+        "QQBrowser"
+      ],
+      "dirs": [
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser",
+        "C:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser",
+        "D:\\Users\\*\\AppData\\Local\\Tencent\\QQBrowser",
+        "$env:APPDATA\\Tencent\\QQBrowser",
+        "C:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser",
+        "D:\\Users\\*\\AppData\\Roaming\\Tencent\\QQBrowser",
+        "C:\\Program Files*\\Tencent\\QQBrowser",
+        "D:\\Program Files*\\Tencent\\QQBrowser"
+      ],
+      "regs": [
+        "HKCU:\\Software\\Tencent\\QQBrowser",
+        "HKLM:\\SOFTWARE\\Tencent\\QQBrowser",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Tencent\\QQBrowser"
+      ],
+      "force_dirs": [
+        "C:\\Program Files\\Tencent\\QQBrowser",
+        "C:\\Program Files (x86)\\Tencent\\QQBrowser",
+        "D:\\Program Files\\Tencent\\QQBrowser",
+        "D:\\Program Files (x86)\\Tencent\\QQBrowser",
+        "$env:LOCALAPPDATA\\Tencent\\QQBrowser",
+        "$env:APPDATA\\Tencent\\QQBrowser"
+      ],
+      "note": "来源：2026-11-23 本机卸载实测（QQ浏览器，原程序目录 C:\\Program Files\\Tencent\\QQBrowser）。卸载器已清除程序目录、Uninstall 登记项与 HKCU\\Software\\Tencent\\QQBrowser 注册表键；本机残留仅 %LOCALAPPDATA%\\Tencent\\QQBrowser\\User Data 下内置扩展空壳与 2 个示例 PNG（约 0.03MB），%APPDATA%\\Tencent\\QQBrowser 已清。在用判据保护：注册表 Uninstall 仍登记且 InstallLocation 存在即视为在用，不整目录删；本条目仅在确认软件已卸载后清理残留。"
+    },
+    {
+      "name": "卸载残留-123加速浏览器",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理123加速浏览器卸载后残留的用户目录程序/数据目录与注册表项（用户目录安装，在用期间由在用判据保护，不整目录删）",
+      "exes": [
+        "$env:LOCALAPPDATA\\JiasuBrowser\\Bin\\*.exe",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser\\Bin\\*.exe",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser\\Bin\\*.exe"
+      ],
+      "procs": [
+        "JiasuBrowser"
+      ],
+      "dirs": [
+        "$env:LOCALAPPDATA\\JiasuBrowser",
+        "C:\\Users\\*\\AppData\\Local\\JiasuBrowser",
+        "D:\\Users\\*\\AppData\\Local\\JiasuBrowser",
+        "$env:APPDATA\\JiasuBrowser",
+        "C:\\Users\\*\\AppData\\Roaming\\JiasuBrowser",
+        "D:\\Users\\*\\AppData\\Roaming\\JiasuBrowser"
+      ],
+      "regs": [
+        "HKCU:\\Software\\JiasuBrowser",
+        "HKLM:\\SOFTWARE\\JiasuBrowser",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\JiasuBrowser",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\JiasuBrowser"
+      ],
+      "force_dirs": [
+        "$env:LOCALAPPDATA\\JiasuBrowser"
+      ],
+      "note": "来源：2026-11-23 本机卸载实测（123加速浏览器 3.102.12.18，佛山市鑫卓讯软件科技有限公司，Chromium 104 内核，用户目录安装于 %LOCALAPPDATA%\\JiasuBrowser\\Bin）。卸载器已清除程序目录 Bin、User Data 用户数据与 Uninstall 登记项、HKCU\\Software\\JiasuBrowser 注册表键，本机无残留；本条为其他机器或卸载异常中断的情况兜底。用户目录安装，在用判据保护：注册表 Uninstall 仍登记且 InstallLocation 存在即视为在用，不整目录删；本条目仅在确认软件已卸载后清理残留。"
     }
   ],
   "note": "云端补充规则：收录内置清单之外的软件缓存、卸载残留与使用痕迹；缓存/日志类只清缓存、日志与更新包，账号、配置、收藏和下载文件一律不动。"
