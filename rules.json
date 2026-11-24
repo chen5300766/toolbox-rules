@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-24-补登播放器浏览器缓存与卸载残留",
+  "version": "2026-11-24-下架与内置重名的迅游残留条目",
   "updated": "2026-11-24",
   "items": [
     {
@@ -230,47 +230,6 @@
         "D:\\Program Files (x86)\\PalmInput"
       ],
       "note": "来源：2026-11-15 本机实测（PalmInput 3.3.0.1030，装 C:\\Program Files (x86)\\PalmInput，99.9MB/84 文件，进程 PalmInputService.exe/PalmInputGuard.exe）。本机卸载后自身清得很干净（安装目录与 AppData/ProgramData 三处都没找到残留），本条是为其他版本/异常中断的情况兜底。内置原本没有，本条新增"
-    },
-    {
-      "name": "卸载残留-迅游加速器",
-      "group": "residue",
-      "kind": "residue",
-      "safe": "安全",
-      "desc": "清理迅游加速器卸载后的程序目录、注册表与明文账号凭据文件（卸载后本体 486MB 比装时还大）",
-      "exes": [
-        "C:\\Program Files*\\xunyou\\*.exe",
-        "D:\\Program Files*\\xunyou\\*.exe"
-      ],
-      "procs": [
-        "XYlauncher",
-        "ForkFramework",
-        "XYSpeedCollector",
-        "XYServiceLink"
-      ],
-      "dirs": [
-        "C:\\Program Files*\\xunyou",
-        "D:\\Program Files*\\xunyou",
-        "$env:APPDATA\\xunyou",
-        "C:\\Users\\*\\AppData\\Roaming\\xunyou",
-        "D:\\Users\\*\\AppData\\Roaming\\xunyou",
-        "$env:LOCALAPPDATA\\xunyou",
-        "C:\\Users\\*\\AppData\\Local\\xunyou",
-        "D:\\Users\\*\\AppData\\Local\\xunyou",
-        "C:\\ProgramData\\xunyou"
-      ],
-      "regs": [
-        "HKCU:\\Software\\xunyou",
-        "HKLM:\\SOFTWARE\\xunyou",
-        "HKLM:\\SOFTWARE\\WOW6432Node\\xunyou",
-        "HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\迅游加速器"
-      ],
-      "force_dirs": [
-        "C:\\Program Files\\xunyou",
-        "C:\\Program Files (x86)\\xunyou",
-        "D:\\Program Files\\xunyou",
-        "D:\\Program Files (x86)\\xunyou"
-      ],
-      "note": "来源：2026-11-16 本机实测。真实进程是 XYlauncher/ForkFramework/XYSpeedCollector/XYServiceLink（原内置写的 XunyouAcc 实测不存在）。dialConfig.ini 明文存 username/userid/token7/autologin=1，删目录即一并清除。另留 XunYouFilter 内核驱动（WFP 网络过滤，Start=1），设备管理器里不可见，会持续拦截流量；驱动清理见「驱动残留审计」"
     },
     {
       "name": "卸载残留-搜狗输入法",
