@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-24-百度网盘与腾讯会议缓存日志补登",
+  "version": "2026-11-24-补登播放器浏览器缓存与卸载残留",
   "updated": "2026-11-24",
   "items": [
     {
@@ -232,22 +232,6 @@
       "note": "来源：2026-11-15 本机实测（PalmInput 3.3.0.1030，装 C:\\Program Files (x86)\\PalmInput，99.9MB/84 文件，进程 PalmInputService.exe/PalmInputGuard.exe）。本机卸载后自身清得很干净（安装目录与 AppData/ProgramData 三处都没找到残留），本条是为其他版本/异常中断的情况兜底。内置原本没有，本条新增"
     },
     {
-      "name": "迅游加速器缓存",
-      "group": "cache",
-      "kind": "dir",
-      "safe": "安全",
-      "desc": "清理迅游加速器的临时文件与游戏排行缓存（账号配置、加速记录不动）",
-      "cat": "游戏平台",
-      "dprobe": "Xunyou|xunyou",
-      "paths": [
-        "C:\\Program Files*\\xunyou\\tmp",
-        "D:\\Program Files*\\xunyou\\tmp",
-        "C:\\Program Files*\\xunyou\\logs",
-        "D:\\Program Files*\\xunyou\\logs"
-      ],
-      "note": "来源：2026-11-16 本机实测（装 C:\\Program Files (x86)\\xunyou，477.9MB）。tmp\\game_rankings 下 8 个 MD5 命名文件约 22MB 是游戏排行缓存。原内置条目按 Electron 结构写 %APPDATA%\\Xunyou\\Cache/GPUCache/Code Cache，实测全不存在（迅游是自研 Win32），已删内置改云端"
-    },
-    {
       "name": "卸载残留-迅游加速器",
       "group": "residue",
       "kind": "residue",
@@ -287,30 +271,6 @@
         "D:\\Program Files (x86)\\xunyou"
       ],
       "note": "来源：2026-11-16 本机实测。真实进程是 XYlauncher/ForkFramework/XYSpeedCollector/XYServiceLink（原内置写的 XunyouAcc 实测不存在）。dialConfig.ini 明文存 username/userid/token7/autologin=1，删目录即一并清除。另留 XunYouFilter 内核驱动（WFP 网络过滤，Start=1），设备管理器里不可见，会持续拦截流量；驱动清理见「驱动残留审计」"
-    },
-    {
-      "name": "搜狗输入法缓存",
-      "group": "cache",
-      "kind": "dir",
-      "safe": "安全",
-      "desc": "清理搜狗输入法的渲染缓存、更新包与日志（词库、皮肤、账号配置不动）",
-      "cat": "输入法",
-      "dprobe": "SogouInput|SogouPY",
-      "paths": [
-        "C:\\ProgramData\\SogouInput\\SGCefCache",
-        "C:\\ProgramData\\SogouInput\\cache",
-        "C:\\ProgramData\\SogouInput\\ShiplyUpdate",
-        "C:\\ProgramData\\SogouInput\\SGSysToast",
-        "C:\\ProgramData\\SogouInput\\ShareBuffer",
-        "D:\\ProgramData\\SogouInput\\SGCefCache",
-        "$env:LOCALAPPDATA\\sogoupdf\\cache",
-        "C:\\Users\\*\\AppData\\Local\\sogoupdf\\cache",
-        "D:\\Users\\*\\AppData\\Local\\sogoupdf\\cache",
-        "$env:LOCALAPPDATA\\kfastpic_sogou\\cache",
-        "C:\\Users\\*\\AppData\\Local\\kfastpic_sogou\\cache",
-        "D:\\Users\\*\\AppData\\Local\\kfastpic_sogou\\cache"
-      ],
-      "note": "来源：2026-11-16 本机实测（装 D:\\Program Files (x86)\\SogouInput，975.1MB）。真实缓存集中在 C:\\ProgramData\\SogouInput（169.1MB）：SGCefCache 42.7MB、cache 7.3MB、ShiplyUpdate 4.9MB、SGSysToast 0.2MB、ShareBuffer 0.7MB。原内置条目按通用规律写 %APPDATA%\\SogouInput\\Cache/logs/temp，实测全不存在，已删内置改云端。词库在 %LOCALAPPDATA%\\Low\\SogouPY，本条不碰"
     },
     {
       "name": "卸载残留-搜狗输入法",
@@ -1012,7 +972,240 @@
         "$env:TEMP\\Tencent"
       ],
       "note": "来源：2026-11-24 本机实测（腾讯会议 3.48.0.443）并对照腾讯会议帮助中心官方日志路径。官方日志：2.16 及以上 %APPDATA%\\Tencent\\WeMeet\\Global\\Logs，2.15 及以下 %APPDATA%\\Tencent\\WeMeet\\Logs，国际版 VooVMeeting\\Global\\Logs，录制功能日志 liteav\\log，dump 临时文件 %TEMP%\\Tencent。本机上述日志目录均未生成，%TEMP%\\Tencent 仅 Androws SDK 日志。程序本体在 C:\\Program Files\\Tencent\\WeMeet；%APPDATA%\\Tencent\\WeMeet\\Global\\Data 为虚拟背景、美颜、头像模型与 IM 数据，不在本条；本地录制文件由用户自选目录，不纳入。内置旧条目登记的 Cache、Code Cache、GPUCache、Crashpad、temp、wemeetapp 路径本机均不存在，已不采用。"
+    },
+    {
+      "name": "QQ影音缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理QQ影音的播放缓存、日志与缩略图（账号配置 user.ini 与外壳扩展不动）",
+      "cat": "视频播放",
+      "dprobe": "QQPlayer",
+      "paths": [
+        "$env:APPDATA\\Tencent\\QQPlayer\\CacheFile",
+        "C:\\Users\\*\\AppData\\Roaming\\Tencent\\QQPlayer\\CacheFile",
+        "D:\\Users\\*\\AppData\\Roaming\\Tencent\\QQPlayer\\CacheFile",
+        "$env:APPDATA\\Tencent\\QQPlayer\\Log",
+        "C:\\Users\\*\\AppData\\Roaming\\Tencent\\QQPlayer\\Log",
+        "D:\\Users\\*\\AppData\\Roaming\\Tencent\\QQPlayer\\Log",
+        "$env:APPDATA\\Tencent\\QQPlayer\\thumbnail",
+        "C:\\Users\\*\\AppData\\Roaming\\Tencent\\QQPlayer\\thumbnail",
+        "D:\\Users\\*\\AppData\\Roaming\\Tencent\\QQPlayer\\thumbnail"
+      ],
+      "note": "来源：2026-11-24 公司机实测（QQ影音 4.6.3.1104，装 C:\\Program Files (x86)\\Tencent\\QQPlayer）。数据在 %APPDATA%\\Tencent\\QQPlayer：CacheFile、Log、thumbnail；user.ini 与 GeneralContextMenuExtension.dll 属配置与外壳扩展，不碰。"
+    },
+    {
+      "name": "迅雷浏览器缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理迅雷浏览器的图形、着色器与媒体缓存（扩展、Local Storage、网络数据与订阅过滤规则不动）",
+      "cat": "浏览器",
+      "dprobe": "XunleiBrowser",
+      "paths": [
+        "$env:LOCALAPPDATA\\XunleiBrowser\\User Data\\GrShaderCache",
+        "C:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\GrShaderCache",
+        "D:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\GrShaderCache",
+        "$env:LOCALAPPDATA\\XunleiBrowser\\User Data\\ShaderCache",
+        "C:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\ShaderCache",
+        "D:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\ShaderCache",
+        "$env:LOCALAPPDATA\\XunleiBrowser\\User Data\\GraphiteDawnCache",
+        "C:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\GraphiteDawnCache",
+        "D:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\GraphiteDawnCache",
+        "$env:LOCALAPPDATA\\XunleiBrowser\\User Data\\BrowserMetrics",
+        "C:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\BrowserMetrics",
+        "D:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\BrowserMetrics",
+        "$env:LOCALAPPDATA\\XunleiBrowser\\User Data\\Default\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\Default\\Cache",
+        "D:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\Default\\Cache",
+        "$env:LOCALAPPDATA\\XunleiBrowser\\User Data\\Default\\GPUCache",
+        "C:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\Default\\GPUCache",
+        "D:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\Default\\GPUCache",
+        "$env:LOCALAPPDATA\\XunleiBrowser\\User Data\\Default\\Service Worker",
+        "C:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\Default\\Service Worker",
+        "D:\\Users\\*\\AppData\\Local\\XunleiBrowser\\User Data\\Default\\Service Worker"
+      ],
+      "note": "来源：2026-11-24 公司机实测（迅雷浏览器 1.2.1.1110，Chromium 142）。User Data 下 GrShaderCache/ShaderCache/GraphiteDawnCache/BrowserMetrics，Default 下 Cache/GPUCache/Service Worker；Extensions、Local Extension Settings、Local Storage、Network、Subresource Filter 不碰。"
+    },
+    {
+      "name": "360安全浏览器缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理 360 安全浏览器可清的图形与媒体缓存（扩展、IndexedDB、Local Storage 与登录状态不动）",
+      "cat": "浏览器",
+      "dprobe": "360se6",
+      "paths": [
+        "$env:APPDATA\\360se6\\User Data\\Default\\Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\Cache",
+        "$env:APPDATA\\360se6\\User Data\\Default\\Code Cache",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\Code Cache",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\Code Cache",
+        "$env:APPDATA\\360se6\\User Data\\Default\\GPUCache64",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\GPUCache64",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\GPUCache64",
+        "$env:APPDATA\\360se6\\User Data\\Default\\ShaderCache64",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\ShaderCache64",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\ShaderCache64",
+        "$env:APPDATA\\360se6\\User Data\\Default\\GrShaderCache64",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\GrShaderCache64",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\GrShaderCache64",
+        "$env:APPDATA\\360se6\\User Data\\Default\\Service Worker",
+        "C:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\Service Worker",
+        "D:\\Users\\*\\AppData\\Roaming\\360se6\\User Data\\Default\\Service Worker"
+      ],
+      "note": "来源：2026-11-24 公司机实测（360安全浏览器 16.3.1140.64）。Default 下 Cache、Code Cache、GPUCache64、ShaderCache64、GrShaderCache64、Service Worker；Extensions、IndexedDB、Local Storage、Local Extension Settings、WebStorage、Sessions 排除；旧版本目录不进自动清理。"
+    },
+    {
+      "name": "搜狗输入法缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理搜狗输入法的网页组件缓存与 urlcache（词库、皮肤、账号配置与程序组件不动）",
+      "cat": "输入法",
+      "dprobe": "SogouInput",
+      "paths": [
+        "C:\\ProgramData\\SogouInput\\SGCefCache\\SGMyInput\\CefLocalStorage\\Cache",
+        "C:\\ProgramData\\SogouInput\\cache"
+      ],
+      "note": "来源：2026-11-24 公司机实测（搜狗输入法 16.10.0.5858）。只写两条精确路径，不加星号、不整目录删；shell_ext、Components、ShiplyUpdate、皮肤资源禁删。旧组件版本残留约 171.5 MB 只列手动候选，不做自动条目。"
+    },
+    {
+      "name": "迅游加速器缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理迅游加速器的运行期资源缓存与日志（配置规则、崩溃采集组件、程序本体与驱动组件不动）",
+      "cat": "游戏平台",
+      "dprobe": "Xunyou",
+      "paths": [
+        "C:\\Program Files*\\xunyou\\tmp",
+        "D:\\Program Files*\\xunyou\\tmp",
+        "C:\\Program Files*\\xunyou\\log",
+        "D:\\Program Files*\\xunyou\\log",
+        "D:\\xunyou\\tmp",
+        "D:\\xunyou\\log"
+      ],
+      "note": "来源：2026-11-24 公司机实测（迅游加速器，装 C:\\Program Files (x86)\\xunyou）。只点名 tmp、log；config、dump、bin、bridge、plugins、hostcap、netfilter、tap、win_pcap 禁删。"
+    },
+    {
+      "name": "卸载残留-爱奇艺视频",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理爱奇艺卸载后残留的用户数据目录（主程序或进程在跑时自动跳过）",
+      "exes": [
+        "C:\\Program Files*\\IQIYI Video\\LStyle\\*\\QyClient.exe"
+      ],
+      "procs": [
+        "QyClient"
+      ],
+      "dirs": [
+        "$env:APPDATA\\IQIYI Video",
+        "C:\\Users\\*\\AppData\\Roaming\\IQIYI Video",
+        "D:\\Users\\*\\AppData\\Roaming\\IQIYI Video"
+      ],
+      "note": "来源：2026-11-24 公司机实测，残留 4.23 MB / 6 文件。exes 只写主程序 QyClient.exe，绝不写残留目录自带的 QyUninst.exe（写了会一直判在用）；regs 暂无实测命中，先不写。"
+    },
+    {
+      "name": "卸载残留-芒果TV",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理芒果TV卸载后残留的用户数据目录（主程序或进程在跑时自动跳过）",
+      "exes": [
+        "C:\\Program Files*\\mgtv\\MGTVPCC\\mgtv.exe",
+        "D:\\Program Files*\\mgtv\\MGTVPCC\\mgtv.exe"
+      ],
+      "procs": [
+        "mgtv"
+      ],
+      "dirs": [
+        "$env:APPDATA\\MGTV",
+        "C:\\Users\\*\\AppData\\Roaming\\MGTV",
+        "D:\\Users\\*\\AppData\\Roaming\\MGTV"
+      ],
+      "note": "来源：2026-11-24 公司机实测，残留 32.23 MB / 190 文件。exes 末级精确到 mgtv.exe，不写通配 *.exe，避免把根目录卸载器算进来；regs 暂不写。"
+    },
+    {
+      "name": "卸载残留-rlplayer",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理 Pot超级播放器(rlplayer) 卸载后遗留的空安装目录壳（进程在跑时自动跳过）",
+      "exes": [
+        "C:\\Program Files*\\rlplayer\\rlplayer.exe",
+        "D:\\Program Files*\\rlplayer\\rlplayer.exe"
+      ],
+      "procs": [
+        "rlplayer"
+      ],
+      "dirs": [
+        "C:\\Program Files (x86)\\rlplayer",
+        "D:\\Program Files (x86)\\rlplayer"
+      ],
+      "note": "来源：2026-11-24 公司机实测，Pot超级播放器 6026.10.23.0225 卸载后只剩空目录壳；%APPDATA%\\rlplayer 已删净，无注册表与关联 ProgID 残留。"
+    },
+    {
+      "name": "卸载残留-迅雷浏览器",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理迅雷浏览器卸载后遗留的空目录壳（进程在跑时自动跳过）",
+      "exes": [
+        "$env:LOCALAPPDATA\\XunleiBrowser\\Application\\*\\XunleiBrowser.exe",
+        "C:\\Users\\*\\AppData\\Local\\XunleiBrowser\\Application\\*\\XunleiBrowser.exe",
+        "D:\\Users\\*\\AppData\\Local\\XunleiBrowser\\Application\\*\\XunleiBrowser.exe"
+      ],
+      "procs": [
+        "XunleiBrowser"
+      ],
+      "dirs": [
+        "$env:LOCALAPPDATA\\XunleiBrowser",
+        "C:\\Users\\*\\AppData\\Local\\XunleiBrowser",
+        "D:\\Users\\*\\AppData\\Local\\XunleiBrowser"
+      ],
+      "note": "来源：2026-11-24 公司机实测，卸载后只剩空目录壳；无自有注册表键，Xunlei.* 关联属在用迅雷主程序，不碰。"
+    },
+    {
+      "name": "卸载残留-迅雷影音",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理迅雷影音卸载后残留的失效注册表整键（程序在跑时自动跳过）",
+      "exes": [
+        "C:\\Program Files*\\Thunder Network\\Xmp\\Program\\Xmp.exe",
+        "D:\\Program Files*\\Thunder Network\\Xmp\\Program\\Xmp.exe"
+      ],
+      "procs": [
+        "Xmp"
+      ],
+      "regs": [
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Thunder Network\\Xmp"
+      ],
+      "note": "来源：2026-11-24 公司机实测，卸载后 HKLM\\SOFTWARE\\WOW6432Node\\Thunder Network\\Xmp 整键残留（三个死路径值 + Ext 上百后缀关联），程序已不存在、关联失效，整键删除。"
+    },
+    {
+      "name": "卸载残留-360录屏",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理 360录屏&格式转换 卸载后遗留的账号令牌目录（进程在跑时自动跳过）",
+      "exes": [
+        "C:\\Program Files*\\SudaCaplayer\\bin\\*.exe",
+        "D:\\Program Files*\\SudaCaplayer\\bin\\*.exe"
+      ],
+      "procs": [
+        "SudaCaplayer"
+      ],
+      "dirs": [
+        "$env:APPDATA\\SudaCaplayer",
+        "C:\\Users\\*\\AppData\\Roaming\\SudaCaplayer",
+        "D:\\Users\\*\\AppData\\Roaming\\SudaCaplayer"
+      ],
+      "note": "来源：2026-11-24 公司机实测（360录屏&格式转换 1.0.0.1241）。安装目录卸载器已整目录自清，仅 %APPDATA%\\SudaCaplayer 下一个加密登录令牌残留；本机无注册表残留。"
     }
   ],
-  "note": "云端补充规则：收录内置清单之外的软件缓存、卸载残留与使用痕迹；缓存/日志类只清缓存、日志与更新包，账号、配置、收藏和下载文件一律不动。"
+  "note": "2026-11-24 补登：QQ影音/迅雷浏览器/360安全浏览器缓存，修订搜狗输入法/迅游加速器缓存；新增爱奇艺视频、芒果TV、rlplayer、迅雷浏览器、迅雷影音、360录屏卸载残留。"
 }
