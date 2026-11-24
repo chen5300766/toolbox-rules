@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-24-下架与内置重名的迅游残留条目",
+  "version": "2026-11-24-腾讯会议日志移出共用Temp目录",
   "updated": "2026-11-24",
   "items": [
     {
@@ -927,10 +927,9 @@
         "D:\\Users\\*\\AppData\\Roaming\\Tencent\\VooVMeeting\\Global\\Logs",
         "$env:APPDATA\\Tencent\\liteav\\log",
         "C:\\Users\\*\\AppData\\Roaming\\Tencent\\liteav\\log",
-        "D:\\Users\\*\\AppData\\Roaming\\Tencent\\liteav\\log",
-        "$env:TEMP\\Tencent"
+        "D:\\Users\\*\\AppData\\Roaming\\Tencent\\liteav\\log"
       ],
-      "note": "来源：2026-11-24 本机实测（腾讯会议 3.48.0.443）并对照腾讯会议帮助中心官方日志路径。官方日志：2.16 及以上 %APPDATA%\\Tencent\\WeMeet\\Global\\Logs，2.15 及以下 %APPDATA%\\Tencent\\WeMeet\\Logs，国际版 VooVMeeting\\Global\\Logs，录制功能日志 liteav\\log，dump 临时文件 %TEMP%\\Tencent。本机上述日志目录均未生成，%TEMP%\\Tencent 仅 Androws SDK 日志。程序本体在 C:\\Program Files\\Tencent\\WeMeet；%APPDATA%\\Tencent\\WeMeet\\Global\\Data 为虚拟背景、美颜、头像模型与 IM 数据，不在本条；本地录制文件由用户自选目录，不纳入。内置旧条目登记的 Cache、Code Cache、GPUCache、Crashpad、temp、wemeetapp 路径本机均不存在，已不采用。"
+      "note": "来源：2026-11-24 本机实测（腾讯会议 3.48.0.443）并对照腾讯会议帮助中心官方日志路径。官方日志：2.16 及以上 %APPDATA%\\Tencent\\WeMeet\\Global\\Logs，2.15 及以下 %APPDATA%\\Tencent\\WeMeet\\Logs，国际版 VooVMeeting\\Global\\Logs，录制功能日志 liteav\\log，dump 临时文件 %TEMP%\\Tencent。本机上述日志目录均未生成，%TEMP%\\Tencent 仅 Androws SDK 日志。程序本体在 C:\\Program Files\\Tencent\\WeMeet；%APPDATA%\\Tencent\\WeMeet\\Global\\Data 为虚拟背景、美颜、头像模型与 IM 数据，不在本条；本地录制文件由用户自选目录，不纳入。内置旧条目登记的 Cache、Code Cache、GPUCache、Crashpad、temp、wemeetapp 路径本机均不存在，已不采用。 2026-11-24 修正：原 paths 末条 $env:TEMP\\Tencent 经本机实测只含 Androws/应用宝 SDK 日志（PC_YYB_SDK.log），与腾讯会议无关，且该目录被常驻腾讯进程持续写入，清理时必报共享冲突被标成「占用跳过」；已移出本条，该类临时日志归「临时文件」类清理覆盖。"
     },
     {
       "name": "QQ影音缓存",
