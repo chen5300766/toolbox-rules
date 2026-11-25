@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-25-新增微信输入法与剪映专业版日志残留规则",
+  "version": "2026-11-25-合并PyCharm缓存条目（索引与编译缓存并入云端）",
   "updated": "2026-11-25",
   "items": [
     {
@@ -416,21 +416,30 @@
       "group": "cache",
       "kind": "dir",
       "safe": "安全",
-      "desc": "清理Pycharm的缓存、索引和日志（不影响项目和配置）",
+      "desc": "清理Pycharm的缓存、索引、日志、编译缓存与崩溃转储（不影响项目和配置）",
       "cat": "开发工具",
       "dprobe": "PyCharm",
       "paths": [
         "$env:LOCALAPPDATA\\JetBrains\\PyCharm*\\caches",
         "C:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\caches",
         "D:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\caches",
+        "$env:LOCALAPPDATA\\JetBrains\\PyCharm*\\index",
+        "C:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\index",
+        "D:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\index",
         "$env:LOCALAPPDATA\\JetBrains\\PyCharm*\\log",
         "C:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\log",
         "D:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\log",
+        "$env:LOCALAPPDATA\\JetBrains\\PyCharm*\\compile-server",
+        "C:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\compile-server",
+        "D:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\compile-server",
+        "$env:LOCALAPPDATA\\JetBrains\\PyCharm*\\CrashDumps",
+        "C:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\CrashDumps",
+        "D:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\CrashDumps",
         "$env:LOCALAPPDATA\\JetBrains\\PyCharm*\\tmp",
         "C:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\tmp",
         "D:\\Users\\*\\AppData\\Local\\JetBrains\\PyCharm*\\tmp"
       ],
-      "note": "来源：2026-11-17 JetBrains官方文档。Pycharm缓存目录在 %LOCALAPPDATA%\\JetBrains\\PyCharm<版本> 下，包含 caches（索引缓存）、log（日志）、tmp（临时文件）。清理后下次打开项目会重新建立索引，首次打开会慢一些。"
+      "note": "来源：2026-11-17 JetBrains官方文档。Pycharm缓存目录在 %LOCALAPPDATA%\\JetBrains\\PyCharm<版本> 下，包含 caches（索引缓存）、log（日志）、tmp（临时文件）。清理后下次打开项目会重新建立索引，首次打开会慢一些。 2026-11-25 合并内置条目：新增 index（索引）、compile-server（编译缓存）、CrashDumps（崩溃转储），与云端原有 caches/log/tmp 合为一条，内置不再重复登记。"
     },
     {
       "name": "金山打字通缓存",
