@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-25-新增斗鱼直播与伴侣缓存及卸载残留",
+  "version": "2026-11-25-新增微信输入法与剪映专业版日志残留规则",
   "updated": "2026-11-25",
   "items": [
     {
@@ -176,10 +176,13 @@
         "C:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
         "D:\\Users\\*\\AppData\\Roaming\\wetype_renderer",
         "C:\\Users\\*\\AppData\\Roaming\\wetype_update",
-        "D:\\Users\\*\\AppData\\Roaming\\wetype_update"
+        "D:\\Users\\*\\AppData\\Roaming\\wetype_update",
+        "C:\\ProgramData\\Tencent\\WeType",
+        "D:\\ProgramData\\Tencent\\WeType"
       ],
       "regs": [
-        "HKCU:\\SOFTWARE\\WeType Project"
+        "HKCU:\\SOFTWARE\\WeType Project",
+        "HKCU:\\SOFTWARE\\Classes\\wetype"
       ],
       "force_dirs": [
         "C:\\Program Files\\Tencent\\WeType",
@@ -188,9 +191,10 @@
         "D:\\Program Files (x86)\\Tencent\\WeType",
         "$env:LOCALAPPDATA\\Tencent\\WeType",
         "$env:APPDATA\\wetype_renderer",
-        "$env:APPDATA\\wetype_update"
+        "$env:APPDATA\\wetype_update",
+        "C:\\ProgramData\\Tencent\\WeType"
       ],
-      "note": "来源：2026-11-20 公司机实测（微信输入法 WeType 3.0.2.44）。实测注册表根键为 HKCU\\SOFTWARE\\WeType Project\\WeType（game_policies_enabled=1），旧 HKCU\\Software\\Tencent\\WeType 真机不存在，已改正。Local\\Tencent\\WeType 为个人语音密钥目录（VoiceSummary 存 dpapi 密钥），仅在 Uninstall 登记已不存在时才判残留，在用状态由卸载登记判据保护；wetype_renderer / wetype_update 为空目录壳。清理前先结束 wetype_update 更新进程。"
+      "note": "来源：2026-11-20 公司机初测 + 2026-11-25 卸载后复核（微信输入法 WeType 3.0.2.44）。卸载后残留：C:\\Program Files\\Tencent\\WeType（WetypeCore_*.tmp0 内 x64/x86 wetype_tip_core.dll）、Local\\Tencent\\WeType\\VoiceSummary(dpapi 语音密钥)、ProgramData\\Tencent\\WeType 安装日志、Roaming\\wetype_renderer 与 wetype_update 空目录壳；注册表 HKCU\\SOFTWARE\\WeType Project、HKCU\\SOFTWARE\\Classes\\wetype（shell\\open\\command 指向已删 wetype_update.exe 的悬空协议键）。服务 WeType Management Service 与 Uninstall 项已由卸载程序清除，无需 services；VoiceSummary 仅在 Uninstall 登记已不存在时才判残留。双重判据：Uninstall 项已不存在且路径不存在才整目录清。"
     },
     {
       "name": "卸载残留-PalmInput",
@@ -1336,7 +1340,83 @@
         "dyupdatem"
       ],
       "note": "来源：2026-11-25 本机实测（伴侣 6.6.2.2.671）。卸载后残留：C:\\Program Files (x86)\\Douyu\\Update 1120 文件 465.3MB（Install 384.1/Download 71.7/版本目录 9.3/DouyuUpdate.exe），D 盘空壳；Local\\DYToolEx 4121 文件 488.3MB；服务 dyupdate(Running)/dyupdatem(Stopped) 的 ImagePath 均指向已删除的 Update\\DouyuUpdate.exe；注册表 HKCU\\Software\\Douyu、HKLM\\WOW6432Node\\Douyu 残留。清理顺序：先停服务、结束进程，再删目录与注册表；Uninstall 仍登记且路径存在即视为在用，不整目录删"
+    },
+    {
+      "name": "微信输入法日志",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理微信输入法的安装/部署日志与补丁报告（词库、皮肤、账号配置、语音密钥与程序组件不动）",
+      "cat": "输入法",
+      "dprobe": "WeType|wetype",
+      "paths": [
+        "C:\\ProgramData\\Tencent\\WeType\\wetype_installer_*.log",
+        "C:\\ProgramData\\Tencent\\WeType\\wetypesetup_*.log",
+        "C:\\ProgramData\\Tencent\\WeType\\system_core_deploy.log",
+        "C:\\ProgramData\\Tencent\\WeType\\patch_reports"
+      ],
+      "note": "来源：2026-11-25 公司机实测（微信输入法 WeType 3.0.2.44，装 C:\\Program Files\\Tencent\\WeType）。ProgramData\\Tencent\\WeType 下混有 renderer_config.ini/server_config.ini 配置，故只清 .log 安装部署日志与 patch_reports 目录，不整目录删；Local\\Tencent\\WeType\\VoiceSummary(dpapi 语音密钥)、Roaming\\Tencent\\WeType\\MMKV 配置、安装目录内置词库 BuildIn 禁删。"
+    },
+    {
+      "name": "剪映专业版日志",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理剪映专业版的运行日志与 SDK 上报日志（草稿、素材、字体美颜滤镜资源与程序本体不动）",
+      "cat": "图像设计",
+      "dprobe": "JianyingPro|Jianying",
+      "paths": [
+        "$env:LOCALAPPDATA\\JianyingPro\\User Data\\Log",
+        "C:\\Users\\*\\AppData\\Local\\JianyingPro\\User Data\\Log",
+        "D:\\Users\\*\\AppData\\Local\\JianyingPro\\User Data\\Log"
+      ],
+      "note": "来源：2026-11-25 公司机实测（剪映专业版 11.8.0.14778，装 %LOCALAPPDATA%\\JianyingPro）。Log 目录内含 alog(1.83MB)、mssdk_log(17.05MB)、hub_agent_vm_sdk 子目录及 .log/draft 监控 json，均为日志可清；User Data\\Config(配置/快捷键/自动备份设置)、User Data\\Resources(字体/美颜/滤镜内置资源)、Apps 程序本体、HKCU/HKLM\\SOFTWARE\\Bytedance\\JianyingPro 注册表禁删。草稿默认目录 Documents\\JianyingPro Drafts 本机未建，未登记以免误删作品。"
+    },
+    {
+      "name": "剪映专业版临时文件",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理剪映专业版外壳扩展在临时目录的解压残留",
+      "cat": "图像设计",
+      "dprobe": "JianyingPro|Jianying",
+      "paths": [
+        "$env:LOCALAPPDATA\\Temp\\jianyingpro_ext"
+      ],
+      "note": "来源：2026-11-25 公司机实测（剪映专业版 11.8.0.14778）。Temp\\jianyingpro_ext 存放 jyshellext.dll/.msix 外壳扩展临时解压文件，可随临时目录清理；不涉及草稿与素材。"
+    },
+    {
+      "name": "卸载残留-剪映专业版",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理剪映专业版卸载后残留的程序目录、用户数据、MMKV 配置与埋点库、注册表项（双重判据：Uninstall 项已不存在且路径不存在才整目录清）",
+      "exes": [
+        "$env:LOCALAPPDATA\\JianyingPro\\Apps\\*.exe",
+        "C:\\Users\\*\\AppData\\Local\\JianyingPro\\Apps\\*.exe",
+        "D:\\Users\\*\\AppData\\Local\\JianyingPro\\Apps\\*.exe"
+      ],
+      "procs": [
+        "JianyingPro",
+        "Jianying"
+      ],
+      "dirs": [
+        "$env:LOCALAPPDATA\\JianyingPro",
+        "C:\\Users\\*\\AppData\\Local\\JianyingPro",
+        "D:\\Users\\*\\AppData\\Local\\JianyingPro"
+      ],
+      "regs": [
+        "HKCU:\\SOFTWARE\\Bytedance\\JianyingPro",
+        "HKCU:\\SOFTWARE\\JianyingPro",
+        "HKCU:\\SOFTWARE\\Classes\\AppUserModelId\\Bytedance.JianyingPro",
+        "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\PushNotifications\\Backup\\Bytedance.JianyingPro",
+        "HKLM:\\SOFTWARE\\Bytedance\\JianyingPro"
+      ],
+      "force_dirs": [
+        "$env:LOCALAPPDATA\\JianyingPro"
+      ],
+      "note": "来源：2026-11-25 卸载后本机实测（剪映专业版 11.8.0.14778）。残留 Local\\JianyingPro 453.57MB/73 文件：Apps\\11.8.0.14778 441.14MB/63 个 .dll_d_*/.exe_d_* 卸载未删文件；User Data 下 Log(VeDetector 日志)、MMKV(settings_json 8.39MB + WebInfoId/vid_info)、Tracking(tracking_v2.db 及 shm/wal 4.4MB 埋点库)。注册表 HKCU\\Bytedance\\JianyingPro、HKCU\\JianyingPro(UET_SDK_VID/HasStartedOnce)、Classes\\AppUserModelId\\Bytedance.JianyingPro(AUMID/IconUri)、推送通知备份 Bytedance.JianyingPro、HKLM\\Bytedance\\JianyingPro。服务、计划任务、快捷方式已被卸载程序清除；草稿目录本机未建，未登记以免误删作品。Uninstall 仍登记且路径存在即视为在用，不整目录删。"
     }
   ],
-  "note": "2026-11-24 补登：QQ影音/迅雷浏览器/360安全浏览器缓存，修订搜狗输入法/迅游加速器缓存；新增爱奇艺视频、芒果TV、rlplayer、迅雷浏览器、迅雷影音、360录屏卸载残留。"
+  "note": "2026-11-25 补登：微信输入法日志、剪映专业版日志与临时文件；新增卸载残留-剪映专业版；修订卸载残留-微信输入法（补 ProgramData 目录与 Classes\\wetype 协议键）。"
 }
