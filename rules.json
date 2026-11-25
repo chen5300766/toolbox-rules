@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "2026-11-24-腾讯会议日志移出共用Temp目录",
-  "updated": "2026-11-24",
+  "version": "2026-11-25-新增斗鱼直播与伴侣缓存及卸载残留",
+  "updated": "2026-11-25",
   "items": [
     {
       "name": "暴风影音缓存",
@@ -1163,6 +1163,179 @@
         "D:\\Users\\*\\AppData\\Roaming\\SudaCaplayer"
       ],
       "note": "来源：2026-11-24 公司机实测（360录屏&格式转换 1.0.0.1241）。安装目录卸载器已整目录自清，仅 %APPDATA%\\SudaCaplayer 下一个加密登录令牌残留；本机无注册表残留。"
+    },
+    {
+      "name": "斗鱼直播缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理斗鱼直播的网页组件缓存与内嵌内核缓存（直播插件、弹幕表情、配置和登录状态不动）",
+      "cat": "视频播放",
+      "dprobe": "DouyuLive|DouyuPCClient",
+      "paths": [
+        "$env:LOCALAPPDATA\\DouyuLive\\cache",
+        "C:\\Users\\*\\AppData\\Local\\DouyuLive\\cache",
+        "D:\\Users\\*\\AppData\\Local\\DouyuLive\\cache",
+        "$env:LOCALAPPDATA\\DouyuLive\\QtWebEngine",
+        "C:\\Users\\*\\AppData\\Local\\DouyuLive\\QtWebEngine",
+        "D:\\Users\\*\\AppData\\Local\\DouyuLive\\QtWebEngine"
+      ],
+      "note": "来源：2026-11-25 本机实测（斗鱼直播 9.2.7.0，装 D:\\Program Files\\DouyuPCClient）。cache 110 文件 15.2MB（.d 与无扩展名），QtWebEngine 47 文件 1.1MB；dyPlugins 119.5MB 插件本体、expressFeelings 8.7MB 弹幕表情包、config.ini/homePlayerConfig.ini/bc_*.db 配置与业务库均不动"
+    },
+    {
+      "name": "斗鱼直播日志",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理斗鱼直播运行日志与更新器日志（播放记录、账号配置不动）",
+      "cat": "视频播放",
+      "dprobe": "DouyuLive|DouyuPCClient",
+      "paths": [
+        "$env:LOCALAPPDATA\\DouyuLive\\logs",
+        "C:\\Users\\*\\AppData\\Local\\DouyuLive\\logs",
+        "D:\\Users\\*\\AppData\\Local\\DouyuLive\\logs",
+        "$env:ProgramData\\Douyu\\Update\\Log",
+        "C:\\ProgramData\\Douyu\\Update\\Log"
+      ],
+      "note": "来源：2026-11-25 本机实测。logs 14 个运行日志（DouyuLive.exe.INFO、dy_server.log 等）；ProgramData\\Douyu\\Update\\Log\\DouyuUpdate.log 9.7MB 更新日志"
+    },
+    {
+      "name": "斗鱼直播伴侣缓存",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理斗鱼直播伴侣应用缓存、CEF 内核缓存与着色器缓存（插件、业务数据、配置和登录状态不动）",
+      "cat": "视频播放",
+      "dprobe": "DYToolEx|Douyu",
+      "paths": [
+        "$env:LOCALAPPDATA\\DYToolEx\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\DYToolEx\\Cache",
+        "D:\\Users\\*\\AppData\\Local\\DYToolEx\\Cache",
+        "$env:LOCALAPPDATA\\DYToolEx\\CefCache",
+        "C:\\Users\\*\\AppData\\Local\\DYToolEx\\CefCache",
+        "D:\\Users\\*\\AppData\\Local\\DYToolEx\\CefCache",
+        "$env:ProgramData\\DYToolEx\\shader-cache",
+        "C:\\ProgramData\\DYToolEx\\shader-cache"
+      ],
+      "note": "来源：2026-11-25 本机实测（伴侣 6.6.2.2.671）。Cache 151 文件 0.7MB、CefCache 60 文件 7.3MB、shader-cache 150 文件 0.3MB；plugins 383.1MB 插件、Data 92.0MB 业务数据、DYToolSourceMapper 4.6MB 模块均不动"
+    },
+    {
+      "name": "斗鱼直播伴侣日志与崩溃报告",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理斗鱼直播伴侣运行日志、崩溃转储与点歌日志（配置、登录态与业务素材不动）",
+      "cat": "视频播放",
+      "dprobe": "DYToolEx|Douyu",
+      "paths": [
+        "$env:LOCALAPPDATA\\DYToolEx\\logs",
+        "C:\\Users\\*\\AppData\\Local\\DYToolEx\\logs",
+        "D:\\Users\\*\\AppData\\Local\\DYToolEx\\logs",
+        "$env:LOCALAPPDATA\\DYToolCrash",
+        "C:\\Users\\*\\AppData\\Local\\DYToolCrash",
+        "D:\\Users\\*\\AppData\\Local\\DYToolCrash",
+        "$env:APPDATA\\DYToolEx\\BarrageOrderSong",
+        "C:\\Users\\*\\AppData\\Roaming\\DYToolEx\\BarrageOrderSong",
+        "D:\\Users\\*\\AppData\\Roaming\\DYToolEx\\BarrageOrderSong"
+      ],
+      "note": "来源：2026-11-25 本机实测。DYToolEx\\logs 4 个 dylog；DYToolCrash 8 个崩溃报告（dumpReport/reports/attachments/sentry）；Roaming\\DYToolEx\\BarrageOrderSong 点歌日志 0 字节。Data\\stickers 贴纸素材 72.5MB 属可重下素材，本次不纳入"
+    },
+    {
+      "name": "斗鱼临时文件",
+      "group": "cache",
+      "kind": "dir",
+      "safe": "安全",
+      "desc": "清理斗鱼直播与伴侣安装运行时留在临时目录的日志和临时文件",
+      "cat": "视频播放",
+      "dprobe": "DouyuLive|DYToolEx|Douyu",
+      "paths": [
+        "$env:LOCALAPPDATA\\Temp\\DouyuToolNew",
+        "$env:LOCALAPPDATA\\Temp\\DouyuUpdateLog",
+        "$env:LOCALAPPDATA\\Temp\\DYToolEx",
+        "$env:LOCALAPPDATA\\Temp\\DYToolExUpdate"
+      ],
+      "note": "来源：2026-11-25 本机实测。Temp\\DouyuToolNew（11-25point.log）、Temp\\DYToolEx（SystemInfo.log/buffer/packet/common.log 等 6 文件），另两个空目录 DouyuUpdateLog、DYToolExUpdate"
+    },
+    {
+      "name": "卸载残留-斗鱼直播",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理斗鱼直播卸载后残留的安装目录、用户数据目录与注册表项（双重判据：Uninstall 项已不存在且图标路径不存在才整目录清）",
+      "exes": [
+        "C:\\Program Files*\\DouyuPCClient\\*.exe",
+        "D:\\Program Files*\\DouyuPCClient\\*.exe"
+      ],
+      "procs": [
+        "DouyuLive",
+        "DouyuUpdate"
+      ],
+      "dirs": [
+        "$env:LOCALAPPDATA\\DouyuLive",
+        "C:\\Users\\*\\AppData\\Local\\DouyuLive",
+        "D:\\Users\\*\\AppData\\Local\\DouyuLive",
+        "C:\\Program Files*\\DouyuPCClient",
+        "D:\\Program Files*\\DouyuPCClient"
+      ],
+      "regs": [
+        "HKCU:\\Software\\Douyu",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Douyu"
+      ],
+      "force_dirs": [
+        "C:\\Program Files\\DouyuPCClient",
+        "C:\\Program Files (x86)\\DouyuPCClient",
+        "D:\\Program Files\\DouyuPCClient",
+        "D:\\Program Files (x86)\\DouyuPCClient",
+        "C:\\ProgramData\\Douyu"
+      ],
+      "note": "来源：2026-11-25 本机实测（9.2.7.0）。卸载后 DouyuPCClient 安装目录与 Local\\DouyuLive 数据被卸载程序自清；残留注册表 HKCU\\Software\\Douyu（Update、Update\\proxy）与 HKLM\\SOFTWARE\\WOW6432Node\\Douyu\\Update 全树。HKCU\\Software\\douyuToolLive 实测已被卸载程序清除"
+    },
+    {
+      "name": "卸载残留-斗鱼直播伴侣",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理斗鱼直播伴侣卸载后残留：先停 dyupdate/dyupdatem 服务并结束后台进程，再删更新器目录、用户数据、ProgramData 与注册表项（双重判据：Uninstall 项已不存在且路径不存在才整目录清）",
+      "exes": [
+        "C:\\Program Files*\\Douyu\\*.exe",
+        "D:\\Program Files*\\Douyu\\*.exe"
+      ],
+      "procs": [
+        "DYToolEx",
+        "DouyuUpdate"
+      ],
+      "dirs": [
+        "$env:LOCALAPPDATA\\DYToolEx",
+        "C:\\Users\\*\\AppData\\Local\\DYToolEx",
+        "D:\\Users\\*\\AppData\\Local\\DYToolEx",
+        "$env:LOCALAPPDATA\\DYToolCrash",
+        "C:\\Users\\*\\AppData\\Local\\DYToolCrash",
+        "D:\\Users\\*\\AppData\\Local\\DYToolCrash",
+        "$env:APPDATA\\DYToolEx",
+        "C:\\Users\\*\\AppData\\Roaming\\DYToolEx",
+        "D:\\Users\\*\\AppData\\Roaming\\DYToolEx",
+        "C:\\ProgramData\\DYToolEx",
+        "D:\\ProgramData\\DYToolEx",
+        "C:\\Program Files*\\Douyu",
+        "D:\\Program Files*\\Douyu"
+      ],
+      "regs": [
+        "HKCU:\\Software\\Douyu",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\Douyu"
+      ],
+      "force_dirs": [
+        "C:\\Program Files\\Douyu",
+        "C:\\Program Files (x86)\\Douyu",
+        "D:\\Program Files\\Douyu",
+        "D:\\Program Files (x86)\\Douyu",
+        "C:\\ProgramData\\DYToolEx",
+        "C:\\ProgramData\\Douyu"
+      ],
+      "services": [
+        "dyupdate",
+        "dyupdatem"
+      ],
+      "note": "来源：2026-11-25 本机实测（伴侣 6.6.2.2.671）。卸载后残留：C:\\Program Files (x86)\\Douyu\\Update 1120 文件 465.3MB（Install 384.1/Download 71.7/版本目录 9.3/DouyuUpdate.exe），D 盘空壳；Local\\DYToolEx 4121 文件 488.3MB；服务 dyupdate(Running)/dyupdatem(Stopped) 的 ImagePath 均指向已删除的 Update\\DouyuUpdate.exe；注册表 HKCU\\Software\\Douyu、HKLM\\WOW6432Node\\Douyu 残留。清理顺序：先停服务、结束进程，再删目录与注册表；Uninstall 仍登记且路径存在即视为在用，不整目录删"
     }
   ],
   "note": "2026-11-24 补登：QQ影音/迅雷浏览器/360安全浏览器缓存，修订搜狗输入法/迅游加速器缓存；新增爱奇艺视频、芒果TV、rlplayer、迅雷浏览器、迅雷影音、360录屏卸载残留。"
