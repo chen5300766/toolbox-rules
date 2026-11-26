@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "2026-11-25-腾讯会议缓存下架与Anaconda旧安装位并入",
-  "note": "2026-11-25 补登：微信输入法日志、剪映专业版日志与临时文件；新增卸载残留-剪映专业版；修订卸载残留-微信输入法（补 ProgramData 目录与 Classes\\wetype 协议键）。 2026-11-25 第二批：①「Anaconda与Miniconda缓存」补入旧版 Just Me 安装位 %LOCALAPPDATA%\\Continuum\\anaconda3\\pkgs（含 C/D 用户目录镜像共 3 条，路径总数 10→13），内置同名条目「Anaconda缓存」随之撤除，Anaconda 的包缓存统一由本条覆盖；②「腾讯会议日志缓存」维持官方口径不变（2.15 及以下 WeMeet\\Logs、2.16 及以上 WeMeet\\Global\\Logs、国际版 VooVMeeting\\Global\\Logs、录制日志 liteav\\log），内置「腾讯会议缓存」登记的 Cache/Code Cache/GPUCache/WebkitCacheData/Service Worker 等 36 条路径，经 2026-11-24 本机实测（腾讯会议 3.48.0.443）确认均不存在，属模板臆造，已从内置整条撤除，不再由任何一侧下发。",
+  "version": "2026-11-26-360安全浏览器缓存安装目录与VirtualStore路径并入",
+  "note": "2026-11-25 补登：微信输入法日志、剪映专业版日志与临时文件；新增卸载残留-剪映专业版；修订卸载残留-微信输入法（补 ProgramData 目录与 Classes\\wetype 协议键）。 2026-11-25 第二批：①「Anaconda与Miniconda缓存」补入旧版 Just Me 安装位 %LOCALAPPDATA%\\Continuum\\anaconda3\\pkgs（含 C/D 用户目录镜像共 3 条，路径总数 10→13），内置同名条目「Anaconda缓存」随之撤除，Anaconda 的包缓存统一由本条覆盖；②「腾讯会议日志缓存」维持官方口径不变（2.15 及以下 WeMeet\\Logs、2.16 及以上 WeMeet\\Global\\Logs、国际版 VooVMeeting\\Global\\Logs、录制日志 liteav\\log），内置「腾讯会议缓存」登记的 Cache/Code Cache/GPUCache/WebkitCacheData/Service Worker 等 36 条路径，经 2026-11-24 本机实测（腾讯会议 3.48.0.443）确认均不存在，属模板臆造，已从内置整条撤除，不再由任何一侧下发。 2026-11-26 第三批：①「360安全浏览器缓存」补 C/D 盘 Program Files* 安装目录写法（此前 18 条全写 Roaming，本机实测落空）；②再补 14 条 UAC 虚拟化 VirtualStore 路径，覆盖 360 装 C 盘且普通权限写入的场景。",
   "items": [
     {
       "name": "暴风影音缓存",
@@ -1041,9 +1041,23 @@
         "C:\\Program Files*\\360\\360se6\\User Data\\Default\\Service Worker\\CacheStorage",
         "C:\\Program Files*\\360\\360se6\\User Data\\Default\\Service Worker\\ScriptCache",
         "D:\\Program Files*\\360\\360se6\\User Data\\Default\\Service Worker\\CacheStorage",
-        "D:\\Program Files*\\360\\360se6\\User Data\\Default\\Service Worker\\ScriptCache"
+        "D:\\Program Files*\\360\\360se6\\User Data\\Default\\Service Worker\\ScriptCache",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files\\360\\360se6\\User Data\\Default\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files\\360\\360se6\\User Data\\Default\\Code Cache",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files\\360\\360se6\\User Data\\Default\\GPUCache64",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files\\360\\360se6\\User Data\\Default\\ShaderCache64",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files\\360\\360se6\\User Data\\Default\\GrShaderCache64",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files\\360\\360se6\\User Data\\Default\\Service Worker\\CacheStorage",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files\\360\\360se6\\User Data\\Default\\Service Worker\\ScriptCache",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files (x86)\\360\\360se6\\User Data\\Default\\Cache",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files (x86)\\360\\360se6\\User Data\\Default\\Code Cache",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files (x86)\\360\\360se6\\User Data\\Default\\GPUCache64",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files (x86)\\360\\360se6\\User Data\\Default\\ShaderCache64",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files (x86)\\360\\360se6\\User Data\\Default\\GrShaderCache64",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files (x86)\\360\\360se6\\User Data\\Default\\Service Worker\\CacheStorage",
+        "C:\\Users\\*\\AppData\\Local\\VirtualStore\\Program Files (x86)\\360\\360se6\\User Data\\Default\\Service Worker\\ScriptCache"
       ],
-      "note": "来源：2026-11-24 公司机实测（360安全浏览器 16.3.1140.64）。Default 下 Cache、Code Cache、GPUCache64、ShaderCache64、GrShaderCache64、Service Worker；Extensions、IndexedDB、Local Storage、Local Extension Settings、WebStorage、Sessions 排除；旧版本目录不进自动清理。；2026-11-26 本机实测补充：本机 360安全浏览器16.3 把 User Data 放在安装目录（D:\\Program Files (x86)\\360\\360se6\\User Data），实测 Cache 192.2 MB、Code Cache 48.7 MB、GPUCache64 1.6 MB、Service Worker 88.5 MB；条目补 C/D 盘 Program Files* 安装目录写法，Roaming 写法继续保留兼容公司机那种布局。"
+      "note": "来源：2026-11-24 公司机实测（360安全浏览器 16.3.1140.64）。Default 下 Cache、Code Cache、GPUCache64、ShaderCache64、GrShaderCache64、Service Worker；Extensions、IndexedDB、Local Storage、Local Extension Settings、WebStorage、Sessions 排除；旧版本目录不进自动清理。；2026-11-26 本机实测补充：本机 360安全浏览器16.3 把 User Data 放在安装目录（D:\\Program Files (x86)\\360\\360se6\\User Data），实测 Cache 192.2 MB、Code Cache 48.7 MB、GPUCache64 1.6 MB、Service Worker 88.5 MB；条目补 C/D 盘 Program Files* 安装目录写法，Roaming 写法继续保留兼容公司机那种布局。；2026-11-26 再补：360 装 C 盘 Program Files 且以普通权限写入时，Windows 的 UAC 虚拟化会把缓存重定向到 C:\\Users\\<用户>\\AppData\\Local\\VirtualStore\\Program Files(或 (x86))\\360\\360se6\\User Data\\Default 下，补 14 条 VirtualStore 镜像路径（5 个缓存目录 + Service Worker 两个子目录，各覆盖 Program Files 与 (x86)），路径总数 32→46。"
     },
     {
       "name": "搜狗输入法缓存",
