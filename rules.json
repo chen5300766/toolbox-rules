@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "2026-11-27-小鱼易连缓存与日志",
-  "note": "2026-11-25 补登：微信输入法日志、剪映专业版日志与临时文件；新增卸载残留-剪映专业版；修订卸载残留-微信输入法（补 ProgramData 目录与 Classes\\wetype 协议键）。 2026-11-25 第二批：①「Anaconda与Miniconda缓存」补入旧版 Just Me 安装位 %LOCALAPPDATA%\\Continuum\\anaconda3\\pkgs（含 C/D 用户目录镜像共 3 条，路径总数 10→13），内置同名条目「Anaconda缓存」随之撤除，Anaconda 的包缓存统一由本条覆盖；②「腾讯会议日志缓存」维持官方口径不变（2.15 及以下 WeMeet\\Logs、2.16 及以上 WeMeet\\Global\\Logs、国际版 VooVMeeting\\Global\\Logs、录制日志 liteav\\log），内置「腾讯会议缓存」登记的 Cache/Code Cache/GPUCache/WebkitCacheData/Service Worker 等 36 条路径，经 2026-11-24 本机实测（腾讯会议 3.48.0.443）确认均不存在，属模板臆造，已从内置整条撤除，不再由任何一侧下发。 2026-11-26 第三批：①「360安全浏览器缓存」补 C/D 盘 Program Files* 安装目录写法（此前 18 条全写 Roaming，本机实测落空）；②再补 14 条 UAC 虚拟化 VirtualStore 路径，覆盖 360 装 C 盘且普通权限写入的场景。 2026-11-26 第四批：新增「360压缩使用痕迹」(trace)，只清 HKCU\\Software\\360zip\\Recent Document List 最近文件清单；360压缩卸载残留仍由内置条目负责。 2026-11-27 第五批：新增「小鱼易连缓存」「小鱼易连日志缓存」「小鱼易连热更新资源残留」（本机实测 3.11.25.38002）。HKCU/HKLM 均无 XYLink 注册表历史键，本次不新增 trace 条目；LocalRecord 会议录制、WinQT.db 账号库、pseModel AI 降噪模型包未纳入清理。",
+  "version": "2026-11-27-小鱼易连残留规则并入",
+  "note": "2026-11-25 补登：微信输入法日志、剪映专业版日志与临时文件；新增卸载残留-剪映专业版；修订卸载残留-微信输入法（补 ProgramData 目录与 Classes\\wetype 协议键）。 2026-11-25 第二批：①「Anaconda与Miniconda缓存」补入旧版 Just Me 安装位 %LOCALAPPDATA%\\Continuum\\anaconda3\\pkgs（含 C/D 用户目录镜像共 3 条，路径总数 10→13），内置同名条目「Anaconda缓存」随之撤除，Anaconda 的包缓存统一由本条覆盖；②「腾讯会议日志缓存」维持官方口径不变（2.15 及以下 WeMeet\\Logs、2.16 及以上 WeMeet\\Global\\Logs、国际版 VooVMeeting\\Global\\Logs、录制日志 liteav\\log），内置「腾讯会议缓存」登记的 Cache/Code Cache/GPUCache/WebkitCacheData/Service Worker 等 36 条路径，经 2026-11-24 本机实测（腾讯会议 3.48.0.443）确认均不存在，属模板臆造，已从内置整条撤除，不再由任何一侧下发。 2026-11-26 第三批：①「360安全浏览器缓存」补 C/D 盘 Program Files* 安装目录写法（此前 18 条全写 Roaming，本机实测落空）；②再补 14 条 UAC 虚拟化 VirtualStore 路径，覆盖 360 装 C 盘且普通权限写入的场景。 2026-11-26 第四批：新增「360压缩使用痕迹」(trace)，只清 HKCU\\Software\\360zip\\Recent Document List 最近文件清单；360压缩卸载残留仍由内置条目负责。 2026-11-27 第五批：新增「小鱼易连缓存」「小鱼易连日志缓存」「小鱼易连热更新资源残留」（本机实测 3.11.25.38002）。HKCU/HKLM 均无 XYLink 注册表历史键，本次不新增 trace 条目；LocalRecord 会议录制、WinQT.db 账号库、pseModel AI 降噪模型包未纳入清理。 2026-11-27 卸载复核：新增「卸载残留-小鱼易连」；本机卸载后仅 %LOCALAPPDATA%\\XYLink 残留约 9.26MB，安装目录、Roaming\\XYWinQT、注册表卸载项与 Software 键、Run/App Paths、快捷方式及 ProgramData/Documents/Temp 均已自清，本条不写 regs。",
   "items": [
     {
       "name": "暴风影音缓存",
@@ -1522,6 +1522,39 @@
         "D:\\Users\\*\\AppData\\Roaming\\XYWinQT\\DynUps"
       ],
       "note": "来源：2026-11-27 本机实测。%APPDATA%\\XYWinQT\\DynUps 存放各模块热更新解包版本目录（meeting/folder/contact/message/schedule 等，约 55.7MB）与 Cache_Info.json；清理后下次进入对应模块按需重新下载。LocalRecord 本地会议录制目录、WinQT.db 本地账号库、pseModel AI 降噪模型数据包均不在本条范围。"
+    },
+    {
+      "name": "卸载残留-小鱼易连",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "安全",
+      "desc": "清理小鱼易连卸载后残留的安装目录与本地数据目录（双重判据：Uninstall 项已不存在且路径不存在才整目录清）",
+      "exes": [
+        "C:\\Program Files*\\XYLink\\XYWinQT\\*.exe",
+        "D:\\Program Files*\\XYLink\\XYWinQT\\*.exe"
+      ],
+      "procs": [
+        "XYWinQT",
+        "XYLink"
+      ],
+      "dirs": [
+        "$env:LOCALAPPDATA\\XYLink",
+        "C:\\Users\\*\\AppData\\Local\\XYLink",
+        "D:\\Users\\*\\AppData\\Local\\XYLink",
+        "$env:APPDATA\\XYWinQT",
+        "C:\\Users\\*\\AppData\\Roaming\\XYWinQT",
+        "D:\\Users\\*\\AppData\\Roaming\\XYWinQT",
+        "C:\\Program Files*\\XYLink",
+        "D:\\Program Files*\\XYLink"
+      ],
+      "force_dirs": [
+        "C:\\Program Files\\XYLink",
+        "C:\\Program Files (x86)\\XYLink",
+        "D:\\Program Files\\XYLink",
+        "D:\\Program Files (x86)\\XYLink",
+        "$env:LOCALAPPDATA\\XYLink"
+      ],
+      "note": "来源：2026-11-27 卸载后本机实测（小鱼易连 3.11.25.38002，原安装 C:\\Program Files (x86)\\XYLink\\XYWinQT）。卸载器已清除安装目录、Roaming\\XYWinQT、Uninstall 登记项与 HKCU/HKLM Software 键、Run 自启项、App Paths 与桌面/开始菜单快捷方式；本机残留仅 %LOCALAPPDATA%\\XYLink（HTTP 缓存 + QtWebEngine Cookies/Storage/GPUCache，约 9.26MB）。ProgramData、Documents、Temp 无残留；本机未发现自有注册表键，故本条不写 regs。"
     }
   ]
 }
