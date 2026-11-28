@@ -1509,7 +1509,7 @@
       "note": "来源：2026-11-27 本机实测。%APPDATA%\\XYWinQT\\log 下 xysdk.log（SDK 运行日志）、qdebug_*.log（调试日志）、dxdiag.log（诊断转储），合计约 797.5KB；settings.dat/metadata 为该目录内的小型配置项，随目录一并清理不影响主程序。"
     },
     {
-      "name": "小鱼易连热更新资源残留",
+      "name": "小鱼易连热更新资源缓存",
       "group": "cache",
       "kind": "dir",
       "safe": "安全",
@@ -1521,7 +1521,7 @@
         "C:\\Users\\*\\AppData\\Roaming\\XYWinQT\\DynUps",
         "D:\\Users\\*\\AppData\\Roaming\\XYWinQT\\DynUps"
       ],
-      "note": "来源：2026-11-27 本机实测。%APPDATA%\\XYWinQT\\DynUps 存放各模块热更新解包版本目录（meeting/folder/contact/message/schedule 等，约 55.7MB）与 Cache_Info.json；清理后下次进入对应模块按需重新下载。LocalRecord 本地会议录制目录、WinQT.db 本地账号库、pseModel AI 降噪模型数据包均不在本条范围。"
+      "note": "来源：2026-11-27 本机实测。%APPDATA%\\XYWinQT\\DynUps 存放各模块热更新解包版本目录（meeting/folder/contact/message/schedule 等，约 55.7MB）与 Cache_Info.json；清理后下次进入对应模块按需重新下载。LocalRecord 本地会议录制目录、WinQT.db 本地账号库、pseModel AI 降噪模型数据包均不在本条范围。（2026-11-28 改名：原名「小鱼易连热更新资源残留」后缀不合规，拉取时整条被丢弃，改为以「缓存」结尾）"
     },
     {
       "name": "卸载残留-小鱼易连",
@@ -1555,6 +1555,41 @@
         "$env:LOCALAPPDATA\\XYLink"
       ],
       "note": "来源：2026-11-27 卸载后本机实测（小鱼易连 3.11.25.38002，原安装 C:\\Program Files (x86)\\XYLink\\XYWinQT）。卸载器已清除安装目录、Roaming\\XYWinQT、Uninstall 登记项与 HKCU/HKLM Software 键、Run 自启项、App Paths 与桌面/开始菜单快捷方式；本机残留仅 %LOCALAPPDATA%\\XYLink（HTTP 缓存 + QtWebEngine Cookies/Storage/GPUCache，约 9.26MB）。ProgramData、Documents、Temp 无残留；本机未发现自有注册表键，故本条不写 regs。"
+    },
+    {
+      "name": "卸载残留-纳米AI工作台",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理纳米AI（纳米Work桌面版）卸载后残留的用户级运行时目录 %USERPROFILE%\\.namiwork（内含 node/git/python/nami-harness 运行时约 1.2GB）；主程序目录仍在或专属进程在跑时不动，确认不再使用再勾选",
+      "procs": [
+        "Namiwork",
+        "nami-crash-uploader",
+        "NamiFileDropInjector"
+      ],
+      "force_dirs": [
+        "$env:USERPROFILE\\.namiwork"
+      ],
+      "note": "来源：2026-11-28 本机实测。纳米AI（纳米Work桌面版，AUMID com.qihoo.namiwork.desktop）2026-11-24 23:24 首次安装，卸载后主程序目录 %APPDATA%\\namiwork 已自清、注册表 Uninstall 无登记、快捷方式已清，仅剩用户目录 %USERPROFILE%\\.namiwork（29,083 文件 / 1.25GB，其中 runtime 1.19GB：node、git、python、nami-harness、codex-code-mode-host），最后写入 2026-11-24 23:25，此后无任何进程。本条只清这一处用户级运行时目录；不写 regs（实测无残留键）、不写 dirs（目录内含 exe/dll，会被④在用在用判据永久拦下，只能走 force_dirs）"
+    },
+    {
+      "name": "卸载残留-Kimi桌面桥与工具",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理Kimi桌面端卸载后残留的网页桥接与幻灯片工具目录（%USERPROFILE%\\.kimi-webbridge 与 .kimi-work，约 23MB）；Kimi 仍在运行或仍登记安装时不动",
+      "procs": [
+        "Kimi",
+        "kimi-code",
+        "Kimi Work",
+        "kimi-webbridge",
+        "kimi-slides"
+      ],
+      "force_dirs": [
+        "$env:USERPROFILE\\.kimi-webbridge",
+        "$env:USERPROFILE\\.kimi-work"
+      ],
+      "note": "来源：2026-11-28 本机实测。两目录同为 2026-11-24 21:46:57 创建：.kimi-webbridge 6 文件 / 9.9MB（kimi-webbridge.exe v2.0.39，日志显示监听 127.0.0.1:10086 的 agent-extension-daemon，pid 15652 已退出，最后写入 21:46:58）；.kimi-work 3 文件 / 12.9MB（kimi-slides.exe 与启动脚本）。本机 Program Files / AppData 均无 Kimi 安装目录、无浏览器扩展、注册表 Uninstall 无 Kimi 登记。procs 保留 Kimi 桌面端进程名，Kimi 在用时自动拦下"
     }
   ]
 }
