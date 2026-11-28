@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026-11-28-新增纳米AI与Kimi卸载残留",
+  "version": "2026-11-28-新增搜狗五笔卸载残留与安装临时文件",
   "note": "2026-11-25 补登：微信输入法日志、剪映专业版日志与临时文件；新增卸载残留-剪映专业版；修订卸载残留-微信输入法（补 ProgramData 目录与 Classes\\wetype 协议键）。 2026-11-25 第二批：①「Anaconda与Miniconda缓存」补入旧版 Just Me 安装位 %LOCALAPPDATA%\\Continuum\\anaconda3\\pkgs（含 C/D 用户目录镜像共 3 条，路径总数 10→13），内置同名条目「Anaconda缓存」随之撤除，Anaconda 的包缓存统一由本条覆盖；②「腾讯会议日志缓存」维持官方口径不变（2.15 及以下 WeMeet\\Logs、2.16 及以上 WeMeet\\Global\\Logs、国际版 VooVMeeting\\Global\\Logs、录制日志 liteav\\log），内置「腾讯会议缓存」登记的 Cache/Code Cache/GPUCache/WebkitCacheData/Service Worker 等 36 条路径，经 2026-11-24 本机实测（腾讯会议 3.48.0.443）确认均不存在，属模板臆造，已从内置整条撤除，不再由任何一侧下发。 2026-11-26 第三批：①「360安全浏览器缓存」补 C/D 盘 Program Files* 安装目录写法（此前 18 条全写 Roaming，本机实测落空）；②再补 14 条 UAC 虚拟化 VirtualStore 路径，覆盖 360 装 C 盘且普通权限写入的场景。 2026-11-26 第四批：新增「360压缩使用痕迹」(trace)，只清 HKCU\\Software\\360zip\\Recent Document List 最近文件清单；360压缩卸载残留仍由内置条目负责。 2026-11-27 第五批：新增「小鱼易连缓存」「小鱼易连日志缓存」「小鱼易连热更新资源残留」（本机实测 3.11.25.38002）。HKCU/HKLM 均无 XYLink 注册表历史键，本次不新增 trace 条目；LocalRecord 会议录制、WinQT.db 账号库、pseModel AI 降噪模型包未纳入清理。 2026-11-27 卸载复核：新增「卸载残留-小鱼易连」；本机卸载后仅 %LOCALAPPDATA%\\XYLink 残留约 9.26MB，安装目录、Roaming\\XYWinQT、注册表卸载项与 Software 键、Run/App Paths、快捷方式及 ProgramData/Documents/Temp 均已自清，本条不写 regs。 2026-11-28 第六批：新增「卸载残留-纳米AI工作台」（force_dirs: %USERPROFILE%\\.namiwork，即原「纳米AI/纳米Work」桌面端卸载后留下的用户级运行时目录，本机实测约 1.25GB）；新增「卸载残留-Kimi桌面桥与工具」（force_dirs: .kimi-webbridge、.kimi-work，为 Kimi 桌面桥 daemon 与内置剪辑引擎残留，本机实测合计约 22.8MB）；两条均走 force_dirs 整目录删除（目录内必然含 exe/dll，走 dirs 会被「存在 exe/dll」判据永久拦下）。同时修正「小鱼易连热更新资源残留」条目名不在后缀白名单、拉取时被整条丢弃的问题，改名「小鱼易连热更新资源缓存」（group/kind/cat/dprobe 不变）。",
   "items": [
     {
@@ -1590,6 +1590,72 @@
         "$env:USERPROFILE\\.kimi-work"
       ],
       "note": "来源：2026-11-28 本机实测。两目录同为 2026-11-24 21:46:57 创建：.kimi-webbridge 6 文件 / 9.9MB（kimi-webbridge.exe v2.0.39，日志显示监听 127.0.0.1:10086 的 agent-extension-daemon，pid 15652 已退出，最后写入 21:46:58）；.kimi-work 3 文件 / 12.9MB（kimi-slides.exe 与启动脚本）。本机 Program Files / AppData 均无 Kimi 安装目录、无浏览器扩展、注册表 Uninstall 无 Kimi 登记。procs 保留 Kimi 桌面端进程名，Kimi 在用时自动拦下"
+    },
+    {
+      "name": "搜狗五笔安装临时文件",
+      "group": "cache",
+      "kind": "files",
+      "safe": "安全",
+      "desc": "清理搜狗五笔安装器在 %TEMP%\\SogouWB 留下的 Install.exe 与 Install64.exe（卸载与火绒残留清理都不会删这两个文件）",
+      "cat": "输入法",
+      "dprobe": "SogouWB",
+      "paths": [
+        "$env:TEMP\\SogouWB\\Install.exe",
+        "$env:TEMP\\SogouWB\\Install64.exe",
+        "C:\\Users\\*\\AppData\\Local\\Temp\\SogouWB\\Install.exe",
+        "C:\\Users\\*\\AppData\\Local\\Temp\\SogouWB\\Install64.exe",
+        "D:\\Users\\*\\AppData\\Local\\Temp\\SogouWB\\Install.exe",
+        "D:\\Users\\*\\AppData\\Local\\Temp\\SogouWB\\Install64.exe"
+      ],
+      "note": "来源：2026-11-28 本机实测（搜狗五笔输入法 5.5.0.2594，火绒应用商店安装）。卸载后 %TEMP%\\SogouWB 剩 Install.exe 952.9KB + Install64.exe 1360.9KB 共 2.26MB，未进重启删除队列，重启后仍在。安装目录本体 94.57MB 被官方卸载器登记到 PendingFileRenameOperations，重启后由系统自动删除，无需缓存条目处理"
+    },
+    {
+      "name": "卸载残留-搜狗五笔输入法",
+      "group": "residue",
+      "kind": "residue",
+      "safe": "谨慎",
+      "desc": "清理搜狗五笔输入法卸载后的安装目录（实测 94.57MB）、LocalLow 用户词库与注册表项；SysWOW64/System32 下的 .ime 与加载器属系统目录，工具不动",
+      "exes": [
+        "C:\\Program Files*\\SogouWBInput\\*.exe",
+        "D:\\Program Files*\\SogouWBInput\\*.exe",
+        "C:\\Program Files*\\SogouWBInput\\*\\*.exe",
+        "D:\\Program Files*\\SogouWBInput\\*\\*.exe"
+      ],
+      "procs": [
+        "SogouWBImeLoader",
+        "SogouWBImeBroker",
+        "SogouWBSvc",
+        "WbConfig",
+        "ImeUtil",
+        "UserPage",
+        "WubiUp"
+      ],
+      "dirs": [
+        "C:\\Program Files*\\SogouWBInput",
+        "D:\\Program Files*\\SogouWBInput",
+        "$env:USERPROFILE\\AppData\\LocalLow\\SogouWB",
+        "$env:USERPROFILE\\AppData\\LocalLow\\SogouWB.users",
+        "C:\\Users\\*\\AppData\\LocalLow\\SogouWB",
+        "C:\\Users\\*\\AppData\\LocalLow\\SogouWB.users",
+        "D:\\Users\\*\\AppData\\LocalLow\\SogouWB",
+        "D:\\Users\\*\\AppData\\LocalLow\\SogouWB.users"
+      ],
+      "regs": [
+        "HKLM:\\SOFTWARE\\SogouWBInput",
+        "HKLM:\\SOFTWARE\\WOW6432Node\\SogouWBInput",
+        "HKCU:\\Software\\SogouWBInput",
+        "HKCU:\\Software\\SogouWBInput.user",
+        "HKCU:\\Software\\SogouWBInput.store.user"
+      ],
+      "force_dirs": [
+        "C:\\Program Files\\SogouWBInput",
+        "C:\\Program Files (x86)\\SogouWBInput",
+        "D:\\Program Files\\SogouWBInput",
+        "D:\\Program Files (x86)\\SogouWBInput",
+        "$env:USERPROFILE\\AppData\\LocalLow\\SogouWB",
+        "$env:USERPROFILE\\AppData\\LocalLow\\SogouWB.users"
+      ],
+      "note": "来源：2026-11-28 本机实测（搜狗五笔输入法 5.5.0.2594，D:\\Program Files (x86)\\SogouWBInput\\5.5.0.2594）。火绒应用商店卸载后程序本体 94.57MB/134 文件一个没删，火绒强清后仍剩 1.44MB 两个 ManualNewWord.dll 被输入法框架锁定；官方卸载器把文件登记进 PendingFileRenameOperations（本机 180 条），重启后安装目录、SysWOW64\\IME\\SogouWB、四个 .ime、LocalLow 用户数据与三个注册表键全部自动清掉。本条目覆盖不重启/其他卸载方式的情况；LocalLow 那 4.44MB 是用户词库与配置，整目录删等同放弃自造词。SysWOW64/System32\\SogouWB.ime、SogouWBTSF.ime 与 IME 加载器属系统目录，云端规则禁止写 Windows 路径，需卸载时由官方程序注销"
     }
   ]
 }
